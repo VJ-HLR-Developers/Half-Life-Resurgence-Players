@@ -38,6 +38,7 @@ ENT.NextAnyAttackTime_Melee = 0.25
 ENT.MeleeAttackAnimationAllowOtherTasks = true
 
 ENT.HasGrenadeAttack = false -- Animation refuses to play???
+-- oteek note: you might have to make it an actual weapon instead of a regular grenade attack. has idle anims after all for holding a nade.
 ENT.GrenadeAttackEntity = "obj_vj_hlr1_grenade"
 ENT.AnimTbl_GrenadeAttack = {"vjges_shoot_grenade"}
 ENT.GrenadeAttackAttachment = "rhand"
@@ -59,7 +60,7 @@ ENT.NextMoveRandomlyWhenShootingTime1 = 0
 ENT.NextMoveRandomlyWhenShootingTime2 = 0.2
 
 ENT.FootStepTimeRun = 0.3
-ENT.FootStepTimeWalk = 0.36
+ENT.FootStepTimeWalk = 0.38
 
 ENT.HasDeathAnimation = true
 ENT.AnimTbl_Death = {ACT_DIEBACKWARD,ACT_DIEFORWARD,ACT_DIE_GUTSHOT,ACT_DIE_HEADSHOT,ACT_DIESIMPLE}
@@ -67,12 +68,17 @@ ENT.AnimTbl_Death = {ACT_DIEBACKWARD,ACT_DIEFORWARD,ACT_DIE_GUTSHOT,ACT_DIE_HEAD
 ENT.DropWeaponOnDeathAttachment = "rhand"
 
 ENT.SoundTbl_FootStep = {"vj_hlr/pl_step1.wav","vj_hlr/pl_step2.wav","vj_hlr/pl_step3.wav","vj_hlr/pl_step4.wav"}
+ENT.SoundTbl_Death = {"vj_hlr/hl1mp_npc/death_flatline1.wav","vj_hlr/hl1mp_npc/death_flatline2.wav"}
+
+ENT.DeathSoundLevel = 60
+
+ENT.DeathSoundPitch = VJ_Set(95, 105)
 
 ENT.WeaponsList = {
 	["Close"] = {
 		"weapon_vj_hlr1_ply_hgun",
 		"weapon_vj_hlr1_ply_shotgun",
-		"weapon_vj_hlr1_ply_squeak",
+		--"weapon_vj_hlr1_ply_squeak",
 	},
 	["Normal"] = {
 		"weapon_vj_hlr1_ply_357",
@@ -84,6 +90,9 @@ ENT.WeaponsList = {
 		"weapon_vj_hlr1_ply_crossbow",
 	},
 }
+
+ENT.NextMouthMove = 0
+ENT.NextMouthDistance = 0
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:OnInit() end
 ---------------------------------------------------------------------------------------------------------------------------------------------
@@ -160,6 +169,24 @@ function ENT:CustomOnThink_AIEnabled()
 			self.NextWeaponSwitchT = CurTime() + math.Rand(6,math.Round(math.Clamp(wep:Clip1() *0.5,1,wep:Clip1())))
 		end
 	end
+end
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+function ENT:CustomOnThink()
+	if CurTime() < self.NextMouthMove then
+		if self.NextMouthDistance == 0 then
+			self.NextMouthDistance = math.random(10,70)
+		else
+			self.NextMouthDistance = 0
+		end
+		self:SetPoseParameter("m", self.NextMouthDistance)
+	else
+		self:SetPoseParameter("m", 0)
+	end
+end
+---------------------------------------------------------------------------------------------------------------------------------------------
+function ENT:OnPlayCreateSound(sdData, sdFile)
+	self.NextMouthMove = CurTime() + SoundDuration(sdFile)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:CustomOnSetupWeaponHoldTypeAnims(h)

@@ -59,5 +59,5 @@ function SWEP:CustomOnPrimaryAttack_BeforeShoot()
 	elec:SetAttachment(1)
 	util.Effect("VJ_HLR_Tau",elec)
 	
-	util.VJ_SphereDamage(owner, self, hitpos, 30, 20, DMG_ENERGYBEAM, true, false, {Force=200})
+	util.VJ_SphereDamage(owner, self, hitpos, 30, 20, DMG_ENERGYBEAM, true, false, {Force=20})
 end
