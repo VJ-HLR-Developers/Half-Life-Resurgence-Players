@@ -24,7 +24,7 @@ if VJExists == true then
 
 	VJ.AddNPC("Gordon Freeman", "npc_vj_hlr1_freeman", vCat)
 	VJ.AddNPC("Barney Calhoun", "npc_vj_hlrbs_barney", vCat)
-	VJ.AddNPC("Adrian Shepard", "npc_vj_hlrof_shepard", vCat)
+	VJ.AddNPC("Adrian Shephard", "npc_vj_hlrof_shepard", vCat)
 	VJ.AddNPC("Gina Cross", "npc_vj_hlrdc_gina", vCat)
 	VJ.AddNPC("Colette Green", "npc_vj_hlrdc_colette", vCat)
 

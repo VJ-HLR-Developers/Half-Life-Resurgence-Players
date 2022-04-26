@@ -46,7 +46,7 @@ end
 function SWEP:NPC_Reload()
 	self:SetClip1(self.LastClip)
 	local owner = self:GetOwner()
-	-- owner:SetWeaponState()
+	owner:SetWeaponState()
 	owner.NextChaseTime = 0
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------

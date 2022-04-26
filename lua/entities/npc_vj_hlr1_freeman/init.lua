@@ -380,7 +380,6 @@ end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 local transDeath = {
 	[HITGROUP_HEAD] = {ACT_DIE_HEADSHOT},
-	--[HITGROUP_CHEST] = {ACT_DIEFORWARD,ACT_DIEBACKWARD},
 	[HITGROUP_STOMACH] = {ACT_DIE_GUTSHOT},
 }
 --
