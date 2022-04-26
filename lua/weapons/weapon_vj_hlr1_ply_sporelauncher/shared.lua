@@ -16,7 +16,7 @@ SWEP.WorldModel_CustomPositionAngle = Vector(0,0,0)
 SWEP.WorldModel_CustomPositionOrigin = Vector(0,5,0)
 SWEP.WorldModel_CustomPositionBone = "Bip01 R Hand"
 
-SWEP.NPC_NextPrimaryFire = 2
+SWEP.NPC_NextPrimaryFire = 1
 SWEP.NPC_FiringDistanceScale = 0.65
 SWEP.NPC_ReloadSound			= {"vj_hlr/hl1_weapon/sporelauncher/splauncher_reload.wav"}
 
