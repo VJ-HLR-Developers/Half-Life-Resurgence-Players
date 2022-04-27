@@ -13,6 +13,7 @@ function ENT:OnInit()
 	self.WeaponsList = {
 		["Close"] = {
 			"weapon_vj_hlr1_ply_shotgun",
+			"weapon_vj_hlr1_ply_grenade",
 			-- "weapon_vj_hlr1_ply_squeak",
 		},
 		["Normal"] = {

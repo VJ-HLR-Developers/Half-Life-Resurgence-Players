@@ -53,7 +53,8 @@ ENT.Weapon_NoSpawnMenu = true
 -- ENT.CanCrouchOnWeaponAttack = false
 -- ENT.DisableWeaponReloadAnimation = true
 
-ENT.AnimTbl_WeaponAttackSecondary = {"vjges_shoot_m203"}
+ENT.AnimTbl_WeaponAttackSecondary = {"shoot_m203"}
+ENT.WeaponAttackSecondaryTimeUntilFire = 0.05
 
 ENT.AnimTbl_ShootWhileMovingWalk = {ACT_RUN_AIM}
 ENT.NextMoveRandomlyWhenShootingTime1 = 0
@@ -78,7 +79,7 @@ ENT.WeaponsList = {
 	["Close"] = {
 		"weapon_vj_hlr1_ply_hgun",
 		"weapon_vj_hlr1_ply_shotgun",
-		--"weapon_vj_hlr1_ply_squeak",
+		"weapon_vj_hlr1_ply_grenade",
 	},
 	["Normal"] = {
 		"weapon_vj_hlr1_ply_357",
@@ -282,14 +283,14 @@ function ENT:CustomOnSetupWeaponHoldTypeAnims(h)
 		defCrawl = VJ_SequenceToActivity(self,"crawl_squeak")
 		defFire = "vjges_shoot_squeak"
 		defReload = "vjges_reload_squeak"
-	elseif h == "slam" then
-		defIdleAim = VJ_SequenceToActivity(self,"aim_squeak")
-		defWalkAim = VJ_SequenceToActivity(self,"walk_squeak")
-		defRunAim = VJ_SequenceToActivity(self,"run_squeak")
-		defCrouch = VJ_SequenceToActivity(self,"crouch_squeak")
-		defCrawl = VJ_SequenceToActivity(self,"crawl_squeak")
-		defFire = "vjges_shoot_squeak"
-		defReload = "vjges_reload_squeak"
+	elseif h == "grenade" then
+		defIdleAim = VJ_SequenceToActivity(self,"aim_crowbar")
+		defWalkAim = VJ_SequenceToActivity(self,"walk_crowbar")
+		defRunAim = VJ_SequenceToActivity(self,"run_crowbar")
+		defCrouch = VJ_SequenceToActivity(self,"crouch_crowbar")
+		defCrawl = VJ_SequenceToActivity(self,"crawl_crowbar")
+		defFire = "vjges_shoot_gren"
+		defReload = "vjges_reload_gren"
 	elseif h == "saw" then
 		defIdleAim = VJ_SequenceToActivity(self,"aim_saw")
 		defWalkAim = VJ_SequenceToActivity(self,"walk_saw")
