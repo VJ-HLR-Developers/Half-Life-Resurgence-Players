@@ -1,0 +1,5 @@
+"vertexlitgeneric"
+{
+	"$basetexture" "models/hl_resurgence/hl1mp/skeleton/SK_Scapula1"
+	"$nodecal" 1
+}
