@@ -6,6 +6,7 @@ include('shared.lua')
 	without the prior written consent of the author, unless otherwise indicated for stand-alone materials.
 -----------------------------------------------*/
 ENT.Model = {"models/vj_hlr/hl1mp/gordonmp.mdl"}
+ENT.VJ_NPC_Class = {"CLASS_MP_HEV"}
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:OnInit()
 	self.WeaponsList = {
