@@ -6,6 +6,7 @@ include('shared.lua')
 	without the prior written consent of the author, unless otherwise indicated for stand-alone materials.
 -----------------------------------------------*/
 ENT.Model = {"models/vj_hlr/hl1mp/dm_colette.mdl"}
+ENT.StartHealth = 100
 
 	-- ====== File Path Variables ====== --
 	-- Leave blank if you don't want any sounds to play

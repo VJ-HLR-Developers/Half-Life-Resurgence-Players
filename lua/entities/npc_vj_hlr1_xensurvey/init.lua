@@ -6,3 +6,4 @@ include('shared.lua')
 	without the prior written consent of the author, unless otherwise indicated for stand-alone materials.
 -----------------------------------------------*/
 ENT.Model = {"models/vj_hlr/hl1mp/gordon_helmet.mdl"}
+ENT.StartHealth = 100

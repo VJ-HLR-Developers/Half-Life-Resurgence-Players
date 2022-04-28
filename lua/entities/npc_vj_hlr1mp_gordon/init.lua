@@ -6,6 +6,7 @@ include('shared.lua')
 	without the prior written consent of the author, unless otherwise indicated for stand-alone materials.
 -----------------------------------------------*/
 ENT.Model = {"models/vj_hlr/hl1mp/gordonmp.mdl"}
+ENT.StartHealth = 100
 ENT.VJ_NPC_Class = {"CLASS_MP_HEV"}
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:OnInit()
@@ -14,7 +15,8 @@ function ENT:OnInit()
 			"weapon_vj_hlr1_ply_hgun",
 			"weapon_vj_hlr1_ply_shotgun",
 			"weapon_vj_hlr1_ply_grenade",
-			-- "weapon_vj_hlr1_ply_squeak",
+			"weapon_vj_hlr1_ply_squeak",
+			"weapon_vj_hlr1_ply_squeak_opfor",
 		},
 		["Normal"] = {
 			"weapon_vj_hlr1_ply_357",

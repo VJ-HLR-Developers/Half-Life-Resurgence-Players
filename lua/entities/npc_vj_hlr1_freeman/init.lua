@@ -6,7 +6,7 @@ include('shared.lua')
 	without the prior written consent of the author, unless otherwise indicated for stand-alone materials.
 -----------------------------------------------*/
 ENT.Model = {"models/vj_hlr/hl1mp/gordon.mdl"}
-ENT.StartHealth = 100
+ENT.StartHealth = 200
 ENT.HasHealthRegeneration = true
 ENT.HealthRegenerationAmount = 2
 ENT.HealthRegenerationDelay = VJ_Set(0.5,0.5)

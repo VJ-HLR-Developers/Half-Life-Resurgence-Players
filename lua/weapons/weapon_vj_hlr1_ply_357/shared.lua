@@ -20,6 +20,7 @@ SWEP.NPC_NextPrimaryFire = 0.8
 SWEP.NPC_BulletSpawnAttachment = "0"
 
 SWEP.Primary.Damage = 40
+SWEP.Primary.Force = 2
 SWEP.Primary.ClipSize = 6
 SWEP.Primary.Ammo = "357"
 SWEP.Primary.TracerType = "VJ_HLR_Tracer"
@@ -27,7 +28,7 @@ SWEP.Primary.Sound = {"vj_hlr/hl1_weapon/357/357_shot1.wav","vj_hlr/hl1_weapon/3
 SWEP.Primary.DistantSound = {"vj_hlr/hl1_weapon/357/357_shot_distant.wav"}
 SWEP.NPC_ReloadSound = {"vj_hlr/hl1_weapon/357/357_reload1.wav"}
 
-SWEP.PrimaryEffects_MuzzleAttachment = "0"
+SWEP.PrimaryEffects_MuzzleAttachment = "muzzle"
 SWEP.PrimaryEffects_ShellAttachment = "1"
 SWEP.PrimaryEffects_ShellType = "VJ_Weapon_PistolShell1"
 ---------------------------------------------------------------------------------------------------------------------------------------------
