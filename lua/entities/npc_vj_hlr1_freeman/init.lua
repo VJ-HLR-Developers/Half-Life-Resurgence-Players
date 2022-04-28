@@ -37,14 +37,7 @@ ENT.NextMeleeAttackTime_DoRand = 0.25
 ENT.NextAnyAttackTime_Melee = 0.25
 ENT.MeleeAttackAnimationAllowOtherTasks = true
 
-ENT.HasGrenadeAttack = false -- Animation refuses to play???
--- oteek note: you might have to make it an actual weapon instead of a regular grenade attack. has idle anims after all for holding a nade.
-ENT.GrenadeAttackEntity = "obj_vj_hlr1_grenade"
-ENT.AnimTbl_GrenadeAttack = {"vjges_shoot_grenade"}
-ENT.GrenadeAttackAttachment = "rhand"
-ENT.TimeUntilGrenadeIsReleased = 1.3
-ENT.NextThrowGrenadeTime = VJ_Set(10, 12)
-ENT.ThrowGrenadeChance = 3
+ENT.HasGrenadeAttack = false -- we use a seperate weapon for that
 
 ENT.WaitForEnemyToComeOut = false
 ENT.HasCallForHelpAnimation = false
@@ -87,6 +80,7 @@ ENT.WeaponsList = {
 		"weapon_vj_hlr1_ply_gauss",
 		"weapon_vj_hlr1_ply_mp5",
 		"weapon_vj_hlr1_ply_pistol",
+		"weapon_vj_hlr1_ply_rpg",
 	},
 	["Far"] = {
 		"weapon_vj_hlr1_ply_crossbow",
@@ -97,37 +91,6 @@ ENT.NextMouthMove = 0
 ENT.NextMouthDistance = 0
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:OnInit() end
----------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:CustomOnGrenadeAttack_BeforeStartTimer()
-	if IsValid(self:GetActiveWeapon()) then
-		self:GetActiveWeapon():SetNoDraw(true)
-	end
-
-	local att = self:GetAttachment(self:LookupAttachment("rhand"))
-	local gren = ents.Create("prop_vj_animatable")
-	gren:SetModel("models/vj_hlr/weapons/w_grenade.mdl")
-	gren:SetPos(att.Pos)
-	gren:SetAngles(att.Ang)
-	gren:SetParent(self)
-	gren:Fire("SetParentAttachment","rhand")
-	gren:Spawn()
-	gren:SetCollisionGroup(COLLISION_GROUP_IN_VEHICLE)
-	self:DeleteOnRemove(gren)
-	self.FakeGrenade = gren
-	self:VJ_ACT_PLAYACTIVITY("aim_grenade",true,false,true)
-end
----------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:CustomOnGrenadeAttack_OnThrow(GrenadeEntity)
-	SafeRemoveEntity(self.FakeGrenade)
-	timer.Simple(0.1,function()
-		if IsValid(self) && IsValid(self:GetActiveWeapon()) then
-			self:GetActiveWeapon():SetNoDraw(false)
-		end
-	end)
-	local gest = self:AddGestureSequence(self:LookupSequence("shoot_grenade"))
-	self:SetLayerPriority(gest,1)
-	self:SetLayerPlaybackRate(gest,self.AnimationPlaybackRate *0.5)
-end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:CustomOnInitialize()
 	self:SetCollisionBounds(Vector(15, 15, 78), Vector(-15, -15, 0))
@@ -316,6 +279,14 @@ function ENT:CustomOnSetupWeaponHoldTypeAnims(h)
 		defCrawl = VJ_SequenceToActivity(self,"crawl_m16")
 		defFire = "vjges_shoot_m16"
 		defReload = "vjges_reload_m16"
+	elseif h == "shockrifle" then
+		defIdleAim = VJ_SequenceToActivity(self,"aim_m16")
+		defWalkAim = VJ_SequenceToActivity(self,"walk_m16")
+		defRunAim = VJ_SequenceToActivity(self,"run_m16")
+		defCrouch = VJ_SequenceToActivity(self,"crouch_m16")
+		defCrawl = VJ_SequenceToActivity(self,"crawl_m16")
+		defFire = "vjges_shoot_m16"
+		defReload = "vjges_reload_null"
 	elseif h == "minigun" then
 		defIdleAim = VJ_SequenceToActivity(self,"aim_minigun")
 		defWalkAim = VJ_SequenceToActivity(self,"walk_minigun")

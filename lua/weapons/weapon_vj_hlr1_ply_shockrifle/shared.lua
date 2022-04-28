@@ -10,7 +10,7 @@ SWEP.MadeForNPCsOnly = true
 
 SWEP.WorldModel = "models/vj_hlr/weapons/w_shockrifle.mdl"
 SWEP.HoldType = "smg"
-SWEP.HLR_HoldType = "m16"
+SWEP.HLR_HoldType = "shockrifle"
 SWEP.NPC_HasReloadSound = false
 
 SWEP.WorldModel_UseCustomPosition = true

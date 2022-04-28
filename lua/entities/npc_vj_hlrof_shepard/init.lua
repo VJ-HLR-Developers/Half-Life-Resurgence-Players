@@ -23,6 +23,7 @@ function ENT:OnInit()
 			"weapon_vj_hlr1_ply_saw",
 			"weapon_vj_hlr1_ply_shockrifle",
 			"weapon_vj_hlr1_ply_sporelauncher",
+			"weapon_vj_hlr1_ply_rpg",
 		},
 		["Far"] = {
 			"weapon_vj_hlr1_ply_m40a1",

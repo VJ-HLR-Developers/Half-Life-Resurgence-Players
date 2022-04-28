@@ -10,6 +10,7 @@ SWEP.MadeForNPCsOnly = true
 
 SWEP.WorldModel = "models/vj_hlr/weapons/w_rpg.mdl"
 SWEP.HoldType = "rpg"
+SWEP.NPC_HasReloadSound = false
 
 SWEP.WorldModel_UseCustomPosition = true
 SWEP.WorldModel_CustomPositionAngle = Vector(0, 0, 0)
@@ -21,8 +22,7 @@ SWEP.NPC_NextPrimaryFire = 1
 SWEP.Primary.Damage = 1
 SWEP.Primary.ClipSize = 1
 SWEP.Primary.DisableBulletCode = true
-SWEP.Primary.Ammo = "357"
-SWEP.Primary.TracerType = "VJ_HLR_Tracer"
+SWEP.Primary.Ammo = "RPG_Round"
 SWEP.Primary.Sound = {"vj_hlr/hl1_weapon/rpg/rocketfire1.wav"}
 
 SWEP.PrimaryEffects_SpawnShells = false
@@ -40,17 +40,27 @@ end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function SWEP:CustomOnPrimaryAttack_BeforeShoot()
 	if CLIENT then return end
-	local plasma = ents.Create("obj_vj_hlr1_rocket")
-	plasma:SetPos(self:GetNW2Vector("VJ_CurBulletPos"))
-	plasma:SetAngles(self:GetOwner():GetAngles())
-	plasma:SetOwner(self:GetOwner())
-	plasma:Spawn()
-	plasma:Activate()
-	
-	local phys = plasma:GetPhysicsObject()
-	if IsValid(phys) then
-		phys:SetVelocity(self:GetOwner():CalculateProjectile("Line", self:GetNW2Vector("VJ_CurBulletPos"), self:GetOwner():GetEnemy():GetPos() + self:GetOwner():GetEnemy():OBBCenter(), 3000))
-	end
+	local rocket = ents.Create("obj_vj_hlr1_rocket")
+	rocket:SetPos(self:GetNW2Vector("VJ_CurBulletPos"))
+	rocket:SetAngles(self:GetOwner():GetAngles())
+	rocket:SetOwner(self:GetOwner())
+	rocket:Spawn()
+	rocket:Activate()
+	rocket.HasIdleSounds = false
+	local phys = rocket:GetPhysicsObject()
+	phys:SetVelocity(rocket:GetForward() * -50 + rocket:GetRight() * -16 - rocket:GetUp() * -50)
+	timer.Simple(0.33, function()
+		if IsValid(self) then
+			rocket.HasIdleSounds = true
+			if IsValid(phys) then
+				phys:SetVelocity(self:GetOwner():CalculateProjectile("Line", self:GetNW2Vector("VJ_CurBulletPos"), self:GetOwner():GetEnemy():GetPos() + self:GetOwner():GetEnemy():OBBCenter(), 1700))
+				rocket:SetAngles(rocket:GetVelocity():GetNormal():Angle())
+			end
+		end
+	end)
+	//if IsValid(phys) then
+	//	phys:SetVelocity(self:GetOwner():CalculateProjectile("Line", self:GetNW2Vector("VJ_CurBulletPos"), self:GetOwner():GetEnemy():GetPos() + self:GetOwner():GetEnemy():OBBCenter(), 3000))
+	//end
 
 	self.NextReloadT = CurTime() +2.5
 end
