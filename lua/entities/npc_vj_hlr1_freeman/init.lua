@@ -80,6 +80,7 @@ ENT.WeaponsList = {
 		"weapon_vj_hlr1_ply_hgun",
 		"weapon_vj_hlr1_ply_shotgun",
 		"weapon_vj_hlr1_ply_grenade",
+		"weapon_vj_hlr1_ply_squeak",
 	},
 	["Normal"] = {
 		"weapon_vj_hlr1_ply_357",

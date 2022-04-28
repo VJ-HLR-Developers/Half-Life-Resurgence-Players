@@ -14,7 +14,7 @@ function ENT:OnInit()
 		["Close"] = {
 			"weapon_vj_hlr1_ply_shotgun",
 			"weapon_vj_hlr1_ply_grenade",
-			-- "weapon_vj_hlr1_ply_squeak",
+			"weapon_vj_hlr1_ply_squeak_opfor",
 		},
 		["Normal"] = {
 			"weapon_vj_hlr1_ply_deagle",

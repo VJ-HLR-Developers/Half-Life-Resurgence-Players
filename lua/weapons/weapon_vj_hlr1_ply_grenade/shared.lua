@@ -38,7 +38,6 @@ end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function SWEP:CustomBulletSpawnPosition()
 	local owner = self:GetOwner()
-	local att = self:GetAttachment(1)
 
 	return owner:GetPos() + owner:GetUp() + Vector(0,0,50)
 end
