@@ -26,6 +26,7 @@ SWEP.Primary.ClipSize = 20
 SWEP.Primary.DisableBulletCode = true
 SWEP.Primary.Ammo = "357"
 SWEP.Primary.Sound = {"vj_hlr/hl1_weapon/gauss/gauss2.wav"}
+SWEP.Primary.DistantSound = {"vj_hlr/hl1_weapon/gauss/distant.wav"}
 
 SWEP.PrimaryEffects_SpawnMuzzleFlash = false
 SWEP.PrimaryEffects_SpawnShells = false

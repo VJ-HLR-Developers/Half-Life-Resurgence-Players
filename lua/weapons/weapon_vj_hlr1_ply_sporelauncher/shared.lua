@@ -26,6 +26,7 @@ SWEP.Primary.DisableBulletCode = true
 SWEP.Primary.Ammo = "357"
 SWEP.Primary.TracerType = "VJ_HLR_Tracer"
 SWEP.Primary.Sound = {"vj_hlr/hl1_weapon/sporelauncher/splauncher_fire.wav"}
+SWEP.Primary.DistantSound = {"vj_hlr/hl1_weapon/sporelauncher/splauncher_fire_distant.wav"}
 
 SWEP.PrimaryEffects_SpawnMuzzleFlash = false
 SWEP.PrimaryEffects_SpawnShells = false

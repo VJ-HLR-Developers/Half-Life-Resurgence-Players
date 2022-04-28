@@ -23,7 +23,7 @@ SWEP.Primary.Damage = 5
 SWEP.Primary.ClipSize = 17
 SWEP.Primary.Ammo = "Pistol"
 SWEP.Primary.Sound				= {"vj_hlr/hl1_weapon/glock/glock_regular.wav"}
-SWEP.Primary.DistantSound		= {"vj_hlr/hl1_weapon/glock/glock_distant.wav"}
+SWEP.Primary.DistantSound		= {"vj_hlr/hl1_weapon/glock/glock_distant2.wav"}
 SWEP.PrimaryEffects_ShellType 	= "VJ_Weapon_PistolShell1"
 SWEP.Primary.TracerType = "VJ_HLR_Tracer"
 

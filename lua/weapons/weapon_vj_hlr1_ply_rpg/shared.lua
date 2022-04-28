@@ -24,6 +24,7 @@ SWEP.Primary.ClipSize = 1
 SWEP.Primary.DisableBulletCode = true
 SWEP.Primary.Ammo = "RPG_Round"
 SWEP.Primary.Sound = {"vj_hlr/hl1_weapon/rpg/rocketfire1.wav"}
+SWEP.Primary.DistantSound = {"vj_hlr/hl1_weapon/rpg/rocketfire1_distant.wav"}
 
 SWEP.PrimaryEffects_SpawnShells = false
 ---------------------------------------------------------------------------------------------------------------------------------------------

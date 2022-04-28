@@ -26,6 +26,7 @@ SWEP.Primary.ClipSize = 10
 SWEP.Primary.DisableBulletCode = true
 SWEP.Primary.Ammo = "357"
 SWEP.Primary.Sound = {"vj_hlr/hl1_weapon/shockroach/shock_fire.wav"}
+SWEP.Primary.DistantSound = {"vj_hlr/hl1_weapon/shockroach/shock_fire_distant.wav"}
 SWEP.HasDryFireSound = false
 
 -- SWEP.PrimaryEffects_SpawnMuzzleFlash = false

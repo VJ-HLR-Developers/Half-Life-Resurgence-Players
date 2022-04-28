@@ -29,7 +29,7 @@ SWEP.Primary.ClipSize = 50
 SWEP.Primary.Ammo = "SMG1"
 SWEP.Primary.TracerType = "VJ_HLR_Tracer"
 SWEP.Primary.Sound = {"vj_hlr/hl1_weapon/mp5/hks1.wav","vj_hlr/hl1_weapon/mp5/hks2.wav","vj_hlr/hl1_weapon/mp5/hks3.wav"}
-SWEP.Primary.DistantSound = {"vj_hlr/hl1_weapon/mp5/mp5_distant_fuckme2.wav"}
+SWEP.Primary.DistantSound = {"vj_hlr/hl1_weapon/mp5/hks_distant_new.wav"}
 
 -- SWEP.PrimaryEffects_MuzzleAttachment = "0"
 SWEP.PrimaryEffects_SpawnShells = false

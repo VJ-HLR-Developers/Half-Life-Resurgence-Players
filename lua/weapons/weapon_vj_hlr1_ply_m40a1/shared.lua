@@ -31,7 +31,7 @@ SWEP.Primary.ClipSize = 5
 SWEP.Primary.Ammo = "357"
 SWEP.Primary.TracerType = "VJ_HLR_Tracer"
 SWEP.Primary.Sound				= {"vj_hlr/hl1_weapon/sniper/sniper_fire.wav"}
-SWEP.Primary.DistantSound		= {"vj_hlr/hl1_weapon/sniper/sniper_fire_distant.wav"}
+SWEP.Primary.DistantSound		= {"vj_hlr/hl1_weapon/sniper/sniper_fire_distant2.wav"}
 
 SWEP.PrimaryEffects_MuzzleAttachment = "muzzle"
 SWEP.PrimaryEffects_SpawnShells = false
