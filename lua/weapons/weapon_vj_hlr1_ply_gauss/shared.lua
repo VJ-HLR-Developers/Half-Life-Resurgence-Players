@@ -48,7 +48,7 @@ function SWEP:CustomOnPrimaryAttack_BeforeShoot()
 	local startpos = self:GetNW2Vector("VJ_CurBulletPos")
 	local tr = util.TraceLine({
 		start = startpos,
-		endpos = enemy:GetPos() +enemy:OBBCenter(),
+		endpos = enemy:GetPos() +enemy:OBBCenter() + VectorRand(-10, 10),
 		filter = self
 	})
 	local hitpos = tr.HitPos

@@ -135,24 +135,6 @@ function ENT:CustomOnThink_AIEnabled()
 		end
 	end
 end
-
----------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:CustomOnThink()
-	if CurTime() < self.NextMouthMove then
-		if self.NextMouthDistance == 0 then
-			self.NextMouthDistance = math.random(10,70)
-		else
-			self.NextMouthDistance = 0
-		end
-		self:SetPoseParameter("m", self.NextMouthDistance)
-	else
-		self:SetPoseParameter("m", 0)
-	end
-end
----------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:OnPlayCreateSound(sdData, sdFile)
-	self.NextMouthMove = CurTime() + SoundDuration(sdFile)
-end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:CustomOnSetupWeaponHoldTypeAnims(h)
 	local defIdleAim = ACT_IDLE -- ACT_IDLE_ANGRY
@@ -313,6 +295,37 @@ function ENT:CustomOnSetupWeaponHoldTypeAnims(h)
 	self.WeaponAnimTranslations[ACT_RELOAD] = defReload
 	self.WeaponAnimTranslations[ACT_RELOAD_LOW] = defReload
 	return true
+end
+---------------------------------------------------------------------------------------------------------------------------------------------
+local vec = Vector(0, 0, 0)
+--
+function ENT:CustomOnTakeDamage_BeforeImmuneChecks(dmginfo, hitgroup)
+	self.Bleeds = true
+	if hitgroup == HITGROUP_GEAR && dmginfo:GetDamagePosition() != vec then
+		self.Bleeds = false
+		local rico = EffectData()
+		rico:SetOrigin(dmginfo:GetDamagePosition())
+		rico:SetScale(4)
+		rico:SetMagnitude(math.random(1, 2)) -- Effect type | 1 = Animated | 2 = Basic
+		util.Effect("VJ_HLR_Rico",rico)
+	end
+end
+---------------------------------------------------------------------------------------------------------------------------------------------
+function ENT:CustomOnThink()
+	if CurTime() < self.NextMouthMove then
+		if self.NextMouthDistance == 0 then
+			self.NextMouthDistance = math.random(10,70)
+		else
+			self.NextMouthDistance = 0
+		end
+		self:SetPoseParameter("m", self.NextMouthDistance)
+	else
+		self:SetPoseParameter("m", 0)
+	end
+end
+---------------------------------------------------------------------------------------------------------------------------------------------
+function ENT:OnPlayCreateSound(sdData, sdFile)
+	self.NextMouthMove = CurTime() + SoundDuration(sdFile)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:SetUpGibesOnDeath(dmginfo, hitgroup)
