@@ -26,7 +26,7 @@ if VJExists == true then
 	VJ.AddNPC("Adrian Shephard", "npc_vj_hlrof_shepard", vCat)
 	VJ.AddNPC("Gina Cross", "npc_vj_hlrdc_gina", vCat)
 	VJ.AddNPC("Colette Green", "npc_vj_hlrdc_colette", vCat)
-	-- HL1DM models: (TODO: make them have random colors)
+	-- HL1DM models: (TODO: make them colorable?)
 		VJ.AddNPC("HL1DM Barney", "npc_vj_hlr1mp_barney", vCat)
 		VJ.AddNPC("HL1DM Gina", "npc_vj_hlr1mp_gina", vCat)
 		VJ.AddNPC("HL1DM G-Man", "npc_vj_hlr1mp_gman", vCat)
@@ -42,7 +42,7 @@ if VJExists == true then
 			VJ.AddNPC("HL1DM Skeleton", "npc_vj_hlr1mp_skeleton", vCat) -- not colorable
 			VJ.AddNPC("Ken Birdwell", "npc_vj_hlr1mp_ken", vCat)
 			VJ.AddNPC("Too Much Coffee Man", "npc_vj_hlr1mp_tmcm", vCat)
-			-- cut from HL: Further Data, released after 2023 Repo leaks
+			-- cut from HL: Further Data, released after 2023 Valve repo leaks
 			VJ.AddNPC("Rat Fink", "npc_vj_hlr1mp_rfink", vCat)
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------ Source Engine ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
