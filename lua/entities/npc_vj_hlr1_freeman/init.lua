@@ -380,10 +380,10 @@ function ENT:CustomOnDeath_AfterCorpseSpawned(dmginfo, hitgroup, corpseEnt)
 	VJ_HLR_ApplyCorpseEffects(self, corpseEnt)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:CustomOnFootStepSound_Walk()
-	self.FootStepSoundLevel = 52
-end
----------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:CustomOnFootStepSound_Run()
-	self.FootStepSoundLevel = 70
+function ENT:CustomOnFootStepSound(moveType, sdFile)
+	if moveType == "Walk" then
+		self.FootStepSoundLevel = 52
+	elseif moveType == "Run" then
+		self.FootStepSoundLevel = 70
+	end
 end
