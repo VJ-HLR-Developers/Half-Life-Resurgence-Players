@@ -31,10 +31,7 @@ function SWEP:CustomOnInitialize()
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function SWEP:CustomBulletSpawnPosition()
-	local owner = self:GetOwner()
-	local att = self:GetAttachment(1)
-
-	return att.Pos
+	return self:GetAttachment(1).Pos
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function SWEP:CustomOnPrimaryAttack_BeforeShoot()
@@ -66,7 +63,7 @@ end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function SWEP:CustomOnPrimaryAttackEffects()
 	self.PrimaryEffects_MuzzleFlash = false
-	muz = ents.Create("env_sprite")
+	local muz = ents.Create("env_sprite")
 	muz:SetKeyValue("model","vj_hl/sprites/muzzleflash2.vmt")
 	muz:SetKeyValue("scale",""..math.Rand(1,1.2))
 	muz:SetKeyValue("GlowProxySize","2.0") -- Size of the glow to be rendered for visibility testing.
