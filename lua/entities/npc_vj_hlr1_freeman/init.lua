@@ -59,8 +59,6 @@ ENT.FootStepTimeWalk = 0.38
 ENT.HasDeathAnimation = true
 ENT.AnimTbl_Death = {ACT_DIEBACKWARD,ACT_DIEFORWARD,ACT_DIE_GUTSHOT,ACT_DIE_HEADSHOT,ACT_DIESIMPLE}
 
-ENT.DropWeaponOnDeathAttachment = "rhand"
-
 ENT.SoundTbl_FootStep = {"vj_hlr/pl_step1.wav","vj_hlr/pl_step2.wav","vj_hlr/pl_step3.wav","vj_hlr/pl_step4.wav"}
 ENT.SoundTbl_Death = {"vj_hlr/hl1mp_npc/death_flatline1.wav","vj_hlr/hl1mp_npc/death_flatline2.wav"}
 
@@ -371,7 +369,7 @@ local transDeath = {
 --
 function ENT:CustomDeathAnimationCode(dmginfo, hitgroup)
 	self.AnimTbl_Death = transDeath[hitgroup] or {ACT_DIESIMPLE,ACT_DIEFORWARD,ACT_DIEBACKWARD}
-	self:DropWeaponOnDeathCode(dmginfo, hitgroup)
+	self:DoDropWeaponOnDeath(dmginfo, hitgroup)
 	self:CustomOnDeath_BeforeCorpseSpawned(dmginfo, hitgroup)
 	if IsValid(self:GetActiveWeapon()) then self:GetActiveWeapon():Remove() end
 end
