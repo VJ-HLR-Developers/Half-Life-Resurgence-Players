@@ -9,7 +9,7 @@ ENT.Model = {"models/vj_hlr/hl1mp/gordon.mdl"}
 ENT.StartHealth = 200
 ENT.HasHealthRegeneration = true
 ENT.HealthRegenerationAmount = 2
-ENT.HealthRegenerationDelay = VJ_Set(0.5,0.5)
+ENT.HealthRegenerationDelay = VJ.SET(0.5,0.5)
 ENT.HullType = HULL_HUMAN
 ENT.VJC_Data = {
     ThirdP_Offset = Vector(0, 0, -15),
@@ -64,7 +64,7 @@ ENT.SoundTbl_Death = {"vj_hlr/hl1mp_npc/death_flatline1.wav","vj_hlr/hl1mp_npc/d
 
 ENT.DeathSoundLevel = 60
 
-ENT.DeathSoundPitch = VJ_Set(95, 105)
+ENT.DeathSoundPitch = VJ.SET(95, 105)
 
 ENT.WeaponsList = {
 	["Close"] = {
@@ -102,12 +102,12 @@ function ENT:CustomOnInitialize()
 		end
 	end
 
-	self:DoChangeWeapon(VJ_PICK(self.WeaponsList["Normal"]),true)
+	self:DoChangeWeapon(VJ.PICK(self.WeaponsList["Normal"]),true)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:CustomOnAcceptInput(key, activator, caller, data)
 	if key == "body" then
-		VJ_EmitSound(self, "vj_hlr/fx/bodydrop"..math.random(3, 4)..".wav", 75, 100)
+		VJ.EmitSound(self, "vj_hlr/fx/bodydrop"..math.random(3, 4)..".wav", 75, 100)
 	end
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
@@ -116,7 +116,7 @@ function ENT:CustomOnThink_AIEnabled()
 	local dist = self.NearestPointToEnemyDistance
 	if IsValid(ent) then
 		local wep = self:GetActiveWeapon()
-		if self.WeaponInventoryStatus == VJ_WEP_INVENTORY_MELEE then return end
+		if self.WeaponInventoryStatus == VJ.NPC_WEP_INVENTORY_MELEE then return end
 		local selectType = false
 		if dist > 2200 then
 			selectType = "Far"
@@ -127,7 +127,7 @@ function ENT:CustomOnThink_AIEnabled()
 		end
 
 		if selectType != false && !self:IsBusy() && CurTime() > self.NextWeaponSwitchT && math.random(1,wep:Clip1() > 0 && (wep:Clip1() <= wep:GetMaxClip1() *0.35) && 1 or (selectType == "Close" && 20 or 150)) == 1 then
-			self:DoChangeWeapon(VJ_PICK(self.WeaponsList[selectType]),true)
+			self:DoChangeWeapon(VJ.PICK(self.WeaponsList[selectType]),true)
 			wep = self:GetActiveWeapon()
 			self.NextWeaponSwitchT = CurTime() + math.Rand(6,math.Round(math.Clamp(wep:Clip1() *0.5,1,wep:Clip1())))
 		end
@@ -148,131 +148,131 @@ function ENT:CustomOnSetupWeaponHoldTypeAnims(h)
 	end
 
 	if h == "crossbow" then
-		defIdleAim = VJ_SequenceToActivity(self,"aim_bow")
-		defWalkAim = VJ_SequenceToActivity(self,"walk_bow")
-		defRunAim = VJ_SequenceToActivity(self,"run_bow")
-		defCrouch = VJ_SequenceToActivity(self,"crouch_bow")
-		defCrawl = VJ_SequenceToActivity(self,"crawl_bow")
+		defIdleAim = VJ.SequenceToActivity(self,"aim_bow")
+		defWalkAim = VJ.SequenceToActivity(self,"walk_bow")
+		defRunAim = VJ.SequenceToActivity(self,"run_bow")
+		defCrouch = VJ.SequenceToActivity(self,"crouch_bow")
+		defCrawl = VJ.SequenceToActivity(self,"crawl_bow")
 		defFire = "vjges_shoot_bow"
 		defReload = "vjges_reload_bow"
 	elseif h == "melee" then
-		defIdleAim = VJ_SequenceToActivity(self,"aim_crowbar")
-		defWalkAim = VJ_SequenceToActivity(self,"walk_crowbar")
-		defRunAim = VJ_SequenceToActivity(self,"run_crowbar")
-		defCrouch = VJ_SequenceToActivity(self,"crouch_crowbar")
-		defCrawl = VJ_SequenceToActivity(self,"crawl_crowbar")
+		defIdleAim = VJ.SequenceToActivity(self,"aim_crowbar")
+		defWalkAim = VJ.SequenceToActivity(self,"walk_crowbar")
+		defRunAim = VJ.SequenceToActivity(self,"run_crowbar")
+		defCrouch = VJ.SequenceToActivity(self,"crouch_crowbar")
+		defCrawl = VJ.SequenceToActivity(self,"crawl_crowbar")
 		defFire = "vjges_shoot_crowbar"
 		defReload = "vjges_reload_crowbar"
 	elseif h == "ar2" then
-		defIdleAim = VJ_SequenceToActivity(self,"aim_gauss")
-		defWalkAim = VJ_SequenceToActivity(self,"walk_gauss")
-		defRunAim = VJ_SequenceToActivity(self,"run_gauss")
-		defCrouch = VJ_SequenceToActivity(self,"crouch_gauss")
-		defCrawl = VJ_SequenceToActivity(self,"crawl_gauss")
+		defIdleAim = VJ.SequenceToActivity(self,"aim_gauss")
+		defWalkAim = VJ.SequenceToActivity(self,"walk_gauss")
+		defRunAim = VJ.SequenceToActivity(self,"run_gauss")
+		defCrouch = VJ.SequenceToActivity(self,"crouch_gauss")
+		defCrawl = VJ.SequenceToActivity(self,"crawl_gauss")
 		defFire = "vjges_shoot_gauss"
 		defReload = "vjges_reload_gauss"
 	elseif h == "physgun" then
-		defIdleAim = VJ_SequenceToActivity(self,"aim_hive")
-		defWalkAim = VJ_SequenceToActivity(self,"walk_hive")
-		defRunAim = VJ_SequenceToActivity(self,"run_hive")
-		defCrouch = VJ_SequenceToActivity(self,"crouch_hive")
-		defCrawl = VJ_SequenceToActivity(self,"crawl_hive")
+		defIdleAim = VJ.SequenceToActivity(self,"aim_hive")
+		defWalkAim = VJ.SequenceToActivity(self,"walk_hive")
+		defRunAim = VJ.SequenceToActivity(self,"run_hive")
+		defCrouch = VJ.SequenceToActivity(self,"crouch_hive")
+		defCrawl = VJ.SequenceToActivity(self,"crawl_hive")
 		defFire = "vjges_shoot_hive"
 		defReload = "vjges_reload_hive"
 	elseif h == "smg" then
-		defIdleAim = VJ_SequenceToActivity(self,"aim_mp5")
-		defWalkAim = VJ_SequenceToActivity(self,"walk_mp5")
-		defRunAim = VJ_SequenceToActivity(self,"run_mp5")
-		defCrouch = VJ_SequenceToActivity(self,"crouch_mp5")
-		defCrawl = VJ_SequenceToActivity(self,"crawl_mp5")
+		defIdleAim = VJ.SequenceToActivity(self,"aim_mp5")
+		defWalkAim = VJ.SequenceToActivity(self,"walk_mp5")
+		defRunAim = VJ.SequenceToActivity(self,"run_mp5")
+		defCrouch = VJ.SequenceToActivity(self,"crouch_mp5")
+		defCrawl = VJ.SequenceToActivity(self,"crawl_mp5")
 		defFire = "vjges_shoot_mp5"
 		defReload = "vjges_reload_mp5"
 	elseif h == "pistol" then
-		defIdleAim = VJ_SequenceToActivity(self,"aim_onehanded")
-		defWalkAim = VJ_SequenceToActivity(self,"walk_onehanded")
-		defRunAim = VJ_SequenceToActivity(self,"run_onehanded")
-		defCrouch = VJ_SequenceToActivity(self,"crouch_onehanded")
-		defCrawl = VJ_SequenceToActivity(self,"crawl_onehanded")
+		defIdleAim = VJ.SequenceToActivity(self,"aim_onehanded")
+		defWalkAim = VJ.SequenceToActivity(self,"walk_onehanded")
+		defRunAim = VJ.SequenceToActivity(self,"run_onehanded")
+		defCrouch = VJ.SequenceToActivity(self,"crouch_onehanded")
+		defCrawl = VJ.SequenceToActivity(self,"crawl_onehanded")
 		defFire = "vjges_shoot_onehanded"
 		defReload = "vjges_reload_onehanded"
 	elseif h == "revolver" then
-		defIdleAim = VJ_SequenceToActivity(self,"aim_python")
-		defWalkAim = VJ_SequenceToActivity(self,"walk_python")
-		defRunAim = VJ_SequenceToActivity(self,"run_python")
-		defCrouch = VJ_SequenceToActivity(self,"crouch_python")
-		defCrawl = VJ_SequenceToActivity(self,"crawl_python")
+		defIdleAim = VJ.SequenceToActivity(self,"aim_python")
+		defWalkAim = VJ.SequenceToActivity(self,"walk_python")
+		defRunAim = VJ.SequenceToActivity(self,"run_python")
+		defCrouch = VJ.SequenceToActivity(self,"crouch_python")
+		defCrawl = VJ.SequenceToActivity(self,"crawl_python")
 		defFire = "vjges_shoot_python"
 		defReload = "vjges_reload_python"
 	elseif h == "rpg" then
-		defIdleAim = VJ_SequenceToActivity(self,"aim_rpg")
-		defWalkAim = VJ_SequenceToActivity(self,"walk_rpg")
-		defRunAim = VJ_SequenceToActivity(self,"run_rpg")
-		defCrouch = VJ_SequenceToActivity(self,"crouch_rpg")
-		defCrawl = VJ_SequenceToActivity(self,"crawl_rpg")
+		defIdleAim = VJ.SequenceToActivity(self,"aim_rpg")
+		defWalkAim = VJ.SequenceToActivity(self,"walk_rpg")
+		defRunAim = VJ.SequenceToActivity(self,"run_rpg")
+		defCrouch = VJ.SequenceToActivity(self,"crouch_rpg")
+		defCrawl = VJ.SequenceToActivity(self,"crawl_rpg")
 		defFire = "vjges_shoot_rpg"
 		defReload = "vjges_reload_rpg"
 	elseif h == "shotgun" then
-		defIdleAim = VJ_SequenceToActivity(self,"aim_shotgun")
-		defWalkAim = VJ_SequenceToActivity(self,"walk_shotgun")
-		defRunAim = VJ_SequenceToActivity(self,"run_shotgun")
-		defCrouch = VJ_SequenceToActivity(self,"crouch_shotgun")
-		defCrawl = VJ_SequenceToActivity(self,"crawl_shotgun")
+		defIdleAim = VJ.SequenceToActivity(self,"aim_shotgun")
+		defWalkAim = VJ.SequenceToActivity(self,"walk_shotgun")
+		defRunAim = VJ.SequenceToActivity(self,"run_shotgun")
+		defCrouch = VJ.SequenceToActivity(self,"crouch_shotgun")
+		defCrawl = VJ.SequenceToActivity(self,"crawl_shotgun")
 		defFire = "vjges_shoot_shotgun"
 		defReload = "vjges_reload_shotgun"
 	elseif h == "slam" then
-		defIdleAim = VJ_SequenceToActivity(self,"aim_squeak")
-		defWalkAim = VJ_SequenceToActivity(self,"walk_squeak")
-		defRunAim = VJ_SequenceToActivity(self,"run_squeak")
-		defCrouch = VJ_SequenceToActivity(self,"crouch_squeak")
-		defCrawl = VJ_SequenceToActivity(self,"crawl_squeak")
+		defIdleAim = VJ.SequenceToActivity(self,"aim_squeak")
+		defWalkAim = VJ.SequenceToActivity(self,"walk_squeak")
+		defRunAim = VJ.SequenceToActivity(self,"run_squeak")
+		defCrouch = VJ.SequenceToActivity(self,"crouch_squeak")
+		defCrawl = VJ.SequenceToActivity(self,"crawl_squeak")
 		defFire = "vjges_shoot_squeak"
 		defReload = "vjges_reload_squeak"
 	elseif h == "grenade" then
-		defIdleAim = VJ_SequenceToActivity(self,"aim_crowbar")
-		defWalkAim = VJ_SequenceToActivity(self,"walk_crowbar")
-		defRunAim = VJ_SequenceToActivity(self,"run_crowbar")
-		defCrouch = VJ_SequenceToActivity(self,"crouch_crowbar")
-		defCrawl = VJ_SequenceToActivity(self,"crawl_crowbar")
+		defIdleAim = VJ.SequenceToActivity(self,"aim_crowbar")
+		defWalkAim = VJ.SequenceToActivity(self,"walk_crowbar")
+		defRunAim = VJ.SequenceToActivity(self,"run_crowbar")
+		defCrouch = VJ.SequenceToActivity(self,"crouch_crowbar")
+		defCrawl = VJ.SequenceToActivity(self,"crawl_crowbar")
 		defFire = "vjges_shoot_gren"
 		defReload = "vjges_reload_gren"
 	elseif h == "saw" then
-		defIdleAim = VJ_SequenceToActivity(self,"aim_saw")
-		defWalkAim = VJ_SequenceToActivity(self,"walk_saw")
-		defRunAim = VJ_SequenceToActivity(self,"run_saw")
-		defCrouch = VJ_SequenceToActivity(self,"crouch_saw")
-		defCrawl = VJ_SequenceToActivity(self,"crawl_saw")
+		defIdleAim = VJ.SequenceToActivity(self,"aim_saw")
+		defWalkAim = VJ.SequenceToActivity(self,"walk_saw")
+		defRunAim = VJ.SequenceToActivity(self,"run_saw")
+		defCrouch = VJ.SequenceToActivity(self,"crouch_saw")
+		defCrawl = VJ.SequenceToActivity(self,"crawl_saw")
 		defFire = "vjges_shoot_saw"
 		defReload = "vjges_reload_saw"
 	elseif h == "sniper" then
-		defIdleAim = VJ_SequenceToActivity(self,"aim_sniper")
-		defWalkAim = VJ_SequenceToActivity(self,"walk_sniper")
-		defRunAim = VJ_SequenceToActivity(self,"run_sniper")
-		defCrouch = VJ_SequenceToActivity(self,"crouch_sniper")
-		defCrawl = VJ_SequenceToActivity(self,"crawl_sniper")
+		defIdleAim = VJ.SequenceToActivity(self,"aim_sniper")
+		defWalkAim = VJ.SequenceToActivity(self,"walk_sniper")
+		defRunAim = VJ.SequenceToActivity(self,"run_sniper")
+		defCrouch = VJ.SequenceToActivity(self,"crouch_sniper")
+		defCrawl = VJ.SequenceToActivity(self,"crawl_sniper")
 		defFire = "vjges_shoot_sniper"
 		defReload = "vjges_reload_sniper"
 	elseif h == "m16" then
-		defIdleAim = VJ_SequenceToActivity(self,"aim_m16")
-		defWalkAim = VJ_SequenceToActivity(self,"walk_m16")
-		defRunAim = VJ_SequenceToActivity(self,"run_m16")
-		defCrouch = VJ_SequenceToActivity(self,"crouch_m16")
-		defCrawl = VJ_SequenceToActivity(self,"crawl_m16")
+		defIdleAim = VJ.SequenceToActivity(self,"aim_m16")
+		defWalkAim = VJ.SequenceToActivity(self,"walk_m16")
+		defRunAim = VJ.SequenceToActivity(self,"run_m16")
+		defCrouch = VJ.SequenceToActivity(self,"crouch_m16")
+		defCrawl = VJ.SequenceToActivity(self,"crawl_m16")
 		defFire = "vjges_shoot_m16"
 		defReload = "vjges_reload_m16"
 	elseif h == "shockrifle" then
-		defIdleAim = VJ_SequenceToActivity(self,"aim_m16")
-		defWalkAim = VJ_SequenceToActivity(self,"walk_m16")
-		defRunAim = VJ_SequenceToActivity(self,"run_m16")
-		defCrouch = VJ_SequenceToActivity(self,"crouch_m16")
-		defCrawl = VJ_SequenceToActivity(self,"crawl_m16")
+		defIdleAim = VJ.SequenceToActivity(self,"aim_m16")
+		defWalkAim = VJ.SequenceToActivity(self,"walk_m16")
+		defRunAim = VJ.SequenceToActivity(self,"run_m16")
+		defCrouch = VJ.SequenceToActivity(self,"crouch_m16")
+		defCrawl = VJ.SequenceToActivity(self,"crawl_m16")
 		defFire = "vjges_shoot_m16"
 		defReload = "vjges_reload_null"
 	elseif h == "minigun" then
-		defIdleAim = VJ_SequenceToActivity(self,"aim_minigun")
-		defWalkAim = VJ_SequenceToActivity(self,"walk_minigun")
-		defRunAim = VJ_SequenceToActivity(self,"run_minigun")
-		defCrouch = VJ_SequenceToActivity(self,"crouch_minigun")
-		defCrawl = VJ_SequenceToActivity(self,"crawl_minigun")
+		defIdleAim = VJ.SequenceToActivity(self,"aim_minigun")
+		defWalkAim = VJ.SequenceToActivity(self,"walk_minigun")
+		defRunAim = VJ.SequenceToActivity(self,"run_minigun")
+		defCrouch = VJ.SequenceToActivity(self,"crouch_minigun")
+		defCrawl = VJ.SequenceToActivity(self,"crawl_minigun")
 		defFire = "vjges_shoot_minigun"
 		defReload = "vjges_reload_minigun"
 	end
@@ -326,7 +326,7 @@ function ENT:OnPlayCreateSound(sdData, sdFile)
 	self.NextMouthMove = CurTime() + SoundDuration(sdFile)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-local colorRed = VJ_Color2Byte(Color(130, 19, 10))
+local colorRed = VJ.Color2Byte(Color(130, 19, 10))
 --
 function ENT:SetUpGibesOnDeath(dmginfo, hitgroup)
 	self.HasDeathSounds = false
@@ -358,7 +358,7 @@ function ENT:SetUpGibesOnDeath(dmginfo, hitgroup)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:CustomGibOnDeathSounds(dmginfo, hitgroup)
-	VJ_EmitSound(self, "vj_gib/default_gib_splat.wav", 90, 100)
+	VJ.EmitSound(self, "vj_gib/default_gib_splat.wav", 90, 100)
 	return false
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------

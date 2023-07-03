@@ -79,7 +79,7 @@ function SWEP:CustomOnThink()
 		if CurTime() > self.NextReloadT && self:Clip1() < self:GetMaxClip1() then
 			self:SetClip1(self:Clip1() +1)
 			self.NextReloadT = CurTime() +1
-			owner:SetWeaponState(VJ_WEP_STATE_RELOADING)
+			owner:SetWeaponState(VJ.NPC_WEP_STATE_RELOADING)
 		elseif self:Clip1() >= self:GetMaxClip1() then
 			owner:SetWeaponState()
 		end

@@ -15,38 +15,38 @@ if VJExists == true then
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------ GoldSrc Engine ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	local vCat = "HL Resurgence: GoldSrc Players"
-	VJ.AddCategoryInfo(vCat, {Icon = "vj_hl/icons/hl1dm.png"})
+	local spawnCategory = "HL Resurgence: GoldSrc Players"
+	VJ.AddCategoryInfo(spawnCategory, {Icon = "vj_hl/icons/hl1dm.png"})
 
-	VJ.AddNPC("Gordon Freeman", "npc_vj_hlr1_freeman", vCat)
-	VJ.AddNPC("Xen Survey Team Member", "npc_vj_hlr1_xensurvey", vCat)	-- needs a cool spawnicon, preferrably somewhere in a xen themed map
-	VJ.AddNPC("Barney Calhoun", "npc_vj_hlrbs_barney", vCat)
-	VJ.AddNPC("Adrian Shephard", "npc_vj_hlrof_shepard", vCat)
-	VJ.AddNPC("Gina Cross", "npc_vj_hlrdc_gina", vCat)
-	VJ.AddNPC("Colette Green", "npc_vj_hlrdc_colette", vCat)
+	VJ.AddNPC("Gordon Freeman", "npc_vj_hlr1_freeman", spawnCategory)
+	VJ.AddNPC("Xen Survey Team Member", "npc_vj_hlr1_xensurvey", spawnCategory)	-- needs a cool spawnicon, preferrably somewhere in a xen themed map
+	VJ.AddNPC("Barney Calhoun", "npc_vj_hlrbs_barney", spawnCategory)
+	VJ.AddNPC("Adrian Shephard", "npc_vj_hlrof_shepard", spawnCategory)
+	VJ.AddNPC("Gina Cross", "npc_vj_hlrdc_gina", spawnCategory)
+	VJ.AddNPC("Colette Green", "npc_vj_hlrdc_colette", spawnCategory)
 	-- HL1DM models: (TODO: make them colorable?)
-		VJ.AddNPC("HL1DM Barney", "npc_vj_hlr1mp_barney", vCat)
-		VJ.AddNPC("HL1DM Gina", "npc_vj_hlr1mp_gina", vCat)
-		VJ.AddNPC("HL1DM G-Man", "npc_vj_hlr1mp_gman", vCat)
-		VJ.AddNPC("HL1DM Gordon", "npc_vj_hlr1mp_gordon", vCat)
-		VJ.AddNPC("HL1DM Helmet", "npc_vj_hlr1mp_helmet", vCat)
-		VJ.AddNPC("HL1DM HGrunt", "npc_vj_hlr1mp_hgrunt", vCat)
-		VJ.AddNPC("HL1DM Recon", "npc_vj_hlr1mp_recon", vCat)
-		VJ.AddNPC("HL1DM Robo", "npc_vj_hlr1mp_robo", vCat)
-		VJ.AddNPC("HL1DM Scientist", "npc_vj_hlr1mp_scientist", vCat)
-		VJ.AddNPC("HL1DM Zombie", "npc_vj_hlr1mp_zombie", vCat)
+		VJ.AddNPC("HL1DM Barney", "npc_vj_hlr1mp_barney", spawnCategory)
+		VJ.AddNPC("HL1DM Gina", "npc_vj_hlr1mp_gina", spawnCategory)
+		VJ.AddNPC("HL1DM G-Man", "npc_vj_hlr1mp_gman", spawnCategory)
+		VJ.AddNPC("HL1DM Gordon", "npc_vj_hlr1mp_gordon", spawnCategory)
+		VJ.AddNPC("HL1DM Helmet", "npc_vj_hlr1mp_helmet", spawnCategory)
+		VJ.AddNPC("HL1DM HGrunt", "npc_vj_hlr1mp_hgrunt", spawnCategory)
+		VJ.AddNPC("HL1DM Recon", "npc_vj_hlr1mp_recon", spawnCategory)
+		VJ.AddNPC("HL1DM Robo", "npc_vj_hlr1mp_robo", spawnCategory)
+		VJ.AddNPC("HL1DM Scientist", "npc_vj_hlr1mp_scientist", spawnCategory)
+		VJ.AddNPC("HL1DM Zombie", "npc_vj_hlr1mp_zombie", spawnCategory)
 		-- from HL: Further Data CD, official Valve-made addon for HL1:
-			VJ.AddNPC("HL1DM Cannibal", "npc_vj_hlr1mp_cannibal", vCat)
-			VJ.AddNPC("HL1DM Skeleton", "npc_vj_hlr1mp_skeleton", vCat) -- not colorable
-			VJ.AddNPC("Ken Birdwell", "npc_vj_hlr1mp_ken", vCat)
-			VJ.AddNPC("Too Much Coffee Man", "npc_vj_hlr1mp_tmcm", vCat)
+			VJ.AddNPC("HL1DM Cannibal", "npc_vj_hlr1mp_cannibal", spawnCategory)
+			VJ.AddNPC("HL1DM Skeleton", "npc_vj_hlr1mp_skeleton", spawnCategory) -- not colorable
+			VJ.AddNPC("Ken Birdwell", "npc_vj_hlr1mp_ken", spawnCategory)
+			VJ.AddNPC("Too Much Coffee Man", "npc_vj_hlr1mp_tmcm", spawnCategory)
 			-- cut from HL: Further Data, released after 2023 Valve repo leaks
-			VJ.AddNPC("Rat Fink", "npc_vj_hlr1mp_rfink", vCat)
+			VJ.AddNPC("Rat Fink", "npc_vj_hlr1mp_rfink", spawnCategory)
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------ Source Engine ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	vCat = "HL Resurgence: Source Players"
-	VJ.AddCategoryInfo(vCat, {Icon = "vj_hl/icons/hl2dm.png"})
+	spawnCategory = "HL Resurgence: Source Players"
+	VJ.AddCategoryInfo(spawnCategory, {Icon = "vj_hl/icons/hl2dm.png"})
 
 	
 

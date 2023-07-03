@@ -58,7 +58,7 @@ function SWEP:CustomOnThink()
 			self:SetClip1(self:Clip1() +1)
 			self:EmitSound("vj_hlr/hl1_weapon/shockroach/shock_recharge.wav")
 			self.NextReloadT = CurTime() +0.5
-			owner:SetWeaponState(VJ_WEP_STATE_RELOADING)
+			owner:SetWeaponState(VJ.NPC_WEP_STATE_RELOADING)
 		elseif self:Clip1() >= self:GetMaxClip1() then
 			owner:SetWeaponState()
 		end

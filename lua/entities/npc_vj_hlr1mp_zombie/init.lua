@@ -13,7 +13,7 @@ ENT.CustomBlood_Decal = {"VJ_HLR_Blood_Yellow"} -- Decals to spawn when it's dam
 ENT.VJ_NPC_Class = {"CLASS_ZOMBIE"}
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
-local colorYellow = VJ_Color2Byte(Color(255, 221, 35))
+local colorYellow = VJ.Color2Byte(Color(255, 221, 35))
 --
 function ENT:SetUpGibesOnDeath(dmginfo, hitgroup)
 	self.HasDeathSounds = false
