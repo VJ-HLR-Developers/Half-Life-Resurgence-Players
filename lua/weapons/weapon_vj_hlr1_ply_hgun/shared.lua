@@ -21,6 +21,7 @@ SWEP.NPC_BulletSpawnAttachment = "muzzle"
 
 SWEP.Primary.Damage = 1
 SWEP.Primary.ClipSize = 8
+SWEP.Primary.TakeAmmo = 0 -- How much ammo should it take from the clip after each shot? | 0 = Unlimited clip
 SWEP.Primary.DisableBulletCode = true
 SWEP.Primary.Ammo = "357"
 SWEP.Primary.Sound = {"vj_hlr/hl1_npc/agrunt/ag_fire1.wav","vj_hlr/hl1_npc/agrunt/ag_fire2.wav","vj_hlr/hl1_npc/agrunt/ag_fire3.wav"}
