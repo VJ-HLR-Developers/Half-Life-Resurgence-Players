@@ -31,7 +31,7 @@ SWEP.Primary.DistantSound = {"vj_hlr/hl1_weapon/mp5/hks_distant_new.wav"}
 
 -- SWEP.PrimaryEffects_MuzzleAttachment = "0"
 SWEP.PrimaryEffects_SpawnShells = false
-SWEP.PrimaryEffects_ShellType = "VJ_Weapon_PistolShell1"
+SWEP.PrimaryEffects_ShellType = "ShellEject"
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function SWEP:CustomOnInitialize()
 	self:SetModelScale(0.75)

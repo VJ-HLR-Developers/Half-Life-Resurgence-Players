@@ -29,7 +29,7 @@ SWEP.Primary.TracerType = "VJ_HLR_Tracer"
 SWEP.Primary.Sound				= {"vj_hlr/hl1_weapon/shotgun/sbarrel1.wav"}
 SWEP.Primary.DistantSound		= {"vj_hlr/hl1_weapon/shotgun/sbarrel1_distant2.wav"}
 
-SWEP.PrimaryEffects_ShellType = "VJ_Weapon_ShotgunShell1"
+SWEP.PrimaryEffects_ShellType = "ShotgunShellEject"
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function SWEP:CustomOnInitialize()
 	self:SetModelScale(0.85)

@@ -28,7 +28,7 @@ SWEP.NPC_ReloadSound = {"vj_hlr/hl1_weapon/357/357_reload1.wav"}
 
 SWEP.PrimaryEffects_MuzzleAttachment = "muzzle"
 SWEP.PrimaryEffects_ShellAttachment = "1"
-SWEP.PrimaryEffects_ShellType = "VJ_Weapon_PistolShell1"
+SWEP.PrimaryEffects_ShellType = "ShellEject"
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function SWEP:CustomOnInitialize()
 	self:SetModelScale(0.5)
