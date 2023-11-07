@@ -34,5 +34,5 @@ end
 local gibstbl = {"models/vj_hlr/gibs/abone_template1.mdl","models/vj_hlr/gibs/abone_template1.mdl","models/vj_hlr/gibs/abone_template1.mdl","models/vj_hlr/gibs/abone_template1.mdl","models/vj_hlr/gibs/abone_template1.mdl","models/vj_hlr/gibs/bleachbones_pelvis_template1.mdl","models/vj_hlr/gibs/bleachbones_jawbone1.mdl","models/vj_hlr/gibs/bleachbones_bskull_template1.mdl","models/vj_hlr/gibs/bleachbones_ribcage1.mdl","models/vj_hlr/gibs/bleachbones_riblet1.mdl","models/vj_hlr/gibs/bleachbones_riblet1.mdl","models/vj_hlr/gibs/bleachbones_riblet1.mdl"}
 --
 function ENT:CustomOnDeath_AfterCorpseSpawned(dmginfo, hitgroup, corpseEnt)
-	VJ_HLR_ApplyCorpseEffects(self, corpseEnt, gibstbl)
+	VJ.HLR_ApplyCorpseSystem(self, corpseEnt, gibstbl)
 end
