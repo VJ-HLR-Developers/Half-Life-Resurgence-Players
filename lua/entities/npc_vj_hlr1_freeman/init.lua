@@ -134,7 +134,7 @@ function ENT:CustomOnThink_AIEnabled()
 	end
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:CustomOnSetupWeaponHoldTypeAnims(h)
+function ENT:SetAnimationTranslations(h)
 	local defIdleAim = ACT_IDLE -- ACT_IDLE_ANGRY
 	local defWalkAim = ACT_WALK
 	local defRunAim = ACT_RUN
@@ -277,21 +277,21 @@ function ENT:CustomOnSetupWeaponHoldTypeAnims(h)
 		defReload = "vjges_reload_minigun"
 	end
 
-	self.WeaponAnimTranslations[ACT_IDLE] = defIdleAim
-	self.WeaponAnimTranslations[ACT_IDLE_ANGRY] = defIdleAim
-	self.WeaponAnimTranslations[ACT_WALK] = defWalkAim
-	self.WeaponAnimTranslations[ACT_WALK_AIM] = defWalkAim
-	self.WeaponAnimTranslations[ACT_RUN] = defRunAim
-	self.WeaponAnimTranslations[ACT_RUN_AIM] = defRunAim
-	self.WeaponAnimTranslations[ACT_RANGE_ATTACK1] = defIdleAim
-	self.WeaponAnimTranslations[ACT_RANGE_ATTACK1_LOW] = defCrouch
-	self.WeaponAnimTranslations[ACT_COVER_LOW] = defCrouch
-	self.WeaponAnimTranslations[ACT_WALK_CROUCH] = defCrawl
-	self.WeaponAnimTranslations[ACT_RUN_CROUCH] = defCrawl
-	self.WeaponAnimTranslations[ACT_GESTURE_RANGE_ATTACK1] = defFire
-	self.WeaponAnimTranslations[ACT_GESTURE_RANGE_ATTACK2] = defFire
-	self.WeaponAnimTranslations[ACT_RELOAD] = defReload
-	self.WeaponAnimTranslations[ACT_RELOAD_LOW] = defReload
+	self.AnimationTranslations[ACT_IDLE] = defIdleAim
+	self.AnimationTranslations[ACT_IDLE_ANGRY] = defIdleAim
+	self.AnimationTranslations[ACT_WALK] = defWalkAim
+	self.AnimationTranslations[ACT_WALK_AIM] = defWalkAim
+	self.AnimationTranslations[ACT_RUN] = defRunAim
+	self.AnimationTranslations[ACT_RUN_AIM] = defRunAim
+	self.AnimationTranslations[ACT_RANGE_ATTACK1] = defIdleAim
+	self.AnimationTranslations[ACT_RANGE_ATTACK1_LOW] = defCrouch
+	self.AnimationTranslations[ACT_COVER_LOW] = defCrouch
+	self.AnimationTranslations[ACT_WALK_CROUCH] = defCrawl
+	self.AnimationTranslations[ACT_RUN_CROUCH] = defCrawl
+	self.AnimationTranslations[ACT_GESTURE_RANGE_ATTACK1] = defFire
+	self.AnimationTranslations[ACT_GESTURE_RANGE_ATTACK2] = defFire
+	self.AnimationTranslations[ACT_RELOAD] = defReload
+	self.AnimationTranslations[ACT_RELOAD_LOW] = defReload
 	return true
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
