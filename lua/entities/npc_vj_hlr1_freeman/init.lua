@@ -50,8 +50,7 @@ ENT.AnimTbl_WeaponAttackSecondary = {"shoot_m203"}
 ENT.WeaponAttackSecondaryTimeUntilFire = 0.05
 
 ENT.AnimTbl_ShootWhileMovingWalk = {ACT_RUN_AIM}
-ENT.NextMoveRandomlyWhenShootingTime1 = 0
-ENT.NextMoveRandomlyWhenShootingTime2 = 0.2
+ENT.NextMoveRandomlyWhenShootingTime = VJ.SET(0, 0.2) -- How much time until it can randomly move again while shooting?
 
 ENT.FootStepTimeRun = 0.3
 ENT.FootStepTimeWalk = 0.38
@@ -305,7 +304,7 @@ function ENT:CustomOnTakeDamage_BeforeImmuneChecks(dmginfo, hitgroup)
 		rico:SetOrigin(dmginfo:GetDamagePosition())
 		rico:SetScale(4)
 		rico:SetMagnitude(math.random(1, 2)) -- Effect type | 1 = Animated | 2 = Basic
-		util.Effect("VJ_HLR_Rico",rico)
+		util.Effect("VJ_HLR_Rico", rico)
 	end
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
