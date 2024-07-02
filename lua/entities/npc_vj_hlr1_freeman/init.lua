@@ -27,8 +27,8 @@ ENT.FriendsWithAllPlayerAllies = true
 
 ENT.PoseParameterLooking_InvertPitch = true
 
-ENT.WeaponInventory_Melee = true
 ENT.WeaponInventory_MeleeList = {"weapon_vj_hlr1_ply_crowbar"}
+
 ENT.HasMeleeAttack = false
 ENT.AnimTbl_MeleeAttack = {"vjges_shoot_crowbar"}
 ENT.MeleeAttackDamage = 10
