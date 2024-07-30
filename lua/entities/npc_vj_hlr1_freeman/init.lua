@@ -35,7 +35,6 @@ ENT.MeleeAttackDamage = 10
 ENT.TimeUntilMeleeAttackDamage = false
 ENT.NextMeleeAttackTime_DoRand = 0.25
 ENT.NextAnyAttackTime_Melee = 0.25
-ENT.MeleeAttackAnimationAllowOtherTasks = true
 
 ENT.HasGrenadeAttack = false -- we use a seperate weapon for that
 
