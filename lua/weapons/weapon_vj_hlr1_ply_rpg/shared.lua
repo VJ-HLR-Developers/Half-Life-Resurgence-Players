@@ -37,7 +37,7 @@ end
 function SWEP:CustomOnPrimaryAttack_BeforeShoot()
 	if CLIENT then return end
 	local rocket = ents.Create("obj_vj_hlr1_rocket")
-	rocket:SetPos(self:GetNW2Vector("VJ_CurBulletPos"))
+	rocket:SetPos(self:GetBulletPos())
 	rocket:SetAngles(self:GetOwner():GetAngles())
 	rocket:SetOwner(self:GetOwner())
 	rocket:Spawn()
@@ -49,13 +49,13 @@ function SWEP:CustomOnPrimaryAttack_BeforeShoot()
 		if IsValid(self) then
 			rocket.HasIdleSounds = true
 			if IsValid(phys) then
-				phys:SetVelocity(self:GetOwner():CalculateProjectile("Line", self:GetNW2Vector("VJ_CurBulletPos"), self:GetOwner():GetEnemy():GetPos() + self:GetOwner():GetEnemy():OBBCenter(), 1700))
+				phys:SetVelocity(self:GetOwner():CalculateProjectile("Line", self:GetBulletPos(), self:GetOwner():GetEnemy():GetPos() + self:GetOwner():GetEnemy():OBBCenter(), 1700))
 				rocket:SetAngles(rocket:GetVelocity():GetNormal():Angle())
 			end
 		end
 	end)
 	//if IsValid(phys) then
-	//	phys:SetVelocity(self:GetOwner():CalculateProjectile("Line", self:GetNW2Vector("VJ_CurBulletPos"), self:GetOwner():GetEnemy():GetPos() + self:GetOwner():GetEnemy():OBBCenter(), 3000))
+	//	phys:SetVelocity(self:GetOwner():CalculateProjectile("Line", self:GetBulletPos(), self:GetOwner():GetEnemy():GetPos() + self:GetOwner():GetEnemy():OBBCenter(), 3000))
 	//end
 
 	self.NextReloadT = CurTime() +2.5

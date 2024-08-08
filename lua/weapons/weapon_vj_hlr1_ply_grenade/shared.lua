@@ -48,7 +48,7 @@ end
 function SWEP:CustomOnPrimaryAttack_BeforeShoot()
 	if CLIENT then return end
 	local plasma = ents.Create("obj_vj_hlr1_grenade")
-	plasma:SetPos(self:GetNW2Vector("VJ_CurBulletPos"))
+	plasma:SetPos(self:GetBulletPos())
 	plasma:SetAngles(self:GetOwner():GetAngles())
 	plasma:SetOwner(self:GetOwner())
 	plasma:Spawn()
@@ -56,6 +56,6 @@ function SWEP:CustomOnPrimaryAttack_BeforeShoot()
 	
 	local phys = plasma:GetPhysicsObject()
 	if IsValid(phys) then
-		phys:SetVelocity(self:GetOwner():CalculateProjectile("Curve", self:GetNW2Vector("VJ_CurBulletPos"), self:GetOwner():GetEnemy():GetPos() + self:GetOwner():GetEnemy():OBBCenter(), 1500))
+		phys:SetVelocity(self:GetOwner():CalculateProjectile("Curve", self:GetBulletPos(), self:GetOwner():GetEnemy():GetPos() + self:GetOwner():GetEnemy():OBBCenter(), 1500))
 	end
 end

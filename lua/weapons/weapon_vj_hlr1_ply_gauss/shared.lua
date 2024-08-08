@@ -44,7 +44,7 @@ function SWEP:CustomOnPrimaryAttack_BeforeShoot()
 	local owner = self:GetOwner()
 	local enemy = owner:GetEnemy()
 
-	local startpos = self:GetNW2Vector("VJ_CurBulletPos")
+	local startpos = self:GetBulletPos()
 	local tr = util.TraceLine({
 		start = startpos,
 		endpos = enemy:GetPos() +enemy:OBBCenter() + VectorRand(-10, 10),

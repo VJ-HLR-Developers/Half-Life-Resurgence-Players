@@ -40,7 +40,7 @@ end
 function SWEP:CustomOnPrimaryAttack_BeforeShoot()
 	if CLIENT then return end
 	local bolt = ents.Create("obj_vj_hlr1_crossbowbolt")
-	local spawnpos = self:GetNW2Vector("VJ_CurBulletPos")
+	local spawnpos = self:GetBulletPos()
 	bolt:SetPos(spawnpos)
 	bolt:SetAngles(self:GetOwner():GetAngles())
 	bolt:SetOwner(self:GetOwner())

@@ -51,7 +51,7 @@ function SWEP:CustomOnPrimaryAttack_BeforeShoot()
 	if CLIENT then return end
 	local owner = self.Owner
 	local snark = ents.Create(self.ThrowableNPC)
-	snark:SetPos(self:GetNW2Vector("VJ_CurBulletPos"))
+	snark:SetPos(self:GetBulletPos())
 	snark:SetAngles(owner:GetAngles())
 	snark:SetOwner(owner)
 	snark:Spawn()
