@@ -14,7 +14,7 @@ SWEP.WorldModel_CustomPositionAngle = Vector(0, 180, -90)
 SWEP.WorldModel_CustomPositionOrigin = Vector(1, -7.5, -1)
 SWEP.WorldModel_CustomPositionBone = "Bip01 R Hand"
 
-SWEP.NPC_NextPrimaryFire = 0.18
+SWEP.NPC_NextPrimaryFire = 0.28
 SWEP.NPC_ReloadSound			= {"vj_hlr/hl1_weapon/glock/glock_reload.wav"}
 
 SWEP.Primary.Damage = 5
