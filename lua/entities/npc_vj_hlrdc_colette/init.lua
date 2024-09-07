@@ -7,8 +7,7 @@ include("shared.lua")
 -----------------------------------------------*/
 ENT.Model = {"models/vj_hlr/hl1mp/dm_colette.mdl"}
 
-	-- ====== File Path Variables ====== --
-	-- Leave blank if you don't want any sounds to play
+	-- ====== Sound Paths ====== --
 ENT.SoundTbl_CombatIdle = {"vj_hlr/hl1mp_npc/colette/colette_attack0.wav","vj_hlr/hl1mp_npc/colette/colette_attack1.wav","vj_hlr/hl1mp_npc/colette/colette_attack2.wav","vj_hlr/hl1mp_npc/colette/colette_attack3.wav","vj_hlr/hl1mp_npc/colette/colette_attacked2.wav"}
 ENT.SoundTbl_OnReceiveOrder = {"vj_hlr/hl1mp_npc/colette/colette_use2.wav","vj_hlr/hl1mp_npc/colette/colette_use3.wav"}
 ENT.SoundTbl_FollowPlayer = {"vj_hlr/hl1mp_npc/colette/colette_use0.wav","vj_hlr/hl1mp_npc/colette/colette_use1.wav","vj_hlr/hl1mp_npc/colette/colette_use2.wav","vj_hlr/hl1mp_npc/colette/colette_use3.wav","vj_hlr/hl1mp_npc/colette/colette_use4.wav","vj_hlr/hl1mp_npc/colette/colette_use5.wav"}

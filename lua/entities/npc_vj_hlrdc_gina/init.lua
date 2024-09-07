@@ -7,8 +7,7 @@ include("shared.lua")
 -----------------------------------------------*/
 ENT.Model = {"models/vj_hlr/hl1mp/dm_gina.mdl"}
 
-	-- ====== File Path Variables ====== --
-	-- Leave blank if you don't want any sounds to play
+	-- ====== Sound Paths ====== --
 ENT.SoundTbl_FollowPlayer = {"vj_hlr/hl1mp_npc/gina/gina_use0.wav","vj_hlr/hl1mp_npc/gina/gina_use1.wav","vj_hlr/hl1mp_npc/gina/gina_use2.wav","vj_hlr/hl1mp_npc/gina/gina_use3.wav","vj_hlr/hl1mp_npc/gina/gina_use4.wav","vj_hlr/hl1mp_npc/gina/gina_use5.wav"}
 ENT.SoundTbl_UnFollowPlayer = {"vj_hlr/hl1mp_npc/gina/gina_stop1.wav","vj_hlr/hl1mp_npc/gina/gina_unuse0.wav","vj_hlr/hl1mp_npc/gina/gina_unuse1.wav","vj_hlr/hl1mp_npc/gina/gina_unuse2.wav","vj_hlr/hl1mp_npc/gina/gina_unuse3.wav","vj_hlr/hl1mp_npc/gina/gina_unuse4.wav"}
 ENT.SoundTbl_Alert = {"vj_hlr/hl1mp_npc/gina/gina_attack0.wav","vj_hlr/hl1mp_npc/gina/gina_attack1.wav","vj_hlr/hl1mp_npc/gina/gina_attack2.wav","vj_hlr/hl1mp_npc/gina/gina_attack3.wav"}
