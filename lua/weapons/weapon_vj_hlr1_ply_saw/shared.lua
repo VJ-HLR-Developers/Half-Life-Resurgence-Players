@@ -26,7 +26,7 @@ SWEP.Primary.TracerType = "VJ_HLR_Tracer"
 SWEP.Primary.Sound				= {"vj_hlr/hl1_weapon/saw/saw_fire1.wav","vj_hlr/hl1_weapon/saw/saw_fire2.wav","vj_hlr/hl1_weapon/saw/saw_fire3.wav"}
 SWEP.Primary.DistantSound		= {"vj_hlr/hl1_weapon/saw/saw_distant2.wav"}
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function SWEP:CustomOnInitialize()
+function SWEP:Init()
 	self:SetModelScale(0.8)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------

@@ -9,7 +9,7 @@ ENT.Model = {"models/vj_hlr/hl1mp/shepard.mdl"}
 
 ENT.VJ_NPC_Class = {"CLASS_UNITED_STATES"}
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:OnInit()
+function ENT:Init()
 	self.WeaponsList = {
 		["Close"] = {
 			"weapon_vj_hlr1_ply_shotgun",

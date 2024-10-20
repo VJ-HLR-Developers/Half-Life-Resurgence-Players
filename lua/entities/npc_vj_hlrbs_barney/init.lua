@@ -7,7 +7,7 @@ include("shared.lua")
 -----------------------------------------------*/
 ENT.Model = {"models/vj_hlr/hl1mp/barney.mdl"}
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:OnInit()
+function ENT:Init()
 	self.WeaponsList = {
 		["Close"] = {
 			"weapon_vj_hlr1_ply_hgun",

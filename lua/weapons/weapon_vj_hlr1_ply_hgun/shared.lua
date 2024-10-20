@@ -30,7 +30,7 @@ SWEP.HasDryFireSound = false
 SWEP.PrimaryEffects_SpawnMuzzleFlash = false
 SWEP.PrimaryEffects_SpawnShells = false
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function SWEP:CustomOnInitialize()
+function SWEP:Init()
 	self:SetModelScale(0.5)
 	self.NextReloadT = CurTime()
 end
@@ -73,7 +73,7 @@ function SWEP:NPC_Reload()
 	owner.NextChaseTime = 0
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function SWEP:CustomOnThink()
+function SWEP:OnThink()
 	if SERVER then
 		local owner = self:GetOwner()
 		self.LastClip = self:Clip1()

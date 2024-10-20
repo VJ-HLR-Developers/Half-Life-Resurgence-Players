@@ -23,7 +23,7 @@ SWEP.NPC_ExtraFireSoundTime		= 0.2 -- How much time until it plays the sound (Af
 
 SWEP.Primary.Damage				= 5 -- Damage
 SWEP.Primary.NumberOfShots		= 5 -- How many shots per attack?
-SWEP.Primary.ClipSize			= 8 -- Max amount of bullets per clip
+SWEP.Primary.ClipSize			= 8 -- Max amount of rounds per clip
 SWEP.Primary.Ammo = "Buckshot"
 SWEP.Primary.TracerType = "VJ_HLR_Tracer"
 SWEP.Primary.Sound				= {"vj_hlr/hl1_weapon/shotgun/sbarrel1.wav"}
@@ -31,7 +31,7 @@ SWEP.Primary.DistantSound		= {"vj_hlr/hl1_weapon/shotgun/sbarrel1_distant2.wav"}
 
 SWEP.PrimaryEffects_ShellType = "ShotgunShellEject"
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function SWEP:CustomOnInitialize()
+function SWEP:Init()
 	self:SetModelScale(0.85)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------

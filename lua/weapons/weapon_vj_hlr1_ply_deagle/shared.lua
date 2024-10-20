@@ -26,7 +26,7 @@ SWEP.Primary.DistantSound		= {"vj_hlr/hl1_weapon/deagle/desert_eagle_fire_distan
 
 SWEP.PrimaryEffects_ShellType = "ShellEject"
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function SWEP:CustomOnInitialize()
+function SWEP:Init()
 	-- self:SetModelScale(0.5)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------

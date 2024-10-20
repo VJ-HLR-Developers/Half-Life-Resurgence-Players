@@ -9,7 +9,7 @@ ENT.Model = {"models/vj_hlr/hl1mp/gordonmp.mdl"}
 ENT.StartHealth = 100
 ENT.VJ_NPC_Class = {"CLASS_MP_HEV"}
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:OnInit()
+function ENT:Init()
 	self.WeaponsList = {
 		["Close"] = {
 			"weapon_vj_hlr1_ply_hgun",

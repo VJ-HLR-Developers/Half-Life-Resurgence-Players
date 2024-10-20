@@ -38,7 +38,7 @@ ENT.NextAnyAttackTime_Melee = 0.25
 
 ENT.HasGrenadeAttack = false -- we use a seperate weapon for that
 
-ENT.WaitForEnemyToComeOut = false
+ENT.Weapon_WaitOnOcclusion = false
 ENT.HasCallForHelpAnimation = false
 
 ENT.Weapon_NoSpawnMenu = true
@@ -49,7 +49,7 @@ ENT.AnimTbl_WeaponAttackSecondary = {"shoot_m203"}
 ENT.WeaponAttackSecondaryTimeUntilFire = 0.05
 
 ENT.AnimTbl_ShootWhileMovingWalk = {ACT_RUN_AIM}
-ENT.NextMoveRandomlyWhenShootingTime = VJ.SET(0, 0.2) -- How much time until it can randomly move again while shooting?
+ENT.Weapon_StrafeWhileFiringDelay = VJ.SET(0, 0.2) -- How much time until it can randomly move again?
 
 ENT.FootStepTimeRun = 0.3
 ENT.FootStepTimeWalk = 0.38
@@ -86,13 +86,9 @@ ENT.WeaponsList = {
 ENT.NextMouthMove = 0
 ENT.NextMouthDistance = 0
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:OnInit() end
----------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:CustomOnInitialize()
+function ENT:Init()
 	self:SetCollisionBounds(Vector(15, 15, 78), Vector(-15, -15, 0))
 	self.NextWeaponSwitchT = CurTime() + math.Rand(2,4)
-
-	self:OnInit()
 
 	for _,category in pairs(self.WeaponsList) do
 		for _,wep in pairs(category) do
@@ -103,13 +99,13 @@ function ENT:CustomOnInitialize()
 	self:DoChangeWeapon(VJ.PICK(self.WeaponsList["Normal"]),true)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:CustomOnAcceptInput(key, activator, caller, data)
+function ENT:OnInput(key, activator, caller, data)
 	if key == "body" then
 		VJ.EmitSound(self, "vj_hlr/fx/bodydrop"..math.random(3, 4)..".wav", 75, 100)
 	end
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:CustomOnThink_AIEnabled()
+function ENT:OnThinkActive()
 	local ent = self:GetEnemy()
 	local dist = self.NearestPointToEnemyDistance
 	if IsValid(ent) then
@@ -295,22 +291,24 @@ end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 local vec = Vector(0, 0, 0)
 --
-function ENT:CustomOnTakeDamage_BeforeImmuneChecks(dmginfo, hitgroup)
-	self.Bleeds = true
-	if hitgroup == HITGROUP_GEAR && dmginfo:GetDamagePosition() != vec then
-		self.Bleeds = false
-		local rico = EffectData()
-		rico:SetOrigin(dmginfo:GetDamagePosition())
-		rico:SetScale(4)
-		rico:SetMagnitude(math.random(1, 2)) -- Effect type | 1 = Animated | 2 = Basic
-		util.Effect("VJ_HLR_Rico", rico)
+function ENT:OnDamaged(dmginfo, hitgroup, status)
+	if status == "Initial" then
+		self.Bleeds = true
+		if hitgroup == HITGROUP_GEAR && dmginfo:GetDamagePosition() != vec then
+			self.Bleeds = false
+			local rico = EffectData()
+			rico:SetOrigin(dmginfo:GetDamagePosition())
+			rico:SetScale(4)
+			rico:SetMagnitude(math.random(1, 2)) -- Effect type | 1 = Animated | 2 = Basic
+			util.Effect("VJ_HLR_Rico", rico)
+		end
 	end
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:CustomOnThink()
+function ENT:OnThink()
 	if CurTime() < self.NextMouthMove then
 		if self.NextMouthDistance == 0 then
-			self.NextMouthDistance = math.random(10,70)
+			self.NextMouthDistance = math.random(10, 70)
 		else
 			self.NextMouthDistance = 0
 		end
@@ -328,7 +326,7 @@ local colorRed = VJ.Color2Byte(Color(130, 19, 10))
 --
 function ENT:SetUpGibesOnDeath(dmginfo, hitgroup)
 	self.HasDeathSounds = false
-	if self.HasGibDeathParticles == true then
+	if self.HasGibOnDeathEffects == true then
 		local effectData = EffectData()
 		effectData:SetOrigin(self:GetPos() + self:OBBCenter())
 		effectData:SetColor(colorRed)
@@ -364,19 +362,21 @@ local transDeath = {
 	[HITGROUP_HEAD] = {ACT_DIE_HEADSHOT},
 	[HITGROUP_STOMACH] = {ACT_DIE_GUTSHOT},
 }
+local defDeath = {ACT_DIESIMPLE, ACT_DIEFORWARD, ACT_DIEBACKWARD}
 --
-function ENT:CustomDeathAnimationCode(dmginfo, hitgroup)
-	self.AnimTbl_Death = transDeath[hitgroup] or {ACT_DIESIMPLE,ACT_DIEFORWARD,ACT_DIEBACKWARD}
-	self:DoDropWeaponOnDeath(dmginfo, hitgroup)
-	self:CustomOnDeath_BeforeCorpseSpawned(dmginfo, hitgroup)
-	if IsValid(self:GetActiveWeapon()) then self:GetActiveWeapon():Remove() end
+function ENT:OnDeath(dmginfo, hitgroup, status)
+	if status == "DeathAnim" then
+		self.AnimTbl_Death = transDeath[hitgroup] or defDeath
+		self:DeathWeaponDrop(dmginfo, hitgroup)
+		if IsValid(self:GetActiveWeapon()) then self:GetActiveWeapon():Remove() end
+	end
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:CustomOnDeath_AfterCorpseSpawned(dmginfo, hitgroup, corpseEnt)
+function ENT:OnCreateDeathCorpse(dmginfo, hitgroup, corpseEnt)
 	VJ.HLR_ApplyCorpseSystem(self, corpseEnt)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:CustomOnFootStepSound(moveType, sdFile)
+function ENT:OnFootstepSound(moveType, sdFile)
 	if moveType == "Walk" then
 		self.FootStepSoundLevel = 52
 	elseif moveType == "Run" then
