@@ -23,7 +23,7 @@ function SWEP:Init()
 	self:SetModelScale(0.5)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function SWEP:CustomOnDeploy()
+function SWEP:OnDeploy()
 	local owner = self:GetOwner()
 	if IsValid(owner) then
 		owner.SoundTbl_MeleeAttack = {"vj_hlr/hl1_weapon/knife/knife_hit_flesh1.wav","vj_hlr/hl1_weapon/knife/knife_hit_flesh2.wav"}
@@ -31,7 +31,7 @@ function SWEP:CustomOnDeploy()
 	end
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function SWEP:CustomOnHolster(newWep)
+function SWEP:OnHolster(newWep)
 	self:CustomOnRemove()
 	return true
 end

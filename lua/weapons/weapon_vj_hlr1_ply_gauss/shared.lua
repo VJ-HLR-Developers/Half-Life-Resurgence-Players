@@ -34,30 +34,32 @@ function SWEP:Init()
 	self:SetModelScale(0.5)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function SWEP:CustomOnPrimaryAttackEffects()
-	return false
+function SWEP:PrimaryAttackEffects(owner)
+	return
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function SWEP:CustomOnPrimaryAttack_BeforeShoot()
-	if CLIENT then return end
+function SWEP:OnPrimaryAttack(status, statusData)
+	if status == "Initial" then
+		if CLIENT then return end
 
-	local owner = self:GetOwner()
-	local enemy = owner:GetEnemy()
+		local owner = self:GetOwner()
+		local enemy = owner:GetEnemy()
 
-	local startpos = self:GetBulletPos()
-	local tr = util.TraceLine({
-		start = startpos,
-		endpos = enemy:GetPos() +enemy:OBBCenter() + VectorRand(-10, 10),
-		filter = self
-	})
-	local hitpos = tr.HitPos
-	
-	local elec = EffectData()
-	elec:SetStart(startpos)
-	elec:SetOrigin(hitpos)
-	elec:SetEntity(self)
-	elec:SetAttachment(1)
-	util.Effect("VJ_HLR_Tau",elec)
-	
-	VJ.ApplyRadiusDamage(owner, self, hitpos, 30, 20, DMG_ENERGYBEAM, true, false, {Force=20})
+		local startpos = self:GetBulletPos()
+		local tr = util.TraceLine({
+			start = startpos,
+			endpos = enemy:GetPos() +enemy:OBBCenter() + VectorRand(-10, 10),
+			filter = self
+		})
+		local hitpos = tr.HitPos
+		
+		local elec = EffectData()
+		elec:SetStart(startpos)
+		elec:SetOrigin(hitpos)
+		elec:SetEntity(self)
+		elec:SetAttachment(1)
+		util.Effect("VJ_HLR_Tau",elec)
+		
+		VJ.ApplyRadiusDamage(owner, self, hitpos, 30, 20, DMG_ENERGYBEAM, true, false, {Force=20})
+	end
 end

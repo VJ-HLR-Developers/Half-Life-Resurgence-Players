@@ -27,13 +27,13 @@ SWEP.Primary.TracerType = "VJ_HLR_Tracer"
 
 SWEP.PrimaryEffects_MuzzleAttachment = "muzzle"
 SWEP.PrimaryEffects_SpawnShells = false
+SWEP.PrimaryEffects_MuzzleFlash = false
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function SWEP:Init()
 	self:SetModelScale(0.65)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function SWEP:CustomOnPrimaryAttackEffects()
-	self.PrimaryEffects_MuzzleFlash = false
+function SWEP:PrimaryAttackEffects(owner)
 	local muz = ents.Create("env_sprite")
 	muz:SetKeyValue("model","vj_hl/sprites/muzzleflash2.vmt")
 	muz:SetKeyValue("scale",""..math.Rand(0.3,0.5))
@@ -51,5 +51,5 @@ function SWEP:CustomOnPrimaryAttackEffects()
 	muz:Spawn()
 	muz:Activate()
 	muz:Fire("Kill","",0.08)
-	return true
+	self.BaseClass.PrimaryAttackEffects(self, owner)
 end

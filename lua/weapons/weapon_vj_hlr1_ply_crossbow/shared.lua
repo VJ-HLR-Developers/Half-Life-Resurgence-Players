@@ -33,22 +33,24 @@ function SWEP:Init()
 	self:SetModelScale(0.5)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function SWEP:CustomOnPrimaryAttackEffects()
-	return false
+function SWEP:PrimaryAttackEffects(owner)
+	return
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function SWEP:CustomOnPrimaryAttack_BeforeShoot()
-	if CLIENT then return end
-	local bolt = ents.Create("obj_vj_hlr1_crossbowbolt")
-	local spawnpos = self:GetBulletPos()
-	bolt:SetPos(spawnpos)
-	bolt:SetAngles(self:GetOwner():GetAngles())
-	bolt:SetOwner(self:GetOwner())
-	bolt:Activate()
-	bolt:Spawn()
-	
-	local phys = bolt:GetPhysicsObject()
-	if IsValid(phys) then
-		phys:ApplyForceCenter(bolt:CalculateProjectile("Line", spawnpos, self:GetOwner():GetEnemy():GetPos() + self:GetOwner():GetEnemy():OBBCenter(), 4000) + Vector(math.Rand(-30,30), math.Rand(-30,30), math.Rand(-30,30)))
+function SWEP:OnPrimaryAttack(status, statusData)
+	if status == "Initial" then
+		if CLIENT then return end
+		local bolt = ents.Create("obj_vj_hlr1_crossbowbolt")
+		local spawnpos = self:GetBulletPos()
+		bolt:SetPos(spawnpos)
+		bolt:SetAngles(self:GetOwner():GetAngles())
+		bolt:SetOwner(self:GetOwner())
+		bolt:Activate()
+		bolt:Spawn()
+		
+		local phys = bolt:GetPhysicsObject()
+		if IsValid(phys) then
+			phys:ApplyForceCenter(bolt:CalculateProjectile("Line", spawnpos, self:GetOwner():GetEnemy():GetPos() + self:GetOwner():GetEnemy():OBBCenter(), 4000) + Vector(math.Rand(-30,30), math.Rand(-30,30), math.Rand(-30,30)))
+		end
 	end
 end

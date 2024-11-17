@@ -29,13 +29,13 @@ SWEP.NPC_ReloadSound = {"vj_hlr/hl1_weapon/357/357_reload1.wav"}
 SWEP.PrimaryEffects_MuzzleAttachment = "muzzle"
 SWEP.PrimaryEffects_ShellAttachment = "1"
 SWEP.PrimaryEffects_ShellType = "ShellEject"
+SWEP.PrimaryEffects_MuzzleFlash = false
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function SWEP:Init()
 	self:SetModelScale(0.5)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function SWEP:CustomOnPrimaryAttackEffects()
-	self.PrimaryEffects_MuzzleFlash = false
+function SWEP:PrimaryAttackEffects(owner)
 	local muz = ents.Create("env_sprite")
 	muz:SetKeyValue("model","vj_hl/sprites/muzzleflash2.vmt")
 	muz:SetKeyValue("scale",""..math.Rand(0.5,0.75))
@@ -53,6 +53,5 @@ function SWEP:CustomOnPrimaryAttackEffects()
 	muz:Spawn()
 	muz:Activate()
 	muz:Fire("Kill","",0.08)
-
-	return true
+	self.BaseClass.PrimaryAttackEffects(self, owner)
 end

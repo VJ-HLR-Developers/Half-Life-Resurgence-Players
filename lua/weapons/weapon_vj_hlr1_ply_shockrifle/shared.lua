@@ -36,7 +36,7 @@ function SWEP:Init()
 	self.NextReloadT = CurTime()
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function SWEP:CustomBulletSpawnPosition()
+function SWEP:OnGetBulletPos()
 	local owner = self:GetOwner()
 	local att = owner:GetAttachment(2)
 
@@ -65,19 +65,21 @@ function SWEP:OnThink()
 	end
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function SWEP:CustomOnPrimaryAttack_BeforeShoot()
-	if CLIENT then return end
-	local plasma = ents.Create("obj_vj_hlrof_plasma")
-	plasma:SetPos(self:GetBulletPos())
-	plasma:SetAngles(self:GetOwner():GetAngles())
-	plasma:SetOwner(self:GetOwner())
-	plasma:Spawn()
-	plasma:Activate()
-	
-	local phys = plasma:GetPhysicsObject()
-	if IsValid(phys) then
-		phys:SetVelocity(self:GetOwner():CalculateProjectile("Line", self:GetBulletPos(), self:GetOwner():GetEnemy():GetPos() + self:GetOwner():GetEnemy():OBBCenter(), 10000))
-	end
+function SWEP:OnPrimaryAttack(status, statusData)
+	if status == "Initial" then
+		if CLIENT then return end
+		local plasma = ents.Create("obj_vj_hlrof_plasma")
+		plasma:SetPos(self:GetBulletPos())
+		plasma:SetAngles(self:GetOwner():GetAngles())
+		plasma:SetOwner(self:GetOwner())
+		plasma:Spawn()
+		plasma:Activate()
+		
+		local phys = plasma:GetPhysicsObject()
+		if IsValid(phys) then
+			phys:SetVelocity(self:GetOwner():CalculateProjectile("Line", self:GetBulletPos(), self:GetOwner():GetEnemy():GetPos() + self:GetOwner():GetEnemy():OBBCenter(), 10000))
+		end
 
-	self.NextReloadT = CurTime() +2.5
+		self.NextReloadT = CurTime() +2.5
+	end
 end

@@ -25,44 +25,46 @@ SWEP.Primary.Sound = {"vj_hlr/hl1_weapon/rpg/rocketfire1.wav"}
 SWEP.Primary.DistantSound = {"vj_hlr/hl1_weapon/rpg/rocketfire1_distant.wav"}
 
 SWEP.PrimaryEffects_SpawnShells = false
+SWEP.PrimaryEffects_MuzzleFlash = false
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function SWEP:Init()
 	self:SetModelScale(0.5)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function SWEP:CustomBulletSpawnPosition()
+function SWEP:OnGetBulletPos()
 	return self:GetAttachment(1).Pos
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function SWEP:CustomOnPrimaryAttack_BeforeShoot()
-	if CLIENT then return end
-	local rocket = ents.Create("obj_vj_hlr1_rocket")
-	rocket:SetPos(self:GetBulletPos())
-	rocket:SetAngles(self:GetOwner():GetAngles())
-	rocket:SetOwner(self:GetOwner())
-	rocket:Spawn()
-	rocket:Activate()
-	rocket.HasIdleSounds = false
-	local phys = rocket:GetPhysicsObject()
-	phys:SetVelocity(rocket:GetForward() * -50 + rocket:GetRight() * -16 - rocket:GetUp() * -50)
-	timer.Simple(0.33, function()
-		if IsValid(self) then
-			rocket.HasIdleSounds = true
-			if IsValid(phys) then
-				phys:SetVelocity(self:GetOwner():CalculateProjectile("Line", self:GetBulletPos(), self:GetOwner():GetEnemy():GetPos() + self:GetOwner():GetEnemy():OBBCenter(), 1700))
-				rocket:SetAngles(rocket:GetVelocity():GetNormal():Angle())
+function SWEP:OnPrimaryAttack(status, statusData)
+	if status == "Initial" then
+		if CLIENT then return end
+		local rocket = ents.Create("obj_vj_hlr1_rocket")
+		rocket:SetPos(self:GetBulletPos())
+		rocket:SetAngles(self:GetOwner():GetAngles())
+		rocket:SetOwner(self:GetOwner())
+		rocket:Spawn()
+		rocket:Activate()
+		rocket.HasIdleSounds = false
+		local phys = rocket:GetPhysicsObject()
+		phys:SetVelocity(rocket:GetForward() * -50 + rocket:GetRight() * -16 - rocket:GetUp() * -50)
+		timer.Simple(0.33, function()
+			if IsValid(self) then
+				rocket.HasIdleSounds = true
+				if IsValid(phys) then
+					phys:SetVelocity(self:GetOwner():CalculateProjectile("Line", self:GetBulletPos(), self:GetOwner():GetEnemy():GetPos() + self:GetOwner():GetEnemy():OBBCenter(), 1700))
+					rocket:SetAngles(rocket:GetVelocity():GetNormal():Angle())
+				end
 			end
-		end
-	end)
-	//if IsValid(phys) then
-	//	phys:SetVelocity(self:GetOwner():CalculateProjectile("Line", self:GetBulletPos(), self:GetOwner():GetEnemy():GetPos() + self:GetOwner():GetEnemy():OBBCenter(), 3000))
-	//end
+		end)
+		//if IsValid(phys) then
+		//	phys:SetVelocity(self:GetOwner():CalculateProjectile("Line", self:GetBulletPos(), self:GetOwner():GetEnemy():GetPos() + self:GetOwner():GetEnemy():OBBCenter(), 3000))
+		//end
 
-	self.NextReloadT = CurTime() +2.5
+		self.NextReloadT = CurTime() +2.5
+	end
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function SWEP:CustomOnPrimaryAttackEffects()
-	self.PrimaryEffects_MuzzleFlash = false
+function SWEP:PrimaryAttackEffects(owner)
 	local muz = ents.Create("env_sprite")
 	muz:SetKeyValue("model","vj_hl/sprites/muzzleflash2.vmt")
 	muz:SetKeyValue("scale",""..math.Rand(1,1.2))
@@ -80,5 +82,5 @@ function SWEP:CustomOnPrimaryAttackEffects()
 	muz:Spawn()
 	muz:Activate()
 	muz:Fire("Kill","",0.08)
-	return true
+	self.BaseClass.PrimaryAttackEffects(self, owner)
 end

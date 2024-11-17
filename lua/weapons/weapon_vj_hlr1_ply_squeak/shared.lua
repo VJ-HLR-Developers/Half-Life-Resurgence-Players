@@ -37,29 +37,30 @@ function SWEP:Init()
 	self:SetModelScale(0.5)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function SWEP:CustomBulletSpawnPosition()
+function SWEP:OnGetBulletPos()
 	local owner = self:GetOwner()
-
-	return owner:EyePos() +owner:GetForward() *15
+	return owner:EyePos() + owner:GetForward()*15
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function SWEP:CustomOnPrimaryAttackEffects()
-	return false
+function SWEP:PrimaryAttackEffects(owner)
+	return
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function SWEP:CustomOnPrimaryAttack_BeforeShoot()
-	if CLIENT then return end
-	local owner = self.Owner
-	local snark = ents.Create(self.ThrowableNPC)
-	snark:SetPos(self:GetBulletPos())
-	snark:SetAngles(owner:GetAngles())
-	snark:SetOwner(owner)
-	snark:Spawn()
-	snark.VJ_NPC_Class = owner.VJ_NPC_Class
-	snark.FriendsWithAllPlayerAllies = owner.FriendsWithAllPlayerAllies
-	table.insert(snark.VJ_AddCertainEntityAsFriendly,owner)
-	table.insert(owner.VJ_AddCertainEntityAsFriendly,snark)
-	
-	snark:SetGroundEntity(NULL)
-	snark:SetLocalVelocity(((owner:GetEnemy():GetPos() +owner:GetEnemy():OBBCenter()) -snark:GetPos()):GetNormalized() *500)
+function SWEP:OnPrimaryAttack(status, statusData)
+	if status == "Initial" then
+		if CLIENT then return end
+		local owner = self.Owner
+		local snark = ents.Create(self.ThrowableNPC)
+		snark:SetPos(self:GetBulletPos())
+		snark:SetAngles(owner:GetAngles())
+		snark:SetOwner(owner)
+		snark:Spawn()
+		snark.VJ_NPC_Class = owner.VJ_NPC_Class
+		snark.FriendsWithAllPlayerAllies = owner.FriendsWithAllPlayerAllies
+		table.insert(snark.VJ_AddCertainEntityAsFriendly,owner)
+		table.insert(owner.VJ_AddCertainEntityAsFriendly,snark)
+		
+		snark:SetGroundEntity(NULL)
+		snark:SetLocalVelocity(((owner:GetEnemy():GetPos() +owner:GetEnemy():OBBCenter()) -snark:GetPos()):GetNormalized() *500)
+	end
 end

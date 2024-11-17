@@ -30,13 +30,13 @@ SWEP.Primary.Sound				= {"vj_hlr/hl1_weapon/shotgun/sbarrel1.wav"}
 SWEP.Primary.DistantSound		= {"vj_hlr/hl1_weapon/shotgun/sbarrel1_distant2.wav"}
 
 SWEP.PrimaryEffects_ShellType = "ShotgunShellEject"
+SWEP.PrimaryEffects_MuzzleFlash = false
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function SWEP:Init()
 	self:SetModelScale(0.85)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function SWEP:CustomOnPrimaryAttackEffects()
-	self.PrimaryEffects_MuzzleFlash = false
+function SWEP:PrimaryAttackEffects(owner)
 	local muz = ents.Create("env_sprite")
 	muz:SetKeyValue("model","vj_hl/sprites/muzzleflash2.vmt")
 	muz:SetKeyValue("scale",""..math.Rand(0.3,0.5))
@@ -54,5 +54,5 @@ function SWEP:CustomOnPrimaryAttackEffects()
 	muz:Spawn()
 	muz:Activate()
 	muz:Fire("Kill","",0.08)
-	return true
+	self.BaseClass.PrimaryAttackEffects(self, owner)
 end

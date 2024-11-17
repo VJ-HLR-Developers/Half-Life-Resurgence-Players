@@ -33,25 +33,27 @@ function SWEP:Init()
 	self:SetModelScale(0.5)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function SWEP:CustomBulletSpawnPosition()
+function SWEP:OnGetBulletPos()
 	return self:GetAttachment(1).Pos
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function SWEP:CustomOnPrimaryAttackEffects()
-	return false
+function SWEP:PrimaryAttackEffects(owner)
+	return
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function SWEP:CustomOnPrimaryAttack_BeforeShoot()
-	if CLIENT then return end
-	local plasma = ents.Create("obj_vj_hlrof_grenade_spore")
-	plasma:SetPos(self:GetBulletPos())
-	plasma:SetAngles(self:GetOwner():GetAngles())
-	plasma:SetOwner(self:GetOwner())
-	plasma:Spawn()
-	plasma:Activate()
-	
-	local phys = plasma:GetPhysicsObject()
-	if IsValid(phys) then
-		phys:SetVelocity(self:GetOwner():CalculateProjectile("Line", self:GetBulletPos(), self:GetOwner():GetEnemy():GetPos() + self:GetOwner():GetEnemy():OBBCenter(), 1500))
+function SWEP:OnPrimaryAttack(status, statusData)
+	if status == "Initial" then
+		if CLIENT then return end
+		local plasma = ents.Create("obj_vj_hlrof_grenade_spore")
+		plasma:SetPos(self:GetBulletPos())
+		plasma:SetAngles(self:GetOwner():GetAngles())
+		plasma:SetOwner(self:GetOwner())
+		plasma:Spawn()
+		plasma:Activate()
+		
+		local phys = plasma:GetPhysicsObject()
+		if IsValid(phys) then
+			phys:SetVelocity(self:GetOwner():CalculateProjectile("Line", self:GetBulletPos(), self:GetOwner():GetEnemy():GetPos() + self:GetOwner():GetEnemy():OBBCenter(), 1500))
+		end
 	end
 end

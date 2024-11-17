@@ -23,6 +23,7 @@ SWEP.Primary.Damage = 5
 SWEP.Primary.ClipSize = 50
 SWEP.Primary.Ammo = "SMG1"
 SWEP.Primary.TracerType = "VJ_HLR_Tracer"
+SWEP.PrimaryEffects_MuzzleFlash = false
 SWEP.Primary.Sound				= {"vj_hlr/hl1_weapon/saw/saw_fire1.wav","vj_hlr/hl1_weapon/saw/saw_fire2.wav","vj_hlr/hl1_weapon/saw/saw_fire3.wav"}
 SWEP.Primary.DistantSound		= {"vj_hlr/hl1_weapon/saw/saw_distant2.wav"}
 ---------------------------------------------------------------------------------------------------------------------------------------------
@@ -30,8 +31,7 @@ function SWEP:Init()
 	self:SetModelScale(0.8)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function SWEP:CustomOnPrimaryAttackEffects()
-	self.PrimaryEffects_MuzzleFlash = false
+function SWEP:PrimaryAttackEffects(owner)
 	local muz = ents.Create("env_sprite")
 	muz:SetKeyValue("model","vj_hl/sprites/muzzleflash1.vmt")
 	muz:SetKeyValue("scale",""..math.Rand(0.3,0.5))
@@ -49,5 +49,5 @@ function SWEP:CustomOnPrimaryAttackEffects()
 	muz:Spawn()
 	muz:Activate()
 	muz:Fire("Kill","",0.08)
-	return true
+	self.BaseClass.PrimaryAttackEffects(self, owner)
 end

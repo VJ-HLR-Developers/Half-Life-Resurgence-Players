@@ -29,21 +29,21 @@ SWEP.HasDryFireSound = false
 
 SWEP.PrimaryEffects_SpawnMuzzleFlash = false
 SWEP.PrimaryEffects_SpawnShells = false
+SWEP.PrimaryEffects_MuzzleFlash = false
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function SWEP:Init()
 	self:SetModelScale(0.5)
 	self.NextReloadT = CurTime()
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function SWEP:CustomBulletSpawnPosition()
+function SWEP:OnGetBulletPos()
 	local owner = self:GetOwner()
 	local att = owner:GetAttachment(2)
 
 	return att.Pos +att.Ang:Forward() *20
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function SWEP:CustomOnPrimaryAttackEffects()
-	self.PrimaryEffects_MuzzleFlash = false
+function SWEP:PrimaryAttackEffects(owner)
 	local muz = ents.Create("env_sprite")
 	muz:SetKeyValue("model","vj_hl/sprites/muz4.vmt")
 	muz:SetKeyValue("scale",""..math.Rand(0.3,0.5))
@@ -55,15 +55,14 @@ function SWEP:CustomOnPrimaryAttackEffects()
 	muz:SetKeyValue("disablereceiveshadows","0") -- Disable receiving shadows
 	muz:SetKeyValue("framerate","10.0") -- Rate at which the sprite should animate, if at all.
 	muz:SetKeyValue("spawnflags","0")
-	muz:SetPos(self:CustomBulletSpawnPosition())
+	muz:SetPos(self:OnGetBulletPos())
 	-- muz:SetParent(self)
 	-- muz:Fire("SetParentAttachment",self.PrimaryEffects_MuzzleAttachment)
 	muz:SetAngles(Angle(math.random(-100, 100), math.random(-100, 100), math.random(-100, 100)))
 	muz:Spawn()
 	muz:Activate()
 	muz:Fire("Kill","",0.08)
-
-	return true
+	self.BaseClass.PrimaryAttackEffects(self, owner)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function SWEP:NPC_Reload()
@@ -87,21 +86,23 @@ function SWEP:OnThink()
 	end
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function SWEP:CustomOnPrimaryAttack_BeforeShoot()
-	if CLIENT then return end
-	local bolt = ents.Create("obj_vj_hlr1_hornet")
-	local spawnpos = self:GetBulletPos()
-	bolt:SetPos(spawnpos)
-	bolt:SetAngles(self:GetOwner():GetAngles())
-	bolt:SetOwner(self:GetOwner())
-	bolt:Activate()
-	bolt:Spawn()
+function SWEP:OnPrimaryAttack(status, statusData)
+	if status == "Initial" then
+		if CLIENT then return end
+		local bolt = ents.Create("obj_vj_hlr1_hornet")
+		local spawnpos = self:GetBulletPos()
+		bolt:SetPos(spawnpos)
+		bolt:SetAngles(self:GetOwner():GetAngles())
+		bolt:SetOwner(self:GetOwner())
+		bolt:Activate()
+		bolt:Spawn()
 
-	self.NextReloadT = CurTime() +1
-	
-	local phys = bolt:GetPhysicsObject()
-	if IsValid(phys) then
-		bolt.Track_Enemy = self:GetOwner():GetEnemy()
-		phys:ApplyForceCenter(bolt:CalculateProjectile("Line", spawnpos, self:GetOwner():GetEnemy():GetPos() + self:GetOwner():GetEnemy():OBBCenter(), 4000) + Vector(math.Rand(-30,30), math.Rand(-30,30), math.Rand(-30,30)))
+		self.NextReloadT = CurTime() +1
+		
+		local phys = bolt:GetPhysicsObject()
+		if IsValid(phys) then
+			bolt.Track_Enemy = self:GetOwner():GetEnemy()
+			phys:ApplyForceCenter(bolt:CalculateProjectile("Line", spawnpos, self:GetOwner():GetEnemy():GetPos() + self:GetOwner():GetEnemy():OBBCenter(), 4000) + Vector(math.Rand(-30,30), math.Rand(-30,30), math.Rand(-30,30)))
+		end
 	end
 end
