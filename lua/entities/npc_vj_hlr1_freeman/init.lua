@@ -17,7 +17,7 @@ ENT.VJC_Data = {
     FirstP_Offset = Vector(3, 0, 5),
 }
 ---------------------------------------------------------------------------------------------------------------------------------------------
-ENT.BloodColor = "Red"
+ENT.BloodColor = VJ.BLOOD_COLOR_RED
 ENT.CustomBlood_Particle = {"vj_hlr_blood_red"}
 ENT.CustomBlood_Decal = {"VJ_HLR_Blood_Red"}
 ENT.HasBloodPool = false
@@ -42,11 +42,11 @@ ENT.Weapon_WaitOnOcclusion = false
 ENT.HasCallForHelpAnimation = false
 
 ENT.Weapon_NoSpawnMenu = true
--- ENT.CanCrouchOnWeaponAttack = false
+-- ENT.Weapon_CanCrouchAttack = false
 -- ENT.DisableWeaponReloadAnimation = true
 
 ENT.AnimTbl_WeaponAttackSecondary = {"shoot_m203"}
-ENT.WeaponAttackSecondaryTimeUntilFire = 0.05
+ENT.Weapon_SecondaryFireTime = 0.05
 
 ENT.AnimTbl_ShootWhileMovingWalk = {ACT_RUN_AIM}
 ENT.Weapon_StrafeWhileFiringDelay = VJ.SET(0, 0.2) -- How much time until it can randomly move again?

@@ -6,7 +6,7 @@ include("shared.lua")
 	without the prior written consent of the author, unless otherwise indicated for stand-alone materials.
 -----------------------------------------------*/
 ENT.Model = {"models/vj_hlr/hl1mp/zombie.mdl"}
-ENT.BloodColor = "Yellow" -- The blood type, this will determine what it should use (decal, particle, etc.)
+ENT.BloodColor = VJ.BLOOD_COLOR_YELLOW -- The blood type, this will determine what it should use (decal, particle, etc.)
 ENT.CustomBlood_Particle = {"vj_hlr_blood_yellow"}
 ENT.CustomBlood_Decal = {"VJ_HLR_Blood_Yellow"} -- Decals to spawn when it's damaged
 ---------------------------------------------------------------------------------------------------------------------------------------------
