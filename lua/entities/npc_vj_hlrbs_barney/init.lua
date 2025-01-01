@@ -23,4 +23,5 @@ function ENT:Init()
 			"weapon_vj_hlr1_ply_crossbow",
 		},
 	}
+	self.BaseClass.Init(self)
 end

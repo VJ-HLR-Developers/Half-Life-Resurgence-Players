@@ -29,4 +29,5 @@ function ENT:Init()
 			"weapon_vj_hlr1_ply_m40a1",
 		},
 	}
+	self.BaseClass.Init(self)
 end

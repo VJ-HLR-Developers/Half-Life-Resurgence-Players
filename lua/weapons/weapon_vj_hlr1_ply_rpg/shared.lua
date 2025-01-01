@@ -48,7 +48,7 @@ function SWEP:OnPrimaryAttack(status, statusData)
 		local phys = rocket:GetPhysicsObject()
 		phys:SetVelocity(rocket:GetForward() * -50 + rocket:GetRight() * -16 - rocket:GetUp() * -50)
 		timer.Simple(0.33, function()
-			if IsValid(self) then
+			if IsValid(self) && IsValid(self:GetOwner()) && IsValid(self:GetOwner():GetEnemy()) then
 				rocket.HasIdleSounds = true
 				if IsValid(phys) then
 					phys:SetVelocity(self:GetOwner():CalculateProjectile("Line", self:GetBulletPos(), self:GetOwner():GetEnemy():GetPos() + self:GetOwner():GetEnemy():OBBCenter(), 1700))
