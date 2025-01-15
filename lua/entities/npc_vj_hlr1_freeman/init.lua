@@ -18,8 +18,8 @@ ENT.VJC_Data = {
 }
 ---------------------------------------------------------------------------------------------------------------------------------------------
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
-ENT.CustomBlood_Particle = {"vj_hlr_blood_red"}
-ENT.CustomBlood_Decal = {"VJ_HLR_Blood_Red"}
+ENT.BloodParticle = {"vj_hlr_blood_red"}
+ENT.BloodDecal = {"VJ_HLR_Blood_Red"}
 ENT.HasBloodPool = false
 
 ENT.VJ_NPC_Class = {"CLASS_PLAYER_ALLY"}
