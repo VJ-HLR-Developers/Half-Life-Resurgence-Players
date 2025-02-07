@@ -57,9 +57,8 @@ function SWEP:OnPrimaryAttack(status, statusData)
 		snark:Spawn()
 		snark.VJ_NPC_Class = owner.VJ_NPC_Class
 		snark.FriendsWithAllPlayerAllies = owner.FriendsWithAllPlayerAllies
-		table.insert(snark.VJ_AddCertainEntityAsFriendly,owner)
-		table.insert(owner.VJ_AddCertainEntityAsFriendly,snark)
-		
+		owner:SetRelationshipMemory(snark, VJ.MEM_OVERRIDE_DISPOSITION, D_LI) -- In case relation class is changed dynamically!
+		snark:SetRelationshipMemory(owner, VJ.MEM_OVERRIDE_DISPOSITION, D_LI) -- In case relation class is changed dynamically!
 		snark:SetGroundEntity(NULL)
 		snark:SetLocalVelocity(((owner:GetEnemy():GetPos() +owner:GetEnemy():OBBCenter()) -snark:GetPos()):GetNormalized() *500)
 	end

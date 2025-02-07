@@ -111,7 +111,7 @@ function ENT:OnThinkActive()
 	local dist = self.NearestPointToEnemyDistance
 	if IsValid(ent) then
 		local wep = self:GetActiveWeapon()
-		if self.WeaponInventoryStatus == VJ.NPC_WEP_INVENTORY_MELEE then return end
+		if self.WeaponInventoryStatus == VJ.WEP_INVENTORY_MELEE then return end
 		local selectType = false
 		if dist > 2200 then
 			selectType = "Far"
@@ -319,7 +319,7 @@ function ENT:OnThink()
 	end
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:OnPlayCreateSound(sdData, sdFile)
+function ENT:OnCreateSound(sdData, sdFile)
 	self.NextMouthMove = CurTime() + SoundDuration(sdFile)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
