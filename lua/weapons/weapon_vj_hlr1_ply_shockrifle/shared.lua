@@ -33,7 +33,7 @@ SWEP.PrimaryEffects_MuzzleParticles = {"vj_hlr_shockroach_muzzle"}
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function SWEP:Init()
 	self:SetModelScale(0.5)
-	self.NextReloadT = CurTime()
+	self.PLY_NextReloadT = CurTime()
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function SWEP:OnGetBulletPos()
@@ -54,10 +54,10 @@ function SWEP:OnThink()
 	if SERVER then
 		local owner = self:GetOwner()
 		self.LastClip = self:Clip1()
-		if CurTime() > self.NextReloadT && self:Clip1() < self:GetMaxClip1() then
+		if CurTime() > self.PLY_NextReloadT && self:Clip1() < self:GetMaxClip1() then
 			self:SetClip1(self:Clip1() +1)
 			self:EmitSound("vj_hlr/hl1_weapon/shockroach/shock_recharge.wav")
-			self.NextReloadT = CurTime() +0.5
+			self.PLY_NextReloadT = CurTime() +0.5
 			owner:SetWeaponState(VJ.WEP_STATE_RELOADING)
 		elseif self:Clip1() >= self:GetMaxClip1() then
 			owner:SetWeaponState()
@@ -80,6 +80,6 @@ function SWEP:OnPrimaryAttack(status, statusData)
 			phys:SetVelocity(self:GetOwner():CalculateProjectile("Line", self:GetBulletPos(), self:GetOwner():GetEnemy():GetPos() + self:GetOwner():GetEnemy():OBBCenter(), 10000))
 		end
 
-		self.NextReloadT = CurTime() +2.5
+		self.PLY_NextReloadT = CurTime() +2.5
 	end
 end

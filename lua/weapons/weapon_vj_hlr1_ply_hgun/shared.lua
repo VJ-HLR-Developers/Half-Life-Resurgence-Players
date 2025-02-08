@@ -33,7 +33,7 @@ SWEP.PrimaryEffects_MuzzleFlash = false
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function SWEP:Init()
 	self:SetModelScale(0.5)
-	self.NextReloadT = CurTime()
+	self.PLY_NextReloadT = CurTime()
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function SWEP:OnGetBulletPos()
@@ -76,9 +76,9 @@ function SWEP:OnThink()
 	if SERVER then
 		local owner = self:GetOwner()
 		self.LastClip = self:Clip1()
-		if CurTime() > self.NextReloadT && self:Clip1() < self:GetMaxClip1() then
+		if CurTime() > self.PLY_NextReloadT && self:Clip1() < self:GetMaxClip1() then
 			self:SetClip1(self:Clip1() +1)
-			self.NextReloadT = CurTime() +1
+			self.PLY_NextReloadT = CurTime() +1
 			owner:SetWeaponState(VJ.WEP_STATE_RELOADING)
 		elseif self:Clip1() >= self:GetMaxClip1() then
 			owner:SetWeaponState()
@@ -97,7 +97,7 @@ function SWEP:OnPrimaryAttack(status, statusData)
 		bolt:Activate()
 		bolt:Spawn()
 
-		self.NextReloadT = CurTime() +1
+		self.PLY_NextReloadT = CurTime() +1
 		
 		local phys = bolt:GetPhysicsObject()
 		if IsValid(phys) then

@@ -60,7 +60,7 @@ function SWEP:OnPrimaryAttack(status, statusData)
 		//	phys:SetVelocity(self:GetOwner():CalculateProjectile("Line", self:GetBulletPos(), self:GetOwner():GetEnemy():GetPos() + self:GetOwner():GetEnemy():OBBCenter(), 3000))
 		//end
 
-		self.NextReloadT = CurTime() +2.5
+		self.PLY_NextReloadT = CurTime() +2.5
 	end
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
