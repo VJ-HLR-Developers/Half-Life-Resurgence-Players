@@ -11,7 +11,7 @@ ENT.HasHealthRegeneration = true
 ENT.HealthRegenerationAmount = 2
 ENT.HealthRegenerationDelay = VJ.SET(0.5,0.5)
 ENT.HullType = HULL_HUMAN
-ENT.VJC_Data = {
+ENT.ControllerVars = {
     ThirdP_Offset = Vector(0, 0, -15),
     FirstP_Bone = "Bip01 Head",
     FirstP_Offset = Vector(3, 0, 5),
@@ -39,7 +39,7 @@ ENT.NextAnyAttackTime_Melee = 0.25
 ENT.HasGrenadeAttack = false -- we use a seperate weapon for that
 
 ENT.Weapon_WaitOnOcclusion = false
-ENT.HasCallForHelpAnimation = false
+ENT.AnimTbl_CallForHelp = false
 
 ENT.Weapon_NoSpawnMenu = true
 -- ENT.Weapon_CanCrouchAttack = false
