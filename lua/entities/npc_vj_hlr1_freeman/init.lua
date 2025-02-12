@@ -5,13 +5,13 @@ include("shared.lua")
 	No parts of this code or any of its contents may be reproduced, copied, modified or adapted,
 	without the prior written consent of the author, unless otherwise indicated for stand-alone materials.
 -----------------------------------------------*/
-ENT.Model = {"models/vj_hlr/hl1mp/gordon.mdl"}
+ENT.Model = "models/vj_hlr/hl1mp/gordon.mdl"
 ENT.StartHealth = 200
 ENT.HasHealthRegeneration = true
 ENT.HealthRegenerationAmount = 2
-ENT.HealthRegenerationDelay = VJ.SET(0.5,0.5)
+ENT.HealthRegenerationDelay = VJ.SET(0.5, 0.5)
 ENT.HullType = HULL_HUMAN
-ENT.ControllerVars = {
+ENT.ControllerParameters = {
     ThirdP_Offset = Vector(0, 0, -15),
     FirstP_Bone = "Bip01 Head",
     FirstP_Offset = Vector(3, 0, 5),
@@ -36,7 +36,7 @@ ENT.TimeUntilMeleeAttackDamage = false
 ENT.NextMeleeAttackTime_DoRand = 0.25
 ENT.NextAnyAttackTime_Melee = 0.25
 
-ENT.HasGrenadeAttack = false -- we use a seperate weapon for that
+ENT.HasGrenadeAttack = false -- we use a separate weapon for that
 
 ENT.Weapon_WaitOnOcclusion = false
 ENT.AnimTbl_CallForHelp = false
@@ -49,7 +49,7 @@ ENT.AnimTbl_WeaponAttackSecondary = {"shoot_m203"}
 ENT.Weapon_SecondaryFireTime = 0.05
 
 ENT.AnimTbl_ShootWhileMovingWalk = {ACT_RUN_AIM}
-ENT.Weapon_StrafeWhileFiringDelay = VJ.SET(0, 0.2) -- How much time until it can randomly move again?
+ENT.Weapon_StrafeWhileFiringDelay = VJ.SET(0, 0.2)
 
 ENT.FootStepTimeRun = 0.3
 ENT.FootStepTimeWalk = 0.38
@@ -57,7 +57,7 @@ ENT.FootStepTimeWalk = 0.38
 ENT.HasDeathAnimation = true
 ENT.AnimTbl_Death = {ACT_DIEBACKWARD,ACT_DIEFORWARD,ACT_DIE_GUTSHOT,ACT_DIE_HEADSHOT,ACT_DIESIMPLE}
 
-ENT.SoundTbl_FootStep = {"vj_hlr/pl_step1.wav","vj_hlr/pl_step2.wav","vj_hlr/pl_step3.wav","vj_hlr/pl_step4.wav"}
+ENT.SoundTbl_FootStep = {"vj_hlr/pl_step1.wav", "vj_hlr/pl_step2.wav", "vj_hlr/pl_step3.wav", "vj_hlr/pl_step4.wav"}
 ENT.SoundTbl_Death = {"vj_hlr/hl1mp_npc/death_flatline1.wav","vj_hlr/hl1mp_npc/death_flatline2.wav"}
 
 ENT.DeathSoundLevel = 60
