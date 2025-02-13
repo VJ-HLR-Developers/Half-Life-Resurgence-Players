@@ -11,7 +11,7 @@ ENT.HasHealthRegeneration = true
 ENT.HealthRegenerationAmount = 2
 ENT.HealthRegenerationDelay = VJ.SET(0.5, 0.5)
 ENT.HullType = HULL_HUMAN
-ENT.ControllerParameters = {
+ENT.ControllerParams = {
     ThirdP_Offset = Vector(0, 0, -15),
     FirstP_Bone = "Bip01 Head",
     FirstP_Offset = Vector(3, 0, 5),
@@ -23,14 +23,14 @@ ENT.BloodDecal = {"VJ_HLR_Blood_Red"}
 ENT.HasBloodPool = false
 
 ENT.VJ_NPC_Class = {"CLASS_PLAYER_ALLY"}
-ENT.FriendsWithAllPlayerAllies = true
+ENT.AlliedWithPlayerAllies = true
 
 ENT.PoseParameterLooking_InvertPitch = true
 
 ENT.WeaponInventory_MeleeList = {"weapon_vj_hlr1_ply_crowbar"}
 
 ENT.HasMeleeAttack = false
-ENT.AnimTbl_MeleeAttack = {"vjges_shoot_crowbar"}
+ENT.AnimTbl_MeleeAttack = "vjges_shoot_crowbar"
 ENT.MeleeAttackDamage = 10
 ENT.TimeUntilMeleeAttackDamage = false
 ENT.NextMeleeAttackTime_DoRand = 0.25
@@ -45,10 +45,10 @@ ENT.Weapon_NoSpawnMenu = true
 -- ENT.Weapon_CanCrouchAttack = false
 -- ENT.DisableWeaponReloadAnimation = true
 
-ENT.AnimTbl_WeaponAttackSecondary = {"shoot_m203"}
+ENT.AnimTbl_WeaponAttackSecondary = "shoot_m203"
 ENT.Weapon_SecondaryFireTime = 0.05
 
-ENT.AnimTbl_ShootWhileMovingWalk = {ACT_RUN_AIM}
+ENT.AnimTbl_ShootWhileMovingWalk = ACT_RUN_AIM
 ENT.Weapon_StrafeWhileFiringDelay = VJ.SET(0, 0.2)
 
 ENT.FootStepTimeRun = 0.3

@@ -56,7 +56,7 @@ function SWEP:OnPrimaryAttack(status, statusData)
 		snark:SetOwner(owner)
 		snark:Spawn()
 		snark.VJ_NPC_Class = owner.VJ_NPC_Class
-		snark.FriendsWithAllPlayerAllies = owner.FriendsWithAllPlayerAllies
+		snark.AlliedWithPlayerAllies = owner.AlliedWithPlayerAllies
 		owner:SetRelationshipMemory(snark, VJ.MEM_OVERRIDE_DISPOSITION, D_LI) -- In case relation class is changed dynamically!
 		snark:SetRelationshipMemory(owner, VJ.MEM_OVERRIDE_DISPOSITION, D_LI) -- In case relation class is changed dynamically!
 		snark:SetGroundEntity(NULL)
