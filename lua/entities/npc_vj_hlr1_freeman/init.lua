@@ -33,15 +33,15 @@ ENT.HasMeleeAttack = false
 ENT.AnimTbl_MeleeAttack = "vjges_shoot_crowbar"
 ENT.MeleeAttackDamage = 10
 ENT.TimeUntilMeleeAttackDamage = false
-ENT.NextMeleeAttackTime_DoRand = 0.25
+ENT.NextMeleeAttackTime = VJ.SET(0, 0.25)
 ENT.NextAnyAttackTime_Melee = 0.25
 
 ENT.HasGrenadeAttack = false -- we use a separate weapon for that
 
-ENT.Weapon_WaitOnOcclusion = false
+ENT.Weapon_OcclusionDelay = false
 ENT.AnimTbl_CallForHelp = false
 
-ENT.Weapon_NoSpawnMenu = true
+ENT.Weapon_IgnoreSpawnMenu = true
 -- ENT.Weapon_CanCrouchAttack = false
 -- ENT.DisableWeaponReloadAnimation = true
 
@@ -49,10 +49,10 @@ ENT.AnimTbl_WeaponAttackSecondary = "shoot_m203"
 ENT.Weapon_SecondaryFireTime = 0.05
 
 ENT.AnimTbl_ShootWhileMovingWalk = ACT_RUN_AIM
-ENT.Weapon_StrafeWhileFiringDelay = VJ.SET(0, 0.2)
+ENT.Weapon_StrafeCooldown = VJ.SET(0, 0.2)
 
-ENT.FootStepTimeRun = 0.3
-ENT.FootStepTimeWalk = 0.38
+ENT.FootstepTimerRun = 0.3
+ENT.FootstepTimerWalk = 0.38
 
 ENT.HasDeathAnimation = true
 ENT.AnimTbl_Death = {ACT_DIEBACKWARD,ACT_DIEFORWARD,ACT_DIE_GUTSHOT,ACT_DIE_HEADSHOT,ACT_DIESIMPLE}
@@ -375,8 +375,8 @@ end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:OnFootstepSound(moveType, sdFile)
 	if moveType == "Walk" then
-		self.FootStepSoundLevel = 52
+		self.FootstepSoundLevel = 52
 	elseif moveType == "Run" then
-		self.FootStepSoundLevel = 70
+		self.FootstepSoundLevel = 70
 	end
 end
