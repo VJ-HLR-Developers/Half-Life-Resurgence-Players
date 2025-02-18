@@ -9,12 +9,12 @@ ENT.Model = {"models/vj_hlr/hl1mp/dm_colette.mdl"}
 
 
 ENT.SoundTbl_CombatIdle = {"vj_hlr/hl1mp_npc/colette/colette_attack0.wav","vj_hlr/hl1mp_npc/colette/colette_attack1.wav","vj_hlr/hl1mp_npc/colette/colette_attack2.wav","vj_hlr/hl1mp_npc/colette/colette_attack3.wav","vj_hlr/hl1mp_npc/colette/colette_attacked2.wav"}
-ENT.SoundTbl_OnReceiveOrder = {"vj_hlr/hl1mp_npc/colette/colette_use2.wav","vj_hlr/hl1mp_npc/colette/colette_use3.wav"}
+ENT.SoundTbl_ReceiveOrder = {"vj_hlr/hl1mp_npc/colette/colette_use2.wav","vj_hlr/hl1mp_npc/colette/colette_use3.wav"}
 ENT.SoundTbl_FollowPlayer = {"vj_hlr/hl1mp_npc/colette/colette_use0.wav","vj_hlr/hl1mp_npc/colette/colette_use1.wav","vj_hlr/hl1mp_npc/colette/colette_use2.wav","vj_hlr/hl1mp_npc/colette/colette_use3.wav","vj_hlr/hl1mp_npc/colette/colette_use4.wav","vj_hlr/hl1mp_npc/colette/colette_use5.wav"}
 ENT.SoundTbl_UnFollowPlayer = {"vj_hlr/hl1mp_npc/colette/colette_unuse0.wav","vj_hlr/hl1mp_npc/colette/colette_unuse1.wav","vj_hlr/hl1mp_npc/colette/colette_unuse2.wav","vj_hlr/hl1mp_npc/colette/colette_unuse3.wav","vj_hlr/hl1mp_npc/colette/colette_unuse4.wav"}
 ENT.SoundTbl_BecomeEnemyToPlayer = {"vj_hlr/hl1mp_npc/colette/colette_attack3.wav"}
 ENT.SoundTbl_WeaponReload = {"vj_hlr/hl1mp_npc/colette/colette_attacked3.wav"}
-ENT.SoundTbl_OnKilledEnemy = {"vj_hlr/hl1mp_npc/colette/colette_kill0.wav","vj_hlr/hl1mp_npc/colette/colette_kill1.wav","vj_hlr/hl1mp_npc/colette/colette_kill2.wav","vj_hlr/hl1mp_npc/colette/colette_kill3.wav","vj_hlr/hl1mp_npc/colette/colette_kill4.wav"}
+ENT.SoundTbl_KilledEnemy = {"vj_hlr/hl1mp_npc/colette/colette_kill0.wav","vj_hlr/hl1mp_npc/colette/colette_kill1.wav","vj_hlr/hl1mp_npc/colette/colette_kill2.wav","vj_hlr/hl1mp_npc/colette/colette_kill3.wav","vj_hlr/hl1mp_npc/colette/colette_kill4.wav"}
 ENT.SoundTbl_AllyDeath = {"vj_hlr/hl1mp_npc/colette/colette_attacked0.wav"}
 ENT.SoundTbl_Pain = {"vj_hlr/hl1mp_npc/colette/colette_attacked1.wav","vj_hlr/hl1mp_npc/colette/colette_pain0.wav","vj_hlr/hl1mp_npc/colette/colette_pain1.wav","vj_hlr/hl1mp_npc/colette/colette_pain2.wav","vj_hlr/hl1mp_npc/colette/colette_pain3.wav"}
 ENT.SoundTbl_Impact = {}

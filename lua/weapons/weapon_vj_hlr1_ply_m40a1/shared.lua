@@ -2,8 +2,6 @@ SWEP.Base = "weapon_vj_base"
 SWEP.PrintName = "M40A1"
 SWEP.Author = "Cpt. Hazama"
 SWEP.Contact = "http://steamcommunity.com/groups/vrejgaming"
-SWEP.Purpose = "This weapon is made for Players and NPCs"
-SWEP.Instructions = "Controls are like a regular weapon."
 SWEP.MadeForNPCsOnly = true
 
 SWEP.WorldModel = "models/vj_hlr/weapons/w_m40a1.mdl"

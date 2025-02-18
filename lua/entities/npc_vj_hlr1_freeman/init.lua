@@ -51,8 +51,8 @@ ENT.Weapon_SecondaryFireTime = 0.05
 ENT.AnimTbl_ShootWhileMovingWalk = ACT_RUN_AIM
 ENT.Weapon_StrafeCooldown = VJ.SET(0, 0.2)
 
-ENT.FootstepTimerRun = 0.3
-ENT.FootstepTimerWalk = 0.38
+ENT.FootstepSoundTimerRun = 0.3
+ENT.FootstepSoundTimerWalk = 0.38
 
 ENT.HasDeathAnimation = true
 ENT.AnimTbl_Death = {ACT_DIEBACKWARD,ACT_DIEFORWARD,ACT_DIE_GUTSHOT,ACT_DIE_HEADSHOT,ACT_DIESIMPLE}
