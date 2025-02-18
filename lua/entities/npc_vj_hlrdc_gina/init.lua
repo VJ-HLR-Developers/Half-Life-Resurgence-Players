@@ -20,7 +20,7 @@ ENT.SoundTbl_DamageByPlayer = {"vj_hlr/hl1mp_npc/gina/gina_mad0.wav","vj_hlr/hl1
 ENT.SoundTbl_Death = {"vj_hlr/hl1mp_npc/gina/gina_die0.wav","vj_hlr/hl1mp_npc/gina/gina_die1.wav","vj_hlr/hl1mp_npc/gina/gina_die2.wav"}
 
 ENT.DeathSoundLevel = 80
-ENT.GeneralSoundPitch1 = 100
+ENT.MainSoundPitch = 100
 
 -- played when the npc cannot get to you and automatically unfollows you:
 -- vj_hlr/hl1mp_npc/gina/gina_stop0.wav
