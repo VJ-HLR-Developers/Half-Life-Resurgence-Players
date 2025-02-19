@@ -108,7 +108,7 @@ end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:OnThinkActive()
 	local ent = self:GetEnemy()
-	local dist = self.NearestPointToEnemyDistance
+	local dist = self.EnemyData.DistanceNearest
 	if IsValid(ent) then
 		local wep = self:GetActiveWeapon()
 		if self.WeaponInventoryStatus == VJ.WEP_INVENTORY_MELEE then return end
