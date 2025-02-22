@@ -293,7 +293,7 @@ end
 local vec = Vector(0, 0, 0)
 --
 function ENT:OnDamaged(dmginfo, hitgroup, status)
-	if status == "Initial" then
+	if status == "Init" then
 		self.Bleeds = true
 		if hitgroup == HITGROUP_GEAR && dmginfo:GetDamagePosition() != vec then
 			self.Bleeds = false

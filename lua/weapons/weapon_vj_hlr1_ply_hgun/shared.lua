@@ -85,7 +85,7 @@ function SWEP:OnThink()
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function SWEP:OnPrimaryAttack(status, statusData)
-	if status == "Initial" then
+	if status == "Init" then
 		if CLIENT then return end
 		local bolt = ents.Create("obj_vj_hlr1_hornet")
 		local spawnpos = self:GetBulletPos()

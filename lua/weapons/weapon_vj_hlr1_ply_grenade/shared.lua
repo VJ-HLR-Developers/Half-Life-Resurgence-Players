@@ -44,7 +44,7 @@ function SWEP:PrimaryAttackEffects(owner)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function SWEP:OnPrimaryAttack(status, statusData)
-	if status == "Initial" then
+	if status == "Init" then
 		if CLIENT then return end
 		local plasma = ents.Create("obj_vj_hlr1_grenade")
 		plasma:SetPos(self:GetBulletPos())

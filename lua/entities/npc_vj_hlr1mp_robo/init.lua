@@ -18,7 +18,7 @@ ENT.SoundTbl_FootStep = {"vj_hlr/hl1_npc/rgrunt/pl_metal1.wav","vj_hlr/hl1_npc/r
 local vec = Vector(0, 0, 0)
 --
 function ENT:OnDamaged(dmginfo, hitgroup, status)
-	if status == "Initial" && dmginfo:GetDamagePosition() != vec then
+	if status == "Init" && dmginfo:GetDamagePosition() != vec then
 		local rico = EffectData()
 		rico:SetOrigin(dmginfo:GetDamagePosition())
 		rico:SetScale(4) -- Size

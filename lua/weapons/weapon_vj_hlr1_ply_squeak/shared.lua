@@ -45,7 +45,7 @@ function SWEP:PrimaryAttackEffects(owner)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function SWEP:OnPrimaryAttack(status, statusData)
-	if status == "Initial" then
+	if status == "Init" then
 		if CLIENT then return end
 		local owner = self.Owner
 		local snark = ents.Create(self.ThrowableNPC)
