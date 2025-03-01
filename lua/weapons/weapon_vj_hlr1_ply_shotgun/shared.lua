@@ -14,14 +14,14 @@ SWEP.WorldModel_CustomPositionBone = "Bip01 R Hand"
 
 SWEP.NPC_NextPrimaryFire = 1
 SWEP.NPC_FiringDistanceScale = 0.5
-SWEP.NPC_CustomSpread	 		= 2.5 -- This is added on top of the custom spread that's set inside the SNPC! | Starting from 1: Closer to 0 = better accuracy, Farther than 1 = worse accuracy
-SWEP.NPC_ReloadSound			= {"vj_hlr/hl1_weapon/shotgun/shotgun_reload.wav"} -- Sounds it plays when the base detects the SNPC playing a reload animation
-SWEP.NPC_ExtraFireSound			= {"vj_hlr/hl1_weapon/shotgun/scock1.wav"} -- Plays an extra sound after it fires (Example: Bolt action sound)
-SWEP.NPC_ExtraFireSoundTime		= 0.2 -- How much time until it plays the sound (After Firing)?
+SWEP.NPC_CustomSpread	 		= 2.5
+SWEP.NPC_ReloadSound			= {"vj_hlr/hl1_weapon/shotgun/shotgun_reload.wav"}
+SWEP.NPC_ExtraFireSound			= {"vj_hlr/hl1_weapon/shotgun/scock1.wav"}
+SWEP.NPC_ExtraFireSoundTime		= 0.2
 
-SWEP.Primary.Damage				= 5 -- Damage
-SWEP.Primary.NumberOfShots		= 5 -- How many shots per attack?
-SWEP.Primary.ClipSize			= 8 -- Max amount of rounds per clip
+SWEP.Primary.Damage				= 5
+SWEP.Primary.NumberOfShots		= 5
+SWEP.Primary.ClipSize			= 8
 SWEP.Primary.Ammo = "Buckshot"
 SWEP.Primary.TracerType = "VJ_HLR_Tracer"
 SWEP.Primary.Sound				= {"vj_hlr/hl1_weapon/shotgun/sbarrel1.wav"}

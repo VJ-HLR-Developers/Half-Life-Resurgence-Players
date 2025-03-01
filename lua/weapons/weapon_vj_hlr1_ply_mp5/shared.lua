@@ -15,10 +15,10 @@ SWEP.WorldModel_CustomPositionBone = "Bip01 R Hand"
 SWEP.NPC_ReloadSound = {"vj_hlr/hl1_weapon/mp5/mp_reload.wav"}
 SWEP.NPC_NextPrimaryFire = 0.08
 -- SWEP.NPC_BulletSpawnAttachment = "0"
-SWEP.NPC_HasSecondaryFire = true -- Can the weapon have a secondary fire?
+SWEP.NPC_HasSecondaryFire = true
 SWEP.NPC_SecondaryFireEnt = "obj_vj_hlr1_grenade_40mm" -- The entity to fire, this only applies if self:NPC_SecondaryFire() has NOT been overridden!
-SWEP.NPC_SecondaryFireChance = 1 -- Chance that the secondary fire is used | 1 = always
-SWEP.NPC_SecondaryFireSound = {"vj_hlr/hl1_weapon/mp5/glauncher.wav","vj_hlr/hl1_weapon/mp5/glauncher2.wav"} -- The sound it plays when the secondary fire is used
+SWEP.NPC_SecondaryFireChance = 1
+SWEP.NPC_SecondaryFireSound = {"vj_hlr/hl1_weapon/mp5/glauncher.wav","vj_hlr/hl1_weapon/mp5/glauncher2.wav"}
 
 SWEP.Primary.Damage = 5
 SWEP.Primary.ClipSize = 50

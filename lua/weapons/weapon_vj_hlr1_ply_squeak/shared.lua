@@ -21,7 +21,7 @@ SWEP.NPC_HasReloadSound = false
 
 SWEP.Primary.Damage = 1
 SWEP.Primary.ClipSize = 5
-SWEP.Primary.TakeAmmo = 0 -- How much ammo should it take from the clip after each shot? | 0 = Unlimited clip
+SWEP.Primary.TakeAmmo = 0
 SWEP.Primary.DisableBulletCode = true
 SWEP.Primary.Ammo = "grenade"
 SWEP.Primary.TracerType = "VJ_HLR_Tracer"

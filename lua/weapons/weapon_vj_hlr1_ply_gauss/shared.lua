@@ -19,7 +19,7 @@ SWEP.NPC_ReloadSound = {"vj_hlr/fx/null.wav"}
 
 SWEP.Primary.Damage = 1
 SWEP.Primary.ClipSize = 20
-SWEP.Primary.TakeAmmo = 0 -- How much ammo should it take from the clip after each shot? | 0 = Unlimited clip
+SWEP.Primary.TakeAmmo = 0
 SWEP.Primary.DisableBulletCode = true
 SWEP.Primary.Ammo = "357"
 SWEP.Primary.Sound = {"vj_hlr/hl1_weapon/gauss/gauss2.wav"}
