@@ -12,7 +12,6 @@ ENT.SoundTbl_FollowPlayer = {"vj_hlr/hl1mp_npc/gina/gina_use0.wav","vj_hlr/hl1mp
 ENT.SoundTbl_UnFollowPlayer = {"vj_hlr/hl1mp_npc/gina/gina_stop1.wav","vj_hlr/hl1mp_npc/gina/gina_unuse0.wav","vj_hlr/hl1mp_npc/gina/gina_unuse1.wav","vj_hlr/hl1mp_npc/gina/gina_unuse2.wav","vj_hlr/hl1mp_npc/gina/gina_unuse3.wav","vj_hlr/hl1mp_npc/gina/gina_unuse4.wav"}
 ENT.SoundTbl_Alert = {"vj_hlr/hl1mp_npc/gina/gina_attack0.wav","vj_hlr/hl1mp_npc/gina/gina_attack1.wav","vj_hlr/hl1mp_npc/gina/gina_attack2.wav","vj_hlr/hl1mp_npc/gina/gina_attack3.wav"}
 ENT.SoundTbl_WeaponReload = {"vj_hlr/hl1mp_npc/gina/gina_attacked3.wav"}
-ENT.SoundTbl_GrenadeSight = {"vj_hlr/hl1mp_npc/gina/gina_attacked2.wav"}
 ENT.SoundTbl_DangerSight = {"vj_hlr/hl1mp_npc/gina/gina_attacked2.wav"}
 ENT.SoundTbl_KilledEnemy = {"vj_hlr/hl1mp_npc/gina/gina_kill0.wav","vj_hlr/hl1mp_npc/gina/gina_kill1.wav","vj_hlr/hl1mp_npc/gina/gina_kill2.wav","vj_hlr/hl1mp_npc/gina/gina_kill3.wav","vj_hlr/hl1mp_npc/gina/gina_kill4.wav"}
 ENT.SoundTbl_Pain = {"vj_hlr/hl1mp_npc/gina/gina_attacked0.wav","vj_hlr/hl1mp_npc/gina/gina_attacked1.wav","vj_hlr/hl1mp_npc/gina/gina_pain0.wav","vj_hlr/hl1mp_npc/gina/gina_pain1.wav","vj_hlr/hl1mp_npc/gina/gina_pain2.wav","vj_hlr/hl1mp_npc/gina/gina_pain3.wav"}
