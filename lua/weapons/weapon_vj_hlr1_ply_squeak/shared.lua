@@ -25,7 +25,7 @@ SWEP.Primary.TakeAmmo = 0
 SWEP.Primary.DisableBulletCode = true
 SWEP.Primary.Ammo = "grenade"
 SWEP.Primary.TracerType = "VJ_HLR_Tracer"
-SWEP.Primary.Sound = {"vj_hlr/fx/null.wav"}
+SWEP.Primary.Sound = {"vj_hlr/gsrc/fx/null.wav"}
 SWEP.HasDryFireSound = false
 
 SWEP.PrimaryEffects_SpawnMuzzleFlash = false

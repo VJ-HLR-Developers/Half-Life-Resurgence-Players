@@ -12,20 +12,20 @@ SWEP.WorldModel_CustomPositionAngle = Vector(90, 180, 90)
 SWEP.WorldModel_CustomPositionOrigin = Vector(10, -4, -0)
 SWEP.WorldModel_CustomPositionBone = "Bip01 R Hand"
 
-SWEP.NPC_ReloadSound = {"vj_hlr/hl1_weapon/mp5/mp_reload.wav"}
+SWEP.NPC_ReloadSound = {"vj_hlr/gsrc/wep/mp5/mp_reload.wav"}
 SWEP.NPC_NextPrimaryFire = 0.08
 -- SWEP.NPC_BulletSpawnAttachment = "0"
 SWEP.NPC_HasSecondaryFire = true
 SWEP.NPC_SecondaryFireEnt = "obj_vj_hlr1_grenade_40mm" -- The entity to fire, this only applies if self:NPC_SecondaryFire() has NOT been overridden!
 SWEP.NPC_SecondaryFireChance = 1
-SWEP.NPC_SecondaryFireSound = {"vj_hlr/hl1_weapon/mp5/glauncher.wav","vj_hlr/hl1_weapon/mp5/glauncher2.wav"}
+SWEP.NPC_SecondaryFireSound = {"vj_hlr/gsrc/wep/mp5/glauncher.wav","vj_hlr/gsrc/wep/mp5/glauncher2.wav"}
 
 SWEP.Primary.Damage = 5
 SWEP.Primary.ClipSize = 50
 SWEP.Primary.Ammo = "SMG1"
 SWEP.Primary.TracerType = "VJ_HLR_Tracer"
-SWEP.Primary.Sound = {"vj_hlr/hl1_weapon/mp5/hks1.wav","vj_hlr/hl1_weapon/mp5/hks2.wav","vj_hlr/hl1_weapon/mp5/hks3.wav"}
-SWEP.Primary.DistantSound = {"vj_hlr/hl1_weapon/mp5/hks_distant_new.wav"}
+SWEP.Primary.Sound = {"vj_hlr/gsrc/wep/mp5/hks1.wav","vj_hlr/gsrc/wep/mp5/hks2.wav","vj_hlr/gsrc/wep/mp5/hks3.wav"}
+SWEP.Primary.DistantSound = {"vj_hlr/gsrc/wep/mp5/hks_distant_new.wav"}
 
 -- SWEP.PrimaryEffects_MuzzleAttachment = "0"
 SWEP.PrimaryEffects_SpawnShells = false

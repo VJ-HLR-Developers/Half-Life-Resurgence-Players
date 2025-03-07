@@ -22,7 +22,7 @@ SWEP.Primary.ClipSize = 8
 SWEP.Primary.TakeAmmo = 0
 SWEP.Primary.DisableBulletCode = true
 SWEP.Primary.Ammo = "357"
-SWEP.Primary.Sound = {"vj_hlr/hl1_npc/agrunt/ag_fire1.wav","vj_hlr/hl1_npc/agrunt/ag_fire2.wav","vj_hlr/hl1_npc/agrunt/ag_fire3.wav"}
+SWEP.Primary.Sound = {"vj_hlr/gsrc/npc/agrunt/ag_fire1.wav","vj_hlr/gsrc/npc/agrunt/ag_fire2.wav","vj_hlr/gsrc/npc/agrunt/ag_fire3.wav"}
 SWEP.HasDryFireSound = false
 
 SWEP.PrimaryEffects_SpawnMuzzleFlash = false

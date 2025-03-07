@@ -13,14 +13,14 @@ SWEP.WorldModel_CustomPositionOrigin = Vector(0.5, -0.5, -35)
 SWEP.WorldModel_CustomPositionBone = "Bip01 R Hand"
 
 SWEP.NPC_NextPrimaryFire = 0.5
-SWEP.NPC_ReloadSound = {"vj_hlr/hl1_weapon/deagle/desert_eagle_reload.wav"}
+SWEP.NPC_ReloadSound = {"vj_hlr/gsrc/wep/deagle/desert_eagle_reload.wav"}
 
 SWEP.Primary.Damage = 15
 SWEP.Primary.ClipSize = 7
 SWEP.Primary.Ammo = "357"
 SWEP.Primary.TracerType = "VJ_HLR_Tracer"
-SWEP.Primary.Sound				= {"vj_hlr/hl1_weapon/deagle/desert_eagle_fire.wav"}
-SWEP.Primary.DistantSound		= {"vj_hlr/hl1_weapon/deagle/desert_eagle_fire_distant_final.wav"}
+SWEP.Primary.Sound				= {"vj_hlr/gsrc/wep/deagle/desert_eagle_fire.wav"}
+SWEP.Primary.DistantSound		= {"vj_hlr/gsrc/wep/deagle/desert_eagle_fire_distant_final.wav"}
 
 SWEP.PrimaryEffects_ShellType = "ShellEject"
 SWEP.PrimaryEffects_MuzzleFlash = false

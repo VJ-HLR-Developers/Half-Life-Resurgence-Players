@@ -15,15 +15,15 @@ SWEP.WorldModel_CustomPositionBone = "Bip01 R Hand"
 SWEP.NPC_NextPrimaryFire = 0.18
 SWEP.NPC_FiringDistanceScale = 2.5
 SWEP.NPC_BulletSpawnAttachment = "muzzle"
-SWEP.NPC_ReloadSound = {"vj_hlr/fx/null.wav"}
+SWEP.NPC_ReloadSound = {"vj_hlr/gsrc/fx/null.wav"}
 
 SWEP.Primary.Damage = 1
 SWEP.Primary.ClipSize = 20
 SWEP.Primary.TakeAmmo = 0
 SWEP.Primary.DisableBulletCode = true
 SWEP.Primary.Ammo = "357"
-SWEP.Primary.Sound = {"vj_hlr/hl1_weapon/gauss/gauss2.wav"}
-SWEP.Primary.DistantSound = {"vj_hlr/hl1_weapon/gauss/distant.wav"}
+SWEP.Primary.Sound = {"vj_hlr/gsrc/wep/gauss/gauss2.wav"}
+SWEP.Primary.DistantSound = {"vj_hlr/gsrc/wep/gauss/distant.wav"}
 
 SWEP.PrimaryEffects_SpawnMuzzleFlash = false
 SWEP.PrimaryEffects_SpawnShells = false

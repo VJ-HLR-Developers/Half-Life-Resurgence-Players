@@ -14,8 +14,8 @@ SWEP.WorldModel_CustomPositionOrigin = Vector(-13, 2, -2)
 SWEP.WorldModel_CustomPositionBone = "Bip01 R Hand"
 
 SWEP.NPC_CustomSpread	 		= 0.2
-SWEP.NPC_ReloadSound			= {"vj_hlr/hl1_weapon/sniper/sniper_reload_full.wav"}
-SWEP.NPC_ExtraFireSound			= {"vj_hlr/hl1_weapon/sniper/sniper_bolt1.wav"}
+SWEP.NPC_ReloadSound			= {"vj_hlr/gsrc/wep/sniper/sniper_reload_full.wav"}
+SWEP.NPC_ExtraFireSound			= {"vj_hlr/gsrc/wep/sniper/sniper_bolt1.wav"}
 SWEP.NPC_ExtraFireSoundTime		= 0.5
 
 SWEP.NPC_NextPrimaryFire = 1.25
@@ -26,8 +26,8 @@ SWEP.Primary.Damage = 30
 SWEP.Primary.ClipSize = 5
 SWEP.Primary.Ammo = "357"
 SWEP.Primary.TracerType = "VJ_HLR_Tracer"
-SWEP.Primary.Sound				= {"vj_hlr/hl1_weapon/sniper/sniper_fire.wav"}
-SWEP.Primary.DistantSound		= {"vj_hlr/hl1_weapon/sniper/sniper_fire_distant2.wav"}
+SWEP.Primary.Sound				= {"vj_hlr/gsrc/wep/sniper/sniper_fire.wav"}
+SWEP.Primary.DistantSound		= {"vj_hlr/gsrc/wep/sniper/sniper_fire_distant2.wav"}
 
 SWEP.PrimaryEffects_MuzzleAttachment = "muzzle"
 SWEP.PrimaryEffects_SpawnShells = false

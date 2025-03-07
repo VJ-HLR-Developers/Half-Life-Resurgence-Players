@@ -15,14 +15,14 @@ SWEP.WorldModel_CustomPositionBone = "Bip01 R Hand"
 SWEP.NPC_NextPrimaryFire = 1.25
 SWEP.NPC_FiringDistanceScale = 2.5
 SWEP.NPC_BulletSpawnAttachment = "muzzle"
-SWEP.NPC_ReloadSound = {"vj_hlr/hl1_weapon/crossbow/xbow_reload1.wav"}
+SWEP.NPC_ReloadSound = {"vj_hlr/gsrc/wep/crossbow/xbow_reload1.wav"}
 
 SWEP.Primary.Damage = 1
 SWEP.Primary.ClipSize = 5
 SWEP.Primary.DisableBulletCode = true
 SWEP.Primary.Ammo = "357"
-SWEP.Primary.Sound = {"vj_hlr/hl1_weapon/crossbow/xbow_fire1.wav"}
-SWEP.Primary.DistantSound		= {"vj_hlr/hl1_weapon/crossbow/xbow_fire1_distant.wav"}
+SWEP.Primary.Sound = {"vj_hlr/gsrc/wep/crossbow/xbow_fire1.wav"}
+SWEP.Primary.DistantSound		= {"vj_hlr/gsrc/wep/crossbow/xbow_fire1_distant.wav"}
 
 SWEP.PrimaryEffects_SpawnMuzzleFlash = false
 SWEP.PrimaryEffects_SpawnShells = false

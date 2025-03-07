@@ -21,8 +21,8 @@ SWEP.Primary.Damage = 1
 SWEP.Primary.ClipSize = 10
 SWEP.Primary.DisableBulletCode = true
 SWEP.Primary.Ammo = "357"
-SWEP.Primary.Sound = {"vj_hlr/hl1_weapon/shockroach/shock_fire.wav"}
-SWEP.Primary.DistantSound = {"vj_hlr/hl1_weapon/shockroach/shock_fire_distant.wav"}
+SWEP.Primary.Sound = {"vj_hlr/gsrc/wep/shockroach/shock_fire.wav"}
+SWEP.Primary.DistantSound = {"vj_hlr/gsrc/wep/shockroach/shock_fire_distant.wav"}
 SWEP.HasDryFireSound = false
 
 -- SWEP.PrimaryEffects_SpawnMuzzleFlash = false
@@ -54,7 +54,7 @@ function SWEP:OnThink()
 		self.LastClip = self:Clip1()
 		if CurTime() > self.PLY_NextReloadT && self:Clip1() < self:GetMaxClip1() then
 			self:SetClip1(self:Clip1() +1)
-			self:EmitSound("vj_hlr/hl1_weapon/shockroach/shock_recharge.wav")
+			self:EmitSound("vj_hlr/gsrc/wep/shockroach/shock_recharge.wav")
 			self.PLY_NextReloadT = CurTime() +0.5
 			owner:SetWeaponState(VJ.WEP_STATE_RELOADING)
 		elseif self:Clip1() >= self:GetMaxClip1() then

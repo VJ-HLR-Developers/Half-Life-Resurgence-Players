@@ -28,7 +28,7 @@ function EFFECT:Init(data)
 	effectdata:SetRadius(3)
 	util.Effect("Sparks", effectdata)
 
-	sound.Play("vj_hlr/hl1_weapon/gauss/electro" .. math.random(4,6) .. ".wav",self.EndPos,75,100)
+	sound.Play("vj_hlr/gsrc/wep/gauss/electro" .. math.random(4,6) .. ".wav",self.EndPos,75,100)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function EFFECT:Think()
