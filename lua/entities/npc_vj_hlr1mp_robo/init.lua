@@ -12,7 +12,7 @@ ENT.HasBloodDecal = false
 ENT.VJ_ID_Healable = false
 ---------------------------------------------------------------------------------------------------------------------------------------------
 ENT.VJ_NPC_Class = {"CLASS_MP_ROBO"}
-ENT.SoundTbl_FootStep = {"vj_hlr/gsrc/npc/rgrunt/pl_metal1.wav","vj_hlr/gsrc/npc/rgrunt/pl_metal2.wav","vj_hlr/gsrc/npc/rgrunt/pl_metal3.wav","vj_hlr/gsrc/npc/rgrunt/pl_metal4.wav"}
+ENT.SoundTbl_FootStep = {"vj_hlr/gsrc/npc/rgrunt/pl_metal1.wav", "vj_hlr/gsrc/npc/rgrunt/pl_metal2.wav", "vj_hlr/gsrc/npc/rgrunt/pl_metal3.wav", "vj_hlr/gsrc/npc/rgrunt/pl_metal4.wav"}
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
 local vec = Vector(0, 0, 0)
@@ -27,47 +27,47 @@ function ENT:OnDamaged(dmginfo, hitgroup, status)
 	end
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-local gibsCollideSd = {"vj_hlr/gsrc/fx/metal1.wav","vj_hlr/gsrc/fx/metal2.wav","vj_hlr/gsrc/fx/metal3.wav","vj_hlr/gsrc/fx/metal4.wav","vj_hlr/gsrc/fx/metal5.wav"}
+local gibsCollideSd = {"vj_hlr/gsrc/fx/metal1.wav", "vj_hlr/gsrc/fx/metal2.wav", "vj_hlr/gsrc/fx/metal3.wav", "vj_hlr/gsrc/fx/metal4.wav", "vj_hlr/gsrc/fx/metal5.wav"}
 --
 function ENT:HandleGibOnDeath(dmginfo, hitgroup)
 	self.HasDeathSounds = false
 	if self.HasGibOnDeathEffects then
 		local spr = ents.Create("env_sprite")
-		spr:SetKeyValue("model","vj_hl/sprites/zerogxplode.vmt")
-		spr:SetKeyValue("GlowProxySize","2.0")
-		spr:SetKeyValue("HDRColorScale","1.0")
-		spr:SetKeyValue("renderfx","14")
-		spr:SetKeyValue("rendermode","5")
-		spr:SetKeyValue("renderamt","255")
-		spr:SetKeyValue("disablereceiveshadows","0")
-		spr:SetKeyValue("mindxlevel","0")
-		spr:SetKeyValue("maxdxlevel","0")
-		spr:SetKeyValue("framerate","20.0")
-		spr:SetKeyValue("spawnflags","0")
-		spr:SetKeyValue("scale","2")
+		spr:SetKeyValue("model", "vj_hl/sprites/zerogxplode.vmt")
+		spr:SetKeyValue("GlowProxySize", "2.0")
+		spr:SetKeyValue("HDRColorScale", "1.0")
+		spr:SetKeyValue("renderfx", "14")
+		spr:SetKeyValue("rendermode", "5")
+		spr:SetKeyValue("renderamt", "255")
+		spr:SetKeyValue("disablereceiveshadows", "0")
+		spr:SetKeyValue("mindxlevel", "0")
+		spr:SetKeyValue("maxdxlevel", "0")
+		spr:SetKeyValue("framerate", "20.0")
+		spr:SetKeyValue("spawnflags", "0")
+		spr:SetKeyValue("scale", "2")
 		spr:SetPos(self:GetPos() + self:GetUp()*60)
 		spr:Spawn()
-		spr:Fire("Kill","",0.7)
+		spr:Fire("Kill", "", 0.7)
 		timer.Simple(0.7, function() if IsValid(spr) then spr:Remove() end end)
 	end
-	self:CreateGibEntity("obj_vj_gib","models/vj_hlr/gibs/metalgib_p1.mdl",{CollisionDecal=false,Pos=self:LocalToWorld(Vector(0,0,40)),CollisionSound=gibsCollideSd})
-	self:CreateGibEntity("obj_vj_gib","models/vj_hlr/gibs/metalgib_p2.mdl",{CollisionDecal=false,Pos=self:LocalToWorld(Vector(0,0,40)),CollisionSound=gibsCollideSd})
-	self:CreateGibEntity("obj_vj_gib","models/vj_hlr/gibs/metalgib_p3.mdl",{CollisionDecal=false,Pos=self:LocalToWorld(Vector(0,0,50)),CollisionSound=gibsCollideSd})
-	self:CreateGibEntity("obj_vj_gib","models/vj_hlr/gibs/metalgib_p4.mdl",{CollisionDecal=false,Pos=self:LocalToWorld(Vector(0,0,40)),CollisionSound=gibsCollideSd})
-	self:CreateGibEntity("obj_vj_gib","models/vj_hlr/gibs/metalgib_p5.mdl",{CollisionDecal=false,Pos=self:LocalToWorld(Vector(0,0,40)),CollisionSound=gibsCollideSd})
-	self:CreateGibEntity("obj_vj_gib","models/vj_hlr/gibs/metalgib_p6.mdl",{CollisionDecal=false,Pos=self:LocalToWorld(Vector(0,0,45)),CollisionSound=gibsCollideSd})
-	self:CreateGibEntity("obj_vj_gib","models/vj_hlr/gibs/metalgib_p7.mdl",{CollisionDecal=false,Pos=self:LocalToWorld(Vector(0,0,45)),CollisionSound=gibsCollideSd})
-	self:CreateGibEntity("obj_vj_gib","models/vj_hlr/gibs/metalgib_p8.mdl",{CollisionDecal=false,Pos=self:LocalToWorld(Vector(0,0,45)),CollisionSound=gibsCollideSd})
-	self:CreateGibEntity("obj_vj_gib","models/vj_hlr/gibs/metalgib_p9.mdl",{CollisionDecal=false,Pos=self:LocalToWorld(Vector(0,0,45)),CollisionSound=gibsCollideSd})
-	self:CreateGibEntity("obj_vj_gib","models/vj_hlr/gibs/metalgib_p10.mdl",{CollisionDecal=false,Pos=self:LocalToWorld(Vector(0,0,40)),CollisionSound=gibsCollideSd})
-	self:CreateGibEntity("obj_vj_gib","models/vj_hlr/gibs/metalgib_p11.mdl",{CollisionDecal=false,Pos=self:LocalToWorld(Vector(0,0,40)),CollisionSound=gibsCollideSd})
-	self:CreateGibEntity("obj_vj_gib","models/vj_hlr/gibs/rgib_cog1.mdl",{CollisionDecal=false,Pos=self:LocalToWorld(Vector(0,0,60)),CollisionSound=gibsCollideSd})
-	self:CreateGibEntity("obj_vj_gib","models/vj_hlr/gibs/rgib_cog2.mdl",{CollisionDecal=false,Pos=self:LocalToWorld(Vector(0,0,15)),CollisionSound=gibsCollideSd})
-	self:CreateGibEntity("obj_vj_gib","models/vj_hlr/gibs/rgib_rib.mdl",{CollisionDecal=false,Pos=self:LocalToWorld(Vector(0,0,15)),CollisionSound=gibsCollideSd})
-	self:CreateGibEntity("obj_vj_gib","models/vj_hlr/gibs/rgib_screw.mdl",{CollisionDecal=false,Pos=self:LocalToWorld(Vector(0,0,15)),CollisionSound=gibsCollideSd})
-	self:CreateGibEntity("obj_vj_gib","models/vj_hlr/gibs/rgib_screw.mdl",{CollisionDecal=false,Pos=self:LocalToWorld(Vector(0,0,15)),CollisionSound=gibsCollideSd})
-	self:CreateGibEntity("obj_vj_gib","models/vj_hlr/gibs/rgib_screw.mdl",{CollisionDecal=false,Pos=self:LocalToWorld(Vector(0,0,15)),CollisionSound=gibsCollideSd})
-	self:CreateGibEntity("obj_vj_gib","models/vj_hlr/gibs/rgib_spring.mdl",{CollisionDecal=false,Pos=self:LocalToWorld(Vector(0,0,15)),CollisionSound=false}) -- Shad ge sharji, ere vor tsayn chi hane
+	self:CreateGibEntity("obj_vj_gib", "models/vj_hlr/gibs/metalgib_p1.mdl", {CollisionDecal=false, Pos=self:LocalToWorld(Vector(0, 0, 40)), CollisionSound=gibsCollideSd})
+	self:CreateGibEntity("obj_vj_gib", "models/vj_hlr/gibs/metalgib_p2.mdl", {CollisionDecal=false, Pos=self:LocalToWorld(Vector(0, 0, 40)), CollisionSound=gibsCollideSd})
+	self:CreateGibEntity("obj_vj_gib", "models/vj_hlr/gibs/metalgib_p3.mdl", {CollisionDecal=false, Pos=self:LocalToWorld(Vector(0, 0, 50)), CollisionSound=gibsCollideSd})
+	self:CreateGibEntity("obj_vj_gib", "models/vj_hlr/gibs/metalgib_p4.mdl", {CollisionDecal=false, Pos=self:LocalToWorld(Vector(0, 0, 40)), CollisionSound=gibsCollideSd})
+	self:CreateGibEntity("obj_vj_gib", "models/vj_hlr/gibs/metalgib_p5.mdl", {CollisionDecal=false, Pos=self:LocalToWorld(Vector(0, 0, 40)), CollisionSound=gibsCollideSd})
+	self:CreateGibEntity("obj_vj_gib", "models/vj_hlr/gibs/metalgib_p6.mdl", {CollisionDecal=false, Pos=self:LocalToWorld(Vector(0, 0, 45)), CollisionSound=gibsCollideSd})
+	self:CreateGibEntity("obj_vj_gib", "models/vj_hlr/gibs/metalgib_p7.mdl", {CollisionDecal=false, Pos=self:LocalToWorld(Vector(0, 0, 45)), CollisionSound=gibsCollideSd})
+	self:CreateGibEntity("obj_vj_gib", "models/vj_hlr/gibs/metalgib_p8.mdl", {CollisionDecal=false, Pos=self:LocalToWorld(Vector(0, 0, 45)), CollisionSound=gibsCollideSd})
+	self:CreateGibEntity("obj_vj_gib", "models/vj_hlr/gibs/metalgib_p9.mdl", {CollisionDecal=false, Pos=self:LocalToWorld(Vector(0, 0, 45)), CollisionSound=gibsCollideSd})
+	self:CreateGibEntity("obj_vj_gib", "models/vj_hlr/gibs/metalgib_p10.mdl", {CollisionDecal=false, Pos=self:LocalToWorld(Vector(0, 0, 40)), CollisionSound=gibsCollideSd})
+	self:CreateGibEntity("obj_vj_gib", "models/vj_hlr/gibs/metalgib_p11.mdl", {CollisionDecal=false, Pos=self:LocalToWorld(Vector(0, 0, 40)), CollisionSound=gibsCollideSd})
+	self:CreateGibEntity("obj_vj_gib", "models/vj_hlr/gibs/rgib_cog1.mdl", {CollisionDecal=false, Pos=self:LocalToWorld(Vector(0, 0, 60)), CollisionSound=gibsCollideSd})
+	self:CreateGibEntity("obj_vj_gib", "models/vj_hlr/gibs/rgib_cog2.mdl", {CollisionDecal=false, Pos=self:LocalToWorld(Vector(0, 0, 15)), CollisionSound=gibsCollideSd})
+	self:CreateGibEntity("obj_vj_gib", "models/vj_hlr/gibs/rgib_rib.mdl", {CollisionDecal=false, Pos=self:LocalToWorld(Vector(0, 0, 15)), CollisionSound=gibsCollideSd})
+	self:CreateGibEntity("obj_vj_gib", "models/vj_hlr/gibs/rgib_screw.mdl", {CollisionDecal=false, Pos=self:LocalToWorld(Vector(0, 0, 15)), CollisionSound=gibsCollideSd})
+	self:CreateGibEntity("obj_vj_gib", "models/vj_hlr/gibs/rgib_screw.mdl", {CollisionDecal=false, Pos=self:LocalToWorld(Vector(0, 0, 15)), CollisionSound=gibsCollideSd})
+	self:CreateGibEntity("obj_vj_gib", "models/vj_hlr/gibs/rgib_screw.mdl", {CollisionDecal=false, Pos=self:LocalToWorld(Vector(0, 0, 15)), CollisionSound=gibsCollideSd})
+	self:CreateGibEntity("obj_vj_gib", "models/vj_hlr/gibs/rgib_spring.mdl", {CollisionDecal=false, Pos=self:LocalToWorld(Vector(0, 0, 15)), CollisionSound=false}) -- Shad ge sharji, ere vor tsayn chi hane
 	
 	self:PlaySoundSystem("Gib", "vj_hlr/gsrc/wep/explosion/debris3.wav")
 	self:PlaySoundSystem("Gib", "vj_hlr/gsrc/npc/rgrunt/rb_gib.wav")

@@ -22,7 +22,7 @@ SWEP.Primary.ClipSize = 8
 SWEP.Primary.TakeAmmo = 0
 SWEP.Primary.DisableBulletCode = true
 SWEP.Primary.Ammo = "357"
-SWEP.Primary.Sound = {"vj_hlr/gsrc/npc/agrunt/ag_fire1.wav","vj_hlr/gsrc/npc/agrunt/ag_fire2.wav","vj_hlr/gsrc/npc/agrunt/ag_fire3.wav"}
+SWEP.Primary.Sound = {"vj_hlr/gsrc/npc/agrunt/ag_fire1.wav", "vj_hlr/gsrc/npc/agrunt/ag_fire2.wav", "vj_hlr/gsrc/npc/agrunt/ag_fire3.wav"}
 SWEP.HasDryFireSound = false
 
 SWEP.PrimaryEffects_SpawnMuzzleFlash = false
@@ -43,23 +43,23 @@ end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function SWEP:PrimaryAttackEffects(owner)
 	local muz = ents.Create("env_sprite")
-	muz:SetKeyValue("model","vj_hl/sprites/muz4.vmt")
-	muz:SetKeyValue("scale",""..math.Rand(0.3,0.5))
-	muz:SetKeyValue("GlowProxySize","2.0") -- Size of the glow to be rendered for visibility testing.
-	muz:SetKeyValue("HDRColorScale","1.0")
-	muz:SetKeyValue("renderfx","14")
-	muz:SetKeyValue("rendermode","3") -- Set the render mode to "3" (Glow)
-	muz:SetKeyValue("renderamt","255") -- Transparency
-	muz:SetKeyValue("disablereceiveshadows","0") -- Disable receiving shadows
-	muz:SetKeyValue("framerate","10.0") -- Rate at which the sprite should animate, if at all.
-	muz:SetKeyValue("spawnflags","0")
+	muz:SetKeyValue("model", "vj_hl/sprites/muz4.vmt")
+	muz:SetKeyValue("scale", ""..math.Rand(0.3, 0.5))
+	muz:SetKeyValue("GlowProxySize", "2.0") -- Size of the glow to be rendered for visibility testing.
+	muz:SetKeyValue("HDRColorScale", "1.0")
+	muz:SetKeyValue("renderfx", "14")
+	muz:SetKeyValue("rendermode", "3") -- Set the render mode to "3" (Glow)
+	muz:SetKeyValue("renderamt", "255") -- Transparency
+	muz:SetKeyValue("disablereceiveshadows", "0") -- Disable receiving shadows
+	muz:SetKeyValue("framerate", "10.0") -- Rate at which the sprite should animate, if at all.
+	muz:SetKeyValue("spawnflags", "0")
 	muz:SetPos(self:OnGetBulletPos())
 	-- muz:SetParent(self)
-	-- muz:Fire("SetParentAttachment",self.PrimaryEffects_MuzzleAttachment)
+	-- muz:Fire("SetParentAttachment", self.PrimaryEffects_MuzzleAttachment)
 	muz:SetAngles(Angle(math.random(-100, 100), math.random(-100, 100), math.random(-100, 100)))
 	muz:Spawn()
 	muz:Activate()
-	muz:Fire("Kill","",0.08)
+	muz:Fire("Kill", "", 0.08)
 	self.BaseClass.PrimaryAttackEffects(self, owner)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
@@ -99,8 +99,8 @@ function SWEP:OnPrimaryAttack(status, statusData)
 		
 		local phys = bolt:GetPhysicsObject()
 		if IsValid(phys) then
-			bolt.Track_Enemy = self:GetOwner():GetEnemy()
-			phys:ApplyForceCenter(bolt:CalculateProjectile("Line", spawnpos, self:GetOwner():GetEnemy():GetPos() + self:GetOwner():GetEnemy():OBBCenter(), 4000) + Vector(math.Rand(-30,30), math.Rand(-30,30), math.Rand(-30,30)))
+			bolt.Track_Ent = self:GetOwner():GetEnemy()
+			phys:ApplyForceCenter(bolt:CalculateProjectile("Line", spawnpos, self:GetOwner():GetEnemy():GetPos() + self:GetOwner():GetEnemy():OBBCenter(), 4000) + Vector(math.Rand(-30, 30), math.Rand(-30, 30), math.Rand(-30, 30)))
 		end
 	end
 end

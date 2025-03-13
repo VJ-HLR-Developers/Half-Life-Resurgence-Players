@@ -8,8 +8,8 @@ SWEP.WorldModel = "models/vj_hlr/weapons/w_grenade.mdl"
 SWEP.HoldType = "grenade"
 
 SWEP.WorldModel_UseCustomPosition = true
-SWEP.WorldModel_CustomPositionAngle = Vector(0,0,0)
-SWEP.WorldModel_CustomPositionOrigin = Vector(-2,2,-3)
+SWEP.WorldModel_CustomPositionAngle = Vector(0, 0, 0)
+SWEP.WorldModel_CustomPositionOrigin = Vector(-2, 2, -3)
 SWEP.WorldModel_CustomPositionBone = "Bip01 R Hand"
 
 SWEP.NPC_NextPrimaryFire = 2.5
@@ -36,7 +36,7 @@ end
 function SWEP:OnGetBulletPos()
 	local owner = self:GetOwner()
 
-	return owner:GetPos() + owner:GetUp() + Vector(0,0,50)
+	return owner:GetPos() + owner:GetUp() + Vector(0, 0, 50)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function SWEP:PrimaryAttackEffects(owner)

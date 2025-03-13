@@ -10,8 +10,8 @@ SWEP.HoldType = "slam"
 SWEP.ThrowableNPC = "npc_vj_hlr1_snark"
 
 SWEP.WorldModel_UseCustomPosition = true
-SWEP.WorldModel_CustomPositionAngle = Vector(-40,180,0)
-SWEP.WorldModel_CustomPositionOrigin = Vector(2,-1,0)
+SWEP.WorldModel_CustomPositionAngle = Vector(-40, 180, 0)
+SWEP.WorldModel_CustomPositionOrigin = Vector(2, -1, 0)
 SWEP.WorldModel_CustomPositionBone = "Bip01 R Hand"
 
 SWEP.NPC_NextPrimaryFire = 0.25

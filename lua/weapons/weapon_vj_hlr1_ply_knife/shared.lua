@@ -24,8 +24,8 @@ end
 function SWEP:OnDeploy()
 	local owner = self:GetOwner()
 	if IsValid(owner) then
-		owner.SoundTbl_MeleeAttack = {"vj_hlr/gsrc/wep/knife/knife_hit_flesh1.wav","vj_hlr/gsrc/wep/knife/knife_hit_flesh2.wav"}
-		owner.SoundTbl_MeleeAttackMiss = {"vj_hlr/gsrc/wep/knife/knife1.wav","vj_hlr/gsrc/wep/knife/knife2.wav","vj_hlr/gsrc/wep/knife/knife3.wav"}
+		owner.SoundTbl_MeleeAttack = {"vj_hlr/gsrc/wep/knife/knife_hit_flesh1.wav", "vj_hlr/gsrc/wep/knife/knife_hit_flesh2.wav"}
+		owner.SoundTbl_MeleeAttackMiss = {"vj_hlr/gsrc/wep/knife/knife1.wav", "vj_hlr/gsrc/wep/knife/knife2.wav", "vj_hlr/gsrc/wep/knife/knife3.wav"}
 	end
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------

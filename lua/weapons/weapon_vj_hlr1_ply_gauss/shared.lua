@@ -56,7 +56,7 @@ function SWEP:OnPrimaryAttack(status, statusData)
 		elec:SetOrigin(hitpos)
 		elec:SetEntity(self)
 		elec:SetAttachment(1)
-		util.Effect("VJ_HLR_Tau",elec)
+		util.Effect("VJ_HLR_Tau", elec)
 		
 		VJ.ApplyRadiusDamage(owner, self, hitpos, 30, 20, DMG_ENERGYBEAM, true, false, {Force=20})
 	end

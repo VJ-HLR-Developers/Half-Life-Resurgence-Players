@@ -20,7 +20,7 @@ SWEP.Primary.Force = 2
 SWEP.Primary.ClipSize = 6
 SWEP.Primary.Ammo = "357"
 SWEP.Primary.TracerType = "VJ_HLR_Tracer"
-SWEP.Primary.Sound = {"vj_hlr/gsrc/wep/357/357_shot1.wav","vj_hlr/gsrc/wep/357/357_shot2.wav"}
+SWEP.Primary.Sound = {"vj_hlr/gsrc/wep/357/357_shot1.wav", "vj_hlr/gsrc/wep/357/357_shot2.wav"}
 SWEP.Primary.DistantSound = {"vj_hlr/gsrc/wep/357/357_shot_distant_final.wav"}
 SWEP.NPC_ReloadSound = {"vj_hlr/gsrc/wep/357/357_reload1.wav"}
 
@@ -35,21 +35,21 @@ end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function SWEP:PrimaryAttackEffects(owner)
 	local muz = ents.Create("env_sprite")
-	muz:SetKeyValue("model","vj_hl/sprites/muzzleflash2.vmt")
-	muz:SetKeyValue("scale",""..math.Rand(0.5,0.75))
-	muz:SetKeyValue("GlowProxySize","2.0")
-	muz:SetKeyValue("HDRColorScale","1.0")
-	muz:SetKeyValue("renderfx","14")
-	muz:SetKeyValue("rendermode","3")
-	muz:SetKeyValue("renderamt","255")
-	muz:SetKeyValue("disablereceiveshadows","0")
-	muz:SetKeyValue("framerate","10.0")
-	muz:SetKeyValue("spawnflags","0")
+	muz:SetKeyValue("model", "vj_hl/sprites/muzzleflash2.vmt")
+	muz:SetKeyValue("scale", ""..math.Rand(0.5, 0.75))
+	muz:SetKeyValue("GlowProxySize", "2.0")
+	muz:SetKeyValue("HDRColorScale", "1.0")
+	muz:SetKeyValue("renderfx", "14")
+	muz:SetKeyValue("rendermode", "3")
+	muz:SetKeyValue("renderamt", "255")
+	muz:SetKeyValue("disablereceiveshadows", "0")
+	muz:SetKeyValue("framerate", "10.0")
+	muz:SetKeyValue("spawnflags", "0")
 	muz:SetParent(self)
-	muz:Fire("SetParentAttachment",self.PrimaryEffects_MuzzleAttachment)
+	muz:Fire("SetParentAttachment", self.PrimaryEffects_MuzzleAttachment)
 	muz:SetAngles(Angle(math.random(-100, 100), math.random(-100, 100), math.random(-100, 100)))
 	muz:Spawn()
 	muz:Activate()
-	muz:Fire("Kill","",0.08)
+	muz:Fire("Kill", "", 0.08)
 	self.BaseClass.PrimaryAttackEffects(self, owner)
 end
