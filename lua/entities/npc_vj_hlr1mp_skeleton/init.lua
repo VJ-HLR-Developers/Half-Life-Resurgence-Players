@@ -33,6 +33,6 @@ end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 local gibstbl = {"models/vj_hlr/gibs/abone_template1.mdl", "models/vj_hlr/gibs/abone_template1.mdl", "models/vj_hlr/gibs/abone_template1.mdl", "models/vj_hlr/gibs/abone_template1.mdl", "models/vj_hlr/gibs/abone_template1.mdl", "models/vj_hlr/gibs/bleachbones_pelvis_template1.mdl", "models/vj_hlr/gibs/bleachbones_jawbone1.mdl", "models/vj_hlr/gibs/bleachbones_bskull_template1.mdl", "models/vj_hlr/gibs/bleachbones_ribcage1.mdl", "models/vj_hlr/gibs/bleachbones_riblet1.mdl", "models/vj_hlr/gibs/bleachbones_riblet1.mdl", "models/vj_hlr/gibs/bleachbones_riblet1.mdl"}
 --
-function ENT:OnCreateDeathCorpse(dmginfo, hitgroup, corpseEnt)
-        VJ.HLR_ApplyCorpseSystem(self, corpseEnt, gibstbl)
+function ENT:OnCreateDeathCorpse(dmginfo, hitgroup, corpse)
+        VJ.HLR_ApplyCorpseSystem(self, corpse, gibstbl)
 end

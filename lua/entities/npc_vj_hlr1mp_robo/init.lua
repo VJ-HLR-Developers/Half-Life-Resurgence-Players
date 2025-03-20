@@ -76,6 +76,6 @@ end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 local gibs = {"models/vj_hlr/gibs/metalgib_p1.mdl", "models/vj_hlr/gibs/metalgib_p2.mdl", "models/vj_hlr/gibs/metalgib_p3.mdl", "models/vj_hlr/gibs/metalgib_p4.mdl", "models/vj_hlr/gibs/metalgib_p5.mdl", "models/vj_hlr/gibs/metalgib_p6.mdl", "models/vj_hlr/gibs/metalgib_p7.mdl", "models/vj_hlr/gibs/metalgib_p8.mdl", "models/vj_hlr/gibs/metalgib_p9.mdl", "models/vj_hlr/gibs/metalgib_p10.mdl", "models/vj_hlr/gibs/metalgib_p11.mdl", "models/vj_hlr/gibs/rgib_cog1.mdl", "models/vj_hlr/gibs/rgib_cog2.mdl", "models/vj_hlr/gibs/rgib_rib.mdl", "models/vj_hlr/gibs/rgib_screw.mdl", "models/vj_hlr/gibs/rgib_screw.mdl", "models/vj_hlr/gibs/rgib_screw.mdl"}
 --
-function ENT:OnCreateDeathCorpse(dmginfo, hitgroup, corpseEnt)
-	VJ.HLR_ApplyCorpseSystem(self, corpseEnt, gibs, {CollisionSound = gibsCollideSd, ExpSound = {"vj_hlr/gsrc/npc/rgrunt/rb_gib.wav"}})
+function ENT:OnCreateDeathCorpse(dmginfo, hitgroup, corpse)
+	VJ.HLR_ApplyCorpseSystem(self, corpse, gibs, {CollisionSound = gibsCollideSd, ExpSound = {"vj_hlr/gsrc/npc/rgrunt/rb_gib.wav"}})
 end
