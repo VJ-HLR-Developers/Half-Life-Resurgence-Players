@@ -5,8 +5,7 @@ include("shared.lua")
 	No parts of this code or any of its contents may be reproduced, copied, modified or adapted,
 	without the prior written consent of the author, unless otherwise indicated for stand-alone materials.
 -----------------------------------------------*/
-ENT.Model = {"models/vj_hlr/hl1mp/dm_colette.mdl"}
-
+ENT.Model = "models/vj_hlr/hl1mp/dm_colette.mdl"
 
 ENT.SoundTbl_CombatIdle = {"vj_hlr/hl1mp_npc/colette/colette_attack0.wav", "vj_hlr/hl1mp_npc/colette/colette_attack1.wav", "vj_hlr/hl1mp_npc/colette/colette_attack2.wav", "vj_hlr/hl1mp_npc/colette/colette_attack3.wav", "vj_hlr/hl1mp_npc/colette/colette_attacked2.wav"}
 ENT.SoundTbl_ReceiveOrder = {"vj_hlr/hl1mp_npc/colette/colette_use2.wav", "vj_hlr/hl1mp_npc/colette/colette_use3.wav"}
@@ -28,4 +27,3 @@ ENT.MainSoundPitch = 100
 -- vj_hlr/hl1mp_npc/colette/colette_stop0.wav
 -- vj_hlr/hl1mp_npc/colette/colette_stop1.wav
 -- vj_hlr/hl1mp_npc/colette/colette_stop2.wav
----------------------------------------------------------------------------------------------------------------------------------------------

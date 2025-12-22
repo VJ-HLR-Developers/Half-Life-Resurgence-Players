@@ -5,7 +5,7 @@ include("shared.lua")
 	No parts of this code or any of its contents may be reproduced, copied, modified or adapted,
 	without the prior written consent of the author, unless otherwise indicated for stand-alone materials.
 -----------------------------------------------*/
-ENT.Model = {"models/vj_hlr/hl1mp/dm_gina.mdl"}
+ENT.Model = "models/vj_hlr/hl1mp/dm_gina.mdl"
 
 
 ENT.SoundTbl_FollowPlayer = {"vj_hlr/hl1mp_npc/gina/gina_use0.wav", "vj_hlr/hl1mp_npc/gina/gina_use1.wav", "vj_hlr/hl1mp_npc/gina/gina_use2.wav", "vj_hlr/hl1mp_npc/gina/gina_use3.wav", "vj_hlr/hl1mp_npc/gina/gina_use4.wav", "vj_hlr/hl1mp_npc/gina/gina_use5.wav"}
