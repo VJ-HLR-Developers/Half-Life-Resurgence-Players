@@ -14,9 +14,9 @@ ENT.HealthRegenParams = {
 }
 ENT.HullType = HULL_HUMAN
 ENT.ControllerParams = {
-    ThirdP_Offset = Vector(0, 0, -15),
-    FirstP_Bone = "Bip01 Head",
-    FirstP_Offset = Vector(3, 0, 5),
+	ThirdP_Offset = Vector(0, 0, -15),
+	FirstP_Bone = "Bip01 Head",
+	FirstP_Offset = Vector(3, 0, 5),
 }
 ---------------------------------------------------------------------------------------------------------------------------------------------
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
@@ -122,7 +122,7 @@ function ENT:OnThinkActive()
 		else
 			selectType = "Close"
 		end
-		
+
 		if selectType && !self:IsBusy() && CurTime() > self.NextWeaponSwitchT && (!IsValid(wep) or (IsValid(wep) && math.random(1, wep:Clip1() > 0 && (wep:Clip1() <= wep:GetMaxClip1() *0.35) && 1 or (selectType == "Close" && 20 or 150)))) == 1 then
 			self:DoChangeWeapon(VJ.PICK(self.WeaponsList[selectType]), true)
 			wep = self:GetActiveWeapon()
@@ -325,6 +325,23 @@ function ENT:OnCreateSound(sdData, sdFile)
 	self.NextMouthMove = CurTime() + SoundDuration(sdFile)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
+local transDeath = {
+	[HITGROUP_HEAD] = {ACT_DIE_HEADSHOT},
+	[HITGROUP_STOMACH] = {ACT_DIE_GUTSHOT},
+}
+local defDeath = {ACT_DIESIMPLE, ACT_DIEFORWARD, ACT_DIEBACKWARD}
+--
+function ENT:OnDeath(dmginfo, hitgroup, status)
+	if status == "Init" && GetConVar("vj_hlr1_corpse_static"):GetInt() == 1 && VJ_CVAR_AI_ENABLED then
+		self.DeathAnimationDecreaseLengthAmount = -1
+		self.DeathCorpseEntityClass = "prop_vj_animatable"
+	elseif status == "DeathAnim" then
+		self.AnimTbl_Death = transDeath[hitgroup] or defDeath
+		self:DeathWeaponDrop(dmginfo, hitgroup)
+		if IsValid(self:GetActiveWeapon()) then self:GetActiveWeapon():Remove() end
+	end
+end
+---------------------------------------------------------------------------------------------------------------------------------------------
 local colorRed = VJ.Color2Byte(Color(130, 19, 10))
 --
 function ENT:HandleGibOnDeath(dmginfo, hitgroup)
@@ -341,7 +358,7 @@ function ENT:HandleGibOnDeath(dmginfo, hitgroup)
 		util.Effect("bloodspray", effectData)
 		util.Effect("bloodspray", effectData)
 	end
-	
+
 	self:CreateGibEntity("obj_vj_gib", "models/vj_hlr/gibs/flesh1.mdl", {CollisionDecal = "VJ_HLR1_Blood_Red", Pos = self:LocalToWorld(Vector(0, 0, 40))})
 	self:CreateGibEntity("obj_vj_gib", "models/vj_hlr/gibs/flesh2.mdl", {CollisionDecal = "VJ_HLR1_Blood_Red", Pos = self:LocalToWorld(Vector(0, 0, 40))})
 	self:CreateGibEntity("obj_vj_gib", "models/vj_hlr/gibs/flesh3.mdl", {CollisionDecal = "VJ_HLR1_Blood_Red", Pos = self:LocalToWorld(Vector(0, 0, 40))})
@@ -355,20 +372,6 @@ function ENT:HandleGibOnDeath(dmginfo, hitgroup)
 	self:CreateGibEntity("obj_vj_gib", "models/vj_hlr/gibs/hgib_legbone.mdl", {CollisionDecal = "VJ_HLR1_Blood_Red", Pos = self:LocalToWorld(Vector(0, 0, 15))})
 	self:PlaySoundSystem("Gib", "vj_base/gib/splat.wav")
 	return true, {AllowSound = false}
-end
----------------------------------------------------------------------------------------------------------------------------------------------
-local transDeath = {
-	[HITGROUP_HEAD] = {ACT_DIE_HEADSHOT},
-	[HITGROUP_STOMACH] = {ACT_DIE_GUTSHOT},
-}
-local defDeath = {ACT_DIESIMPLE, ACT_DIEFORWARD, ACT_DIEBACKWARD}
---
-function ENT:OnDeath(dmginfo, hitgroup, status)
-	if status == "DeathAnim" then
-		self.AnimTbl_Death = transDeath[hitgroup] or defDeath
-		self:DeathWeaponDrop(dmginfo, hitgroup)
-		if IsValid(self:GetActiveWeapon()) then self:GetActiveWeapon():Remove() end
-	end
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:OnCreateDeathCorpse(dmginfo, hitgroup, corpse)
