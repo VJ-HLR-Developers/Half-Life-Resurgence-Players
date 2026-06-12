@@ -5,7 +5,7 @@ SWEP.Contact = "http://steamcommunity.com/groups/vrejgaming"
 SWEP.MadeForNPCsOnly = true
 
 SWEP.WorldModel = "models/vj_hlr/weapons/w_desert_eagle.mdl"
-SWEP.HoldType = "revolver"
+SWEP.HoldType = "pistol"
 
 SWEP.WorldModel_UseCustomPosition = true
 SWEP.WorldModel_CustomPositionAngle = Vector(80, 0, 0)

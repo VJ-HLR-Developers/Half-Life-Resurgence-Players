@@ -50,14 +50,15 @@ ENT.Weapon_IgnoreSpawnMenu = true
 ENT.AnimTbl_WeaponAttackSecondary = "shoot_m203"
 ENT.Weapon_SecondaryFireTime = 0.05
 
-ENT.AnimTbl_ShootWhileMovingWalk = ACT_RUN_AIM
 ENT.Weapon_StrafeCooldown = VJ.SET(0, 0.2)
 
-ENT.FootstepSoundTimerRun = 0.3
-ENT.FootstepSoundTimerWalk = 0.38
+/*ENT.FootstepSoundTimerRun = 0.3
+ENT.FootstepSoundTimerWalk = 0.38*/ -- We use events instead
 
 ENT.HasDeathAnimation = true
 ENT.AnimTbl_Death = {ACT_DIEBACKWARD, ACT_DIEFORWARD, ACT_DIE_GUTSHOT, ACT_DIE_HEADSHOT, ACT_DIESIMPLE}
+
+ENT.DisableFootStepSoundTimer = true
 
 ENT.SoundTbl_FootStep = {"vj_hlr/gsrc/pl_step1.wav", "vj_hlr/gsrc/pl_step2.wav", "vj_hlr/gsrc/pl_step3.wav", "vj_hlr/gsrc/pl_step4.wav"}
 ENT.SoundTbl_Death = {"vj_hlr/hl1mp_npc/death_flatline1.wav", "vj_hlr/hl1mp_npc/death_flatline2.wav"}
@@ -103,9 +104,26 @@ function ENT:Init()
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:OnInput(key, activator, caller, data)
-	if key == "body" then
+	if key == "step" && self:GetSequenceActivity(self:GetIdealSequence()) == self.AnimationTranslations[ACT_WALK] then
+		self.FootstepSoundLevel = 52
+		self:PlayFootstepSound()
+	elseif key == "step" && self:GetSequenceActivity(self:GetIdealSequence()) == self.AnimationTranslations[ACT_RUN] then
+		self.FootstepSoundLevel = 70
+		self:PlayFootstepSound()
+	/*elseif key == "melee" or (key == "melee" && IsValid(self:GetActiveWeapon()) && self.WeaponEntity.IsMeleeWeapon) then
+		self:ExecuteMeleeAttack()*/
+	elseif key == "body" then
 		VJ.EmitSound(self, "vj_hlr/gsrc/fx/bodydrop" .. math.random(3, 4) .. ".wav", 75, 100)
 	end
+end
+---------------------------------------------------------------------------------------------------------------------------------------------
+function ENT:TranslateActivity(act)
+	if act == ACT_WALK_AIM then
+		return self.AnimationTranslations[ACT_RUN_AIM] or ACT_RUN_AIM
+	elseif act == ACT_IDLE && self.Alerted then
+		return self.AnimationTranslations[ACT_IDLE_ANGRY] or ACT_IDLE_ANGRY
+	end
+	return self.BaseClass.TranslateActivity(self, act)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:OnThinkActive()
@@ -381,10 +399,10 @@ function ENT:OnCreateDeathCorpse(dmginfo, hitgroup, corpse)
 	VJ.HLR_ApplyCorpseSystem(self, corpse, nil, {ExtraGibs = ((self:GetClass() == "npc_vj_hlr1mp_hgrunt" or self:GetClass() == "npc_vj_hlr1mp_recon" or self:GetClass() == "npc_vj_hlrof_shepard") and {"models/vj_hlr/gibs/gib_hgrunt.mdl"}) or nil})
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:OnFootstepSound(moveType, sdFile)
+/*function ENT:OnFootstepSound(moveType, sdFile) -- We change sound level through events instead
 	if moveType == "Walk" then
 		self.FootstepSoundLevel = 52
 	elseif moveType == "Run" then
 		self.FootstepSoundLevel = 70
 	end
-end
+end*/

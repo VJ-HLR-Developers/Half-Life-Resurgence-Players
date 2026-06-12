@@ -8,4 +8,4 @@ include("shared.lua")
 -----------------------------------------------*/
 ENT.Model = "models/vj_hlr/hl1mp/ken.mdl"
 ENT.StartHealth = 200
-ENT.VJ_NPC_Class = {"CLASS_PLAYER_ALLY"}
+ENT.VJ_NPC_Class = {"CLASS_MP_KEN"}

@@ -15,7 +15,7 @@ SWEP.WorldModel_CustomPositionBone = "Bip01 R Hand"
 SWEP.NPC_NextPrimaryFire = 0.18
 SWEP.NPC_FiringDistanceScale = 2.5
 SWEP.NPC_BulletSpawnAttachment = "muzzle"
-SWEP.NPC_ReloadSound = "vj_hlr/gsrc/fx/null.wav"
+SWEP.NPC_ReloadSound = "vj_hlr/null.wav"
 
 SWEP.Primary.Damage = 1
 SWEP.Primary.ClipSize = 20
@@ -46,7 +46,7 @@ function SWEP:OnPrimaryAttack(status, statusData)
 		local startpos = self:GetBulletPos()
 		local tr = util.TraceLine({
 			start = startpos,
-			endpos = enemy:GetPos() +enemy:OBBCenter() + VectorRand(-10, 10),
+			endpos = enemy:GetPos() + enemy:OBBCenter() + VectorRand(-10, 10),
 			filter = self
 		})
 		local hitpos = tr.HitPos
@@ -58,6 +58,6 @@ function SWEP:OnPrimaryAttack(status, statusData)
 		elec:SetAttachment(1)
 		util.Effect("VJ_HLR_Tau", elec)
 
-		VJ.ApplyRadiusDamage(owner, self, hitpos, 30, 20, DMG_ENERGYBEAM, true, false, {Force=20})
+		VJ.ApplyRadiusDamage(owner, self, hitpos, 30, 20, DMG_ENERGYBEAM, true, false, {Force = 20})
 	end
 end
