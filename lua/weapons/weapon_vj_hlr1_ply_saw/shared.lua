@@ -14,16 +14,16 @@ SWEP.WorldModel_CustomPositionOrigin = Vector(4, 0.5, -1.5)
 SWEP.WorldModel_CustomPositionBone = "Bip01 R Hand"
 
 SWEP.NPC_NextPrimaryFire = 0.065
-SWEP.NPC_CustomSpread	 		= 2.5
-SWEP.NPC_ReloadSound			= {"vj_hlr/gsrc/wep/saw/saw_reload2.wav"}
+SWEP.NPC_CustomSpread = 2.5
+SWEP.NPC_ReloadSound = "vj_hlr/gsrc/wep/saw/saw_reload2.wav"
 
 SWEP.Primary.Damage = 5
 SWEP.Primary.ClipSize = 50
 SWEP.Primary.Ammo = "SMG1"
 SWEP.Primary.TracerType = "VJ_HLR_Tracer"
 SWEP.PrimaryEffects_MuzzleFlash = false
-SWEP.Primary.Sound				= {"vj_hlr/gsrc/wep/saw/saw_fire1.wav", "vj_hlr/gsrc/wep/saw/saw_fire2.wav", "vj_hlr/gsrc/wep/saw/saw_fire3.wav"}
-SWEP.Primary.DistantSound		= {"vj_hlr/gsrc/wep/saw/saw_distant2.wav"}
+SWEP.Primary.Sound = {"vj_hlr/gsrc/wep/saw/saw_fire1.wav", "vj_hlr/gsrc/wep/saw/saw_fire2.wav", "vj_hlr/gsrc/wep/saw/saw_fire3.wav"}
+SWEP.Primary.DistantSound = "vj_hlr/gsrc/wep/saw/saw_distant2.wav"
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function SWEP:Init()
 	self:SetModelScale(0.8)

@@ -1,3 +1,4 @@
+include("entities/npc_vj_hlr1_freeman/init.lua")
 AddCSLuaFile("shared.lua")
 include("shared.lua")
 /*-----------------------------------------------
@@ -8,26 +9,23 @@ include("shared.lua")
 ENT.Model = "models/vj_hlr/hl1mp/shepard.mdl"
 
 ENT.VJ_NPC_Class = {"CLASS_UNITED_STATES"}
----------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:Init()
-	self.WeaponsList = {
-		["Close"] = {
-			"weapon_vj_hlr1_ply_shotgun",
-			"weapon_vj_hlr1_ply_grenade",
-			"weapon_vj_hlr1_ply_squeak_opfor",
-		},
-		["Normal"] = {
-			"weapon_vj_hlr1_ply_deagle",
-			"weapon_vj_hlr1_ply_mp5",
-			"weapon_vj_hlr1_ply_pistol",
-			"weapon_vj_hlr1_ply_saw",
-			"weapon_vj_hlr1_ply_shockrifle",
-			"weapon_vj_hlr1_ply_sporelauncher",
-			"weapon_vj_hlr1_ply_rpg",
-		},
-		["Far"] = {
-			"weapon_vj_hlr1_ply_m40a1",
-		},
-	}
-	self.BaseClass.Init(self)
-end
+
+ENT.WeaponsList = {
+	["Close"] = {
+		"weapon_vj_hlr1_ply_shotgun",
+		"weapon_vj_hlr1_ply_grenade",
+		"weapon_vj_hlr1_ply_squeak_opfor"
+	},
+	["Normal"] = {
+		"weapon_vj_hlr1_ply_deagle",
+		"weapon_vj_hlr1_ply_mp5",
+		"weapon_vj_hlr1_ply_pistol",
+		"weapon_vj_hlr1_ply_saw",
+		"weapon_vj_hlr1_ply_shockrifle",
+		"weapon_vj_hlr1_ply_sporelauncher",
+		"weapon_vj_hlr1_ply_rpg"
+	},
+	["Far"] = {
+		"weapon_vj_hlr1_ply_m40a1"
+	},
+}

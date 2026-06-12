@@ -21,13 +21,13 @@ SWEP.Primary.Damage = 1
 SWEP.Primary.ClipSize = 10
 SWEP.Primary.DisableBulletCode = true
 SWEP.Primary.Ammo = "357"
-SWEP.Primary.Sound = {"vj_hlr/gsrc/wep/shockroach/shock_fire.wav"}
-SWEP.Primary.DistantSound = {"vj_hlr/gsrc/wep/shockroach/shock_fire_distant.wav"}
+SWEP.Primary.Sound = "vj_hlr/gsrc/wep/shockroach/shock_fire.wav"
+SWEP.Primary.DistantSound = "vj_hlr/gsrc/wep/shockroach/shock_fire_distant.wav"
 SWEP.HasDryFireSound = false
 
 -- SWEP.PrimaryEffects_SpawnMuzzleFlash = false
 SWEP.PrimaryEffects_SpawnShells = false
-SWEP.PrimaryEffects_MuzzleParticles = {"vj_hlr_shockroach_muzzle"}
+SWEP.PrimaryEffects_MuzzleParticles = "vj_hlr_shockroach_muzzle"
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function SWEP:Init()
 	self:SetModelScale(0.5)
@@ -72,7 +72,7 @@ function SWEP:OnPrimaryAttack(status, statusData)
 		plasma:SetOwner(self:GetOwner())
 		plasma:Spawn()
 		plasma:Activate()
-		
+
 		local phys = plasma:GetPhysicsObject()
 		if IsValid(phys) then
 			phys:SetVelocity(self:GetOwner():CalculateProjectile("Line", self:GetBulletPos(), self:GetOwner():GetEnemy():GetPos() + self:GetOwner():GetEnemy():OBBCenter(), 10000))

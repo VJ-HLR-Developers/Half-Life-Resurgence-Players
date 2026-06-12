@@ -23,7 +23,7 @@ SWEP.Primary.TakeAmmo = 0
 SWEP.Primary.DisableBulletCode = true
 SWEP.Primary.Ammo = "grenade"
 SWEP.Primary.TracerType = "VJ_HLR_Tracer"
-SWEP.Primary.Sound = {"vj_hlr/gsrc/fx/null.wav"}
+SWEP.Primary.Sound = "vj_hlr/gsrc/fx/null.wav"
 SWEP.HasDryFireSound = false
 
 SWEP.PrimaryEffects_SpawnMuzzleFlash = false
@@ -52,7 +52,7 @@ function SWEP:OnPrimaryAttack(status, statusData)
 		plasma:SetOwner(self:GetOwner())
 		plasma:Spawn()
 		plasma:Activate()
-		
+
 		local phys = plasma:GetPhysicsObject()
 		if IsValid(phys) then
 			phys:SetVelocity(self:GetOwner():CalculateProjectile("Curve", self:GetBulletPos(), self:GetOwner():GetEnemy():GetPos() + self:GetOwner():GetEnemy():OBBCenter(), 1500))

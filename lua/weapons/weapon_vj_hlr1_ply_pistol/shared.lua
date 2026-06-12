@@ -13,14 +13,14 @@ SWEP.WorldModel_CustomPositionOrigin = Vector(1, -7.5, -1)
 SWEP.WorldModel_CustomPositionBone = "Bip01 R Hand"
 
 SWEP.NPC_NextPrimaryFire = 0.28
-SWEP.NPC_ReloadSound			= {"vj_hlr/gsrc/wep/glock/glock_reload.wav"}
+SWEP.NPC_ReloadSound = "vj_hlr/gsrc/wep/glock/glock_reload.wav"
 
 SWEP.Primary.Damage = 5
 SWEP.Primary.ClipSize = 17
 SWEP.Primary.Ammo = "Pistol"
-SWEP.Primary.Sound				= {"vj_hlr/gsrc/wep/glock/glock_regular.wav"}
-SWEP.Primary.DistantSound		= {"vj_hlr/gsrc/wep/glock/glock_distant2.wav"}
-SWEP.PrimaryEffects_ShellType 	= "ShellEject"
+SWEP.Primary.Sound = "vj_hlr/gsrc/wep/glock/glock_regular.wav"
+SWEP.Primary.DistantSound = "vj_hlr/gsrc/wep/glock/glock_distant2.wav"
+SWEP.PrimaryEffects_ShellType = "ShellEject"
 SWEP.Primary.TracerType = "VJ_HLR_Tracer"
 
 SWEP.PrimaryEffects_MuzzleAttachment = "muzzle"

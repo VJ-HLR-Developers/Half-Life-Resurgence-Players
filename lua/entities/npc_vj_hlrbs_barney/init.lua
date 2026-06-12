@@ -1,3 +1,4 @@
+include("entities/npc_vj_hlr1_freeman/init.lua")
 AddCSLuaFile("shared.lua")
 include("shared.lua")
 /*-----------------------------------------------
@@ -6,22 +7,19 @@ include("shared.lua")
 	without the prior written consent of the author, unless otherwise indicated for stand-alone materials.
 -----------------------------------------------*/
 ENT.Model = "models/vj_hlr/hl1mp/barney.mdl"
----------------------------------------------------------------------------------------------------------------------------------------------
-function ENT:Init()
-	self.WeaponsList = {
-		["Close"] = {
-			"weapon_vj_hlr1_ply_hgun",
-			"weapon_vj_hlr1_ply_shotgun",
-			-- "weapon_vj_hlr1_ply_squeak",
-		},
-		["Normal"] = {
-			"weapon_vj_hlr1_ply_357",
-			"weapon_vj_hlr1_ply_mp5",
-			"weapon_vj_hlr1_ply_pistol",
-		},
-		["Far"] = {
-			"weapon_vj_hlr1_ply_crossbow",
-		},
-	}
-	self.BaseClass.Init(self)
-end
+
+ENT.WeaponsList = {
+	["Close"] = {
+		"weapon_vj_hlr1_ply_hgun",
+		"weapon_vj_hlr1_ply_shotgun",
+		-- "weapon_vj_hlr1_ply_squeak"
+	},
+	["Normal"] = {
+		"weapon_vj_hlr1_ply_357",
+		"weapon_vj_hlr1_ply_mp5",
+		"weapon_vj_hlr1_ply_pistol"
+	},
+	["Far"] = {
+		"weapon_vj_hlr1_ply_crossbow"
+	},
+}

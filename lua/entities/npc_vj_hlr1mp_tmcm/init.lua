@@ -1,3 +1,4 @@
+include("entities/npc_vj_hlr1mp_gordon/init.lua")
 AddCSLuaFile("shared.lua")
 include("shared.lua")
 /*-----------------------------------------------
@@ -6,5 +7,4 @@ include("shared.lua")
 	without the prior written consent of the author, unless otherwise indicated for stand-alone materials.
 -----------------------------------------------*/
 ENT.Model = "models/vj_hlr/hl1mp/tmcm.mdl"
----------------------------------------------------------------------------------------------------------------------------------------------
 ENT.VJ_NPC_Class = {"CLASS_PLAYER_ALLY"}

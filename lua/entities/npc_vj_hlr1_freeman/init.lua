@@ -20,8 +20,8 @@ ENT.ControllerParams = {
 }
 ---------------------------------------------------------------------------------------------------------------------------------------------
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
-ENT.BloodParticle = {"vj_hlr_blood_red"}
-ENT.BloodDecal = {"VJ_HLR1_Blood_Red"}
+ENT.BloodParticle = "vj_hlr_blood_red"
+ENT.BloodDecal = "VJ_HLR1_Blood_Red"
 ENT.HasBloodPool = false
 
 ENT.VJ_NPC_Class = {"CLASS_PLAYER_ALLY"}
@@ -29,7 +29,7 @@ ENT.AlliedWithPlayerAllies = true
 
 ENT.PoseParameterLooking_InvertPitch = true
 
-ENT.WeaponInventory_MeleeList = {"weapon_vj_hlr1_ply_crowbar"}
+ENT.WeaponInventory_MeleeList = "weapon_vj_hlr1_ply_crowbar"
 
 ENT.HasMeleeAttack = false
 ENT.AnimTbl_MeleeAttack = "vjges_shoot_crowbar"
@@ -71,17 +71,17 @@ ENT.WeaponsList = {
 		"weapon_vj_hlr1_ply_hgun",
 		"weapon_vj_hlr1_ply_shotgun",
 		"weapon_vj_hlr1_ply_grenade",
-		"weapon_vj_hlr1_ply_squeak",
+		"weapon_vj_hlr1_ply_squeak"
 	},
 	["Normal"] = {
 		"weapon_vj_hlr1_ply_357",
 		"weapon_vj_hlr1_ply_gauss",
 		"weapon_vj_hlr1_ply_mp5",
 		"weapon_vj_hlr1_ply_pistol",
-		"weapon_vj_hlr1_ply_rpg",
+		"weapon_vj_hlr1_ply_rpg"
 	},
 	["Far"] = {
-		"weapon_vj_hlr1_ply_crossbow",
+		"weapon_vj_hlr1_ply_crossbow"
 	},
 }
 
@@ -326,8 +326,8 @@ function ENT:OnCreateSound(sdData, sdFile)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 local transDeath = {
-	[HITGROUP_HEAD] = {ACT_DIE_HEADSHOT},
-	[HITGROUP_STOMACH] = {ACT_DIE_GUTSHOT},
+	[HITGROUP_HEAD] = ACT_DIE_HEADSHOT,
+	[HITGROUP_STOMACH] = ACT_DIE_GUTSHOT,
 }
 local defDeath = {ACT_DIESIMPLE, ACT_DIEFORWARD, ACT_DIEBACKWARD}
 --
@@ -370,12 +370,15 @@ function ENT:HandleGibOnDeath(dmginfo, hitgroup)
 	self:CreateGibEntity("obj_vj_gib", "models/vj_hlr/gibs/hgib_lung.mdl", {CollisionDecal = "VJ_HLR1_Blood_Red", Pos = self:LocalToWorld(Vector(0, 0, 45))})
 	self:CreateGibEntity("obj_vj_gib", "models/vj_hlr/gibs/hgib_skull.mdl", {CollisionDecal = "VJ_HLR1_Blood_Red", Pos = self:LocalToWorld(Vector(0, 0, 60))})
 	self:CreateGibEntity("obj_vj_gib", "models/vj_hlr/gibs/hgib_legbone.mdl", {CollisionDecal = "VJ_HLR1_Blood_Red", Pos = self:LocalToWorld(Vector(0, 0, 15))})
+	if self:GetClass() == "npc_vj_hlr1mp_hgrunt" or self:GetClass() == "npc_vj_hlr1mp_recon" or self:GetClass() == "npc_vj_hlrof_shepard" then -- For HGrunt NPCs only
+		self:CreateGibEntity("obj_vj_gib", "models/vj_hlr/gibs/gib_hgrunt.mdl", {CollisionDecal = "VJ_HLR1_Blood_Red", Pos = self:LocalToWorld(Vector(0, 0, 15))})
+	end
 	self:PlaySoundSystem("Gib", "vj_base/gib/splat.wav")
 	return true, {AllowSound = false}
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:OnCreateDeathCorpse(dmginfo, hitgroup, corpse)
-	VJ.HLR_ApplyCorpseSystem(self, corpse)
+	VJ.HLR_ApplyCorpseSystem(self, corpse, nil, {ExtraGibs = ((self:GetClass() == "npc_vj_hlr1mp_hgrunt" or self:GetClass() == "npc_vj_hlr1mp_recon" or self:GetClass() == "npc_vj_hlrof_shepard") and {"models/vj_hlr/gibs/gib_hgrunt.mdl"}) or nil})
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:OnFootstepSound(moveType, sdFile)

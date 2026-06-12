@@ -12,7 +12,7 @@ SWEP.WorldModel_CustomPositionAngle = Vector(90, 180, 90)
 SWEP.WorldModel_CustomPositionOrigin = Vector(10, -4, -0)
 SWEP.WorldModel_CustomPositionBone = "Bip01 R Hand"
 
-SWEP.NPC_ReloadSound = {"vj_hlr/gsrc/wep/mp5/mp_reload.wav"}
+SWEP.NPC_ReloadSound = "vj_hlr/gsrc/wep/mp5/mp_reload.wav"
 SWEP.NPC_NextPrimaryFire = 0.08
 -- SWEP.NPC_BulletSpawnAttachment = "0"
 SWEP.NPC_HasSecondaryFire = true
@@ -25,7 +25,7 @@ SWEP.Primary.ClipSize = 50
 SWEP.Primary.Ammo = "SMG1"
 SWEP.Primary.TracerType = "VJ_HLR_Tracer"
 SWEP.Primary.Sound = {"vj_hlr/gsrc/wep/mp5/hks1.wav", "vj_hlr/gsrc/wep/mp5/hks2.wav", "vj_hlr/gsrc/wep/mp5/hks3.wav"}
-SWEP.Primary.DistantSound = {"vj_hlr/gsrc/wep/mp5/hks_distant_new.wav"}
+SWEP.Primary.DistantSound = "vj_hlr/gsrc/wep/mp5/hks_distant_new.wav"
 
 -- SWEP.PrimaryEffects_MuzzleAttachment = "0"
 SWEP.PrimaryEffects_SpawnShells = false

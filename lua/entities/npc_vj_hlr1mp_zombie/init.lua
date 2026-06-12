@@ -1,3 +1,4 @@
+include("entities/npc_vj_hlr1mp_gordon/init.lua")
 AddCSLuaFile("shared.lua")
 include("shared.lua")
 /*-----------------------------------------------
@@ -7,8 +8,8 @@ include("shared.lua")
 -----------------------------------------------*/
 ENT.Model = "models/vj_hlr/hl1mp/zombie.mdl"
 ENT.BloodColor = VJ.BLOOD_COLOR_YELLOW
-ENT.BloodParticle = {"vj_hlr_blood_yellow"}
-ENT.BloodDecal = {"VJ_HLR1_Blood_Yellow"}
+ENT.BloodParticle = "vj_hlr_blood_yellow"
+ENT.BloodDecal = "VJ_HLR1_Blood_Yellow"
 ENT.VJ_NPC_Class = {"CLASS_ZOMBIE"}
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
@@ -28,7 +29,7 @@ function ENT:HandleGibOnDeath(dmginfo, hitgroup)
 		util.Effect("bloodspray", effectData)
 		util.Effect("bloodspray", effectData)
 	end
-	
+
 	self:CreateGibEntity("obj_vj_gib", "models/vj_hlr/gibs/agib1.mdl", {BloodType = "Yellow", CollisionDecal = "VJ_HLR1_Blood_Yellow", Pos = self:LocalToWorld(Vector(0, 0, 40))})
 	self:CreateGibEntity("obj_vj_gib", "models/vj_hlr/gibs/agib2.mdl", {BloodType = "Yellow", CollisionDecal = "VJ_HLR1_Blood_Yellow", Pos = self:LocalToWorld(Vector(0, 0, 20))})
 	self:CreateGibEntity("obj_vj_gib", "models/vj_hlr/gibs/agib3.mdl", {BloodType = "Yellow", CollisionDecal = "VJ_HLR1_Blood_Yellow", Pos = self:LocalToWorld(Vector(0, 0, 30))})
@@ -39,6 +40,7 @@ function ENT:HandleGibOnDeath(dmginfo, hitgroup)
 	self:CreateGibEntity("obj_vj_gib", "models/vj_hlr/gibs/agib8.mdl", {BloodType = "Yellow", CollisionDecal = "VJ_HLR1_Blood_Yellow", Pos = self:LocalToWorld(Vector(0, 0, 45))})
 	self:CreateGibEntity("obj_vj_gib", "models/vj_hlr/gibs/agib9.mdl", {BloodType = "Yellow", CollisionDecal = "VJ_HLR1_Blood_Yellow", Pos = self:LocalToWorld(Vector(0, 0, 25))})
 	self:CreateGibEntity("obj_vj_gib", "models/vj_hlr/gibs/agib10.mdl", {BloodType = "Yellow", CollisionDecal = "VJ_HLR1_Blood_Yellow", Pos = self:LocalToWorld(Vector(0, 0, 15))})
+	self:CreateGibEntity("obj_vj_gib", "models/vj_hlr/gibs/zombiegib.mdl", {BloodType = "Yellow", CollisionDecal = "VJ_HLR1_Blood_Yellow", Pos = self:LocalToWorld(Vector(0, 1, 15))})
 	self:PlaySoundSystem("Gib", "vj_base/gib/splat.wav")
 	return true, {AllowSound = false}
 end
@@ -47,5 +49,5 @@ end
 local extraGibs = {"models/vj_hlr/gibs/zombiegib.mdl"}
 --
 function ENT:OnCreateDeathCorpse(dmginfo, hitgroup, corpse)
-	VJ.HLR_ApplyCorpseSystem(self, corpse, nil, {ExtraGibs = self.Zombie_Type == 1 and extraGibs or nil})
+	VJ.HLR_ApplyCorpseSystem(self, corpse, nil, {ExtraGibs = extraGibs})
 end

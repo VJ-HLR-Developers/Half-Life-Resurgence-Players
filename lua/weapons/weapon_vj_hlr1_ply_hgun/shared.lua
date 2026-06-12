@@ -75,8 +75,8 @@ function SWEP:OnThink()
 		local owner = self:GetOwner()
 		self.LastClip = self:Clip1()
 		if CurTime() > self.PLY_NextReloadT && self:Clip1() < self:GetMaxClip1() then
-			self:SetClip1(self:Clip1() +1)
-			self.PLY_NextReloadT = CurTime() +1
+			self:SetClip1(self:Clip1() + 1)
+			self.PLY_NextReloadT = CurTime() + 1
 			owner:SetWeaponState(VJ.WEP_STATE_RELOADING)
 		elseif self:Clip1() >= self:GetMaxClip1() then
 			owner:SetWeaponState()
@@ -87,20 +87,21 @@ end
 function SWEP:OnPrimaryAttack(status, statusData)
 	if status == "Init" then
 		if CLIENT then return end
-		local bolt = ents.Create("obj_vj_hlr1_hornet")
+		local hornet = ents.Create("obj_vj_hlr1_hornet")
 		local spawnpos = self:GetBulletPos()
-		bolt:SetPos(spawnpos)
-		bolt:SetAngles(self:GetOwner():GetAngles())
-		bolt:SetOwner(self:GetOwner())
-		bolt:Activate()
-		bolt:Spawn()
+		hornet:SetPos(spawnpos)
+		hornet:SetAngles(self:GetOwner():GetAngles())
+		hornet:SetOwner(self:GetOwner())
+		hornet:Activate()
+		hornet:Spawn()
 
-		self.PLY_NextReloadT = CurTime() +1
-		
-		local phys = bolt:GetPhysicsObject()
-		if IsValid(phys) then
-			bolt.Track_Ent = self:GetOwner():GetEnemy()
-			phys:ApplyForceCenter(bolt:CalculateProjectile("Line", spawnpos, self:GetOwner():GetEnemy():GetPos() + self:GetOwner():GetEnemy():OBBCenter(), 4000) + Vector(math.Rand(-30, 30), math.Rand(-30, 30), math.Rand(-30, 30)))
+		self.PLY_NextReloadT = CurTime() + 1
+
+		local phys = hornet:GetPhysicsObject()
+		local ownerEne = self:GetOwner():GetEnemy()
+		if IsValid(phys) && IsValid(ownerEne) then
+			hornet.Track_Ent = ownerEne
+			phys:ApplyForceCenter(VJ.CalculateTrajectory(hornet, hornet.Track_Ent, "Line", spawnpos, ownerEne:GetPos() + ownerEne:OBBCenter(), 4000) + VectorRand(-30, 30))
 		end
 	end
 end

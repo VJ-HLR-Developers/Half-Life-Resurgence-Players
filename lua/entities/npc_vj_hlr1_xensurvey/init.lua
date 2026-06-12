@@ -1,3 +1,4 @@
+include("entities/npc_vj_hlr1_freeman/init.lua")
 AddCSLuaFile("shared.lua")
 include("shared.lua")
 /*-----------------------------------------------
