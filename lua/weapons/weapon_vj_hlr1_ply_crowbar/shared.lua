@@ -33,6 +33,11 @@ function SWEP:OnHolster(newWep)
 	self:CustomOnRemove()
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
+function SWEP:OnGetBulletPos()
+	local owner = self:GetOwner()
+	return owner:EyePos()
+end
+---------------------------------------------------------------------------------------------------------------------------------------------
 function SWEP:CustomOnRemove()
 	local owner = self:GetOwner()
 	if IsValid(owner) then

@@ -47,8 +47,9 @@ function SWEP:OnPrimaryAttack(status, statusData)
 		bolt:Spawn()
 
 		local phys = bolt:GetPhysicsObject()
-		if IsValid(phys) then
-			phys:ApplyForceCenter(bolt:CalculateProjectile("Line", spawnpos, self:GetOwner():GetEnemy():GetPos() + self:GetOwner():GetEnemy():OBBCenter(), 4000) + Vector(math.Rand(-30, 30), math.Rand(-30, 30), math.Rand(-30, 30)))
+		local ownerEne = self:GetOwner():GetEnemy()
+		if IsValid(phys) && IsValid(ownerEne) then
+			phys:ApplyForceCenter(VJ.CalculateTrajectory(bolt, ownerEne, "Line", spawnpos, ownerEne:GetPos() + ownerEne:OBBCenter(), 4000) + VectorRand(-30, 30))
 		end
 	end
 end
