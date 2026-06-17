@@ -8,7 +8,8 @@ include("shared.lua")
 -----------------------------------------------*/
 ENT.Model = "models/vj_hlr/hl1mp/gordonmp.mdl"
 ENT.StartHealth = 100
-ENT.VJ_NPC_Class = {"CLASS_MP_HEV"}
+ENT.VJ_NPC_Class = {"CLASS_PLAYER_ALLY"} // {"CLASS_MP_HEV"}
+ENT.AlliedWithPlayerAllies = true
 
 ENT.WeaponsList = {
 	["Close"] = {
