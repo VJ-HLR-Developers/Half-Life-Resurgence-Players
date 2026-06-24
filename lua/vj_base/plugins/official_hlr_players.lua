@@ -14,7 +14,7 @@ VJ.AddCategoryInfo(spawnCategory, {Icon = "vj_hl/icons/hl1dm.png"})
 VJ.AddNPC("Gordon Freeman", "npc_vj_hlr1_freeman", spawnCategory)
 VJ.AddNPC("Xen Survey Team Member", "npc_vj_hlr1_xensurvey", spawnCategory)	-- needs a cool spawnicon, preferably somewhere in a xen themed map
 VJ.AddNPC("Barney Calhoun", "npc_vj_hlrbs_barney", spawnCategory)
-VJ.AddNPC("Adrian Shephard", "npc_vj_hlrof_shepard", spawnCategory)
+VJ.AddNPC("Adrian Shephard", "npc_vj_hlrof_shephard", spawnCategory)
 VJ.AddNPC("Gina Cross", "npc_vj_hlrdc_gina", spawnCategory)
 VJ.AddNPC("Colette Green", "npc_vj_hlrdc_colette", spawnCategory)
 -- HL1DM models: (TODO: make them colorable?)

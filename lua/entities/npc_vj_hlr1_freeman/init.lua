@@ -47,7 +47,7 @@ ENT.Weapon_IgnoreSpawnMenu = true
 -- ENT.Weapon_CanCrouchAttack = false
 -- ENT.DisableWeaponReloadAnimation = true
 
-ENT.AnimTbl_WeaponAttackSecondary = "shoot_m203"
+ENT.AnimTbl_WeaponAttackSecondary = "vjges_shoot_m203"
 ENT.Weapon_SecondaryFireTime = 0.05
 
 ENT.Weapon_StrafeCooldown = VJ.SET(0, 0.2)
@@ -389,7 +389,7 @@ function ENT:HandleGibOnDeath(dmginfo, hitgroup)
 	self:CreateGibEntity("obj_vj_gib", "models/vj_hlr/gibs/hgib_lung.mdl", {CollisionDecal = "VJ_HLR1_Blood_Red", CollideSound = gibsCollideSd, Pos = self:LocalToWorld(Vector(0, 0, 45))})
 	self:CreateGibEntity("obj_vj_gib", "models/vj_hlr/gibs/hgib_skull.mdl", {CollisionDecal = "VJ_HLR1_Blood_Red", CollideSound = gibsCollideSd, Pos = self:LocalToWorld(Vector(0, 0, 60))})
 	self:CreateGibEntity("obj_vj_gib", "models/vj_hlr/gibs/hgib_legbone.mdl", {CollisionDecal = "VJ_HLR1_Blood_Red", CollideSound = gibsCollideSd, Pos = self:LocalToWorld(Vector(0, 0, 15))})
-	if self:GetClass() == "npc_vj_hlr1mp_hgrunt" or self:GetClass() == "npc_vj_hlr1mp_recon" or self:GetClass() == "npc_vj_hlrof_shepard" then -- For HGrunt NPCs only
+	if self:GetClass() == "npc_vj_hlr1mp_hgrunt" or self:GetClass() == "npc_vj_hlr1mp_recon" or self:GetClass() == "npc_vj_hlrof_shephard" then -- For HGrunt NPCs only
 		self:CreateGibEntity("obj_vj_gib", "models/vj_hlr/gibs/gib_hgrunt.mdl", {CollisionDecal = "VJ_HLR1_Blood_Red", CollideSound = gibsCollideSd, Pos = self:LocalToWorld(Vector(0, 0, 15))})
 	end
 	self:PlaySoundSystem("Gib", "vj_base/gib/splat.wav")
@@ -397,7 +397,7 @@ function ENT:HandleGibOnDeath(dmginfo, hitgroup)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:OnCreateDeathCorpse(dmginfo, hitgroup, corpse)
-	VJ.HLR_ApplyCorpseSystem(self, corpse, nil, {CollisionSound = gibsCollideSd, ExtraGibs = ((self:GetClass() == "npc_vj_hlr1mp_hgrunt" or self:GetClass() == "npc_vj_hlr1mp_recon" or self:GetClass() == "npc_vj_hlrof_shepard") and {"models/vj_hlr/gibs/gib_hgrunt.mdl"}) or nil})
+	VJ.HLR_ApplyCorpseSystem(self, corpse, nil, {CollisionSound = gibsCollideSd, ExtraGibs = ((self:GetClass() == "npc_vj_hlr1mp_hgrunt" or self:GetClass() == "npc_vj_hlr1mp_recon" or self:GetClass() == "npc_vj_hlrof_shephard") and {"models/vj_hlr/gibs/gib_hgrunt.mdl"}) or nil})
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 /*function ENT:OnFootstepSound(moveType, sdFile) -- We change sound level through events instead
