@@ -31,6 +31,8 @@ SWEP.Primary.DistantSound = "vj_hlr/gsrc/wep/mp5/hks_distant_new.wav"
 SWEP.PrimaryEffects_SpawnShells = false
 SWEP.PrimaryEffects_ShellType = "ShellEject"
 SWEP.PrimaryEffects_MuzzleFlash = false
+
+SWEP.DryFireSound = "vj_hlr/gsrc/wep/dryfire1.wav"
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function SWEP:Init()
 	self:SetModelScale(0.75)

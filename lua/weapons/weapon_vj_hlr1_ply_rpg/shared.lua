@@ -24,6 +24,8 @@ SWEP.Primary.DistantSound = "vj_hlr/gsrc/wep/rpg/rocketfire1_distant.wav"
 
 SWEP.PrimaryEffects_SpawnShells = false
 SWEP.PrimaryEffects_MuzzleFlash = false
+
+SWEP.DryFireSound = "vj_hlr/gsrc/wep/dryfire1.wav"
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function SWEP:Init()
 	self:SetModelScale(0.5)

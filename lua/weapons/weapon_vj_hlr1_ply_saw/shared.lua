@@ -24,6 +24,8 @@ SWEP.Primary.TracerType = "VJ_HLR_Tracer"
 SWEP.PrimaryEffects_MuzzleFlash = false
 SWEP.Primary.Sound = {"vj_hlr/gsrc/wep/saw/saw_fire1.wav", "vj_hlr/gsrc/wep/saw/saw_fire2.wav", "vj_hlr/gsrc/wep/saw/saw_fire3.wav"}
 SWEP.Primary.DistantSound = "vj_hlr/gsrc/wep/saw/saw_distant2.wav"
+
+SWEP.DryFireSound = "vj_hlr/gsrc/wep/dryfire1.wav"
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function SWEP:Init()
 	self:SetModelScale(0.8)

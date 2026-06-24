@@ -29,6 +29,8 @@ SWEP.Primary.DistantSound = "vj_hlr/gsrc/wep/shotgun/sbarrel1_distant2.wav"
 
 SWEP.PrimaryEffects_ShellType = "ShotgunShellEject"
 SWEP.PrimaryEffects_MuzzleFlash = false
+
+SWEP.DryFireSound = "vj_hlr/gsrc/wep/dryfire1.wav"
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function SWEP:Init()
 	self:SetModelScale(0.85)
