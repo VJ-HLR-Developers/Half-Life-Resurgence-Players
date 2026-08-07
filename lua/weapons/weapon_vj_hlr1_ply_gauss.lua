@@ -9,10 +9,12 @@ SWEP.MadeForNPCsOnly = true
 SWEP.WorldModel = "models/vj_hlr/weapons/w_gauss.mdl"
 SWEP.HoldType = "ar2"
 
-SWEP.WorldModel_UseCustomPosition = true
-SWEP.WorldModel_CustomPositionAngle = Vector(0, 180, 0)
-SWEP.WorldModel_CustomPositionOrigin = Vector(1, -6, 2)
-SWEP.WorldModel_CustomPositionBone = "Bip01 R Hand"
+SWEP.WorldModelOffsetParams = {
+	Enabled = true,
+	Bone = "Bip01 R Hand",
+	Pos = Vector(6, 1, 2),
+	Ang = Angle(0, 180, 0)
+}
 
 SWEP.NPC_NextPrimaryFire = 0.18
 SWEP.NPC_FiringDistanceScale = 2.5

@@ -10,10 +10,12 @@ SWEP.WorldModel = "models/vj_hlr/weapons/w_hgun.mdl"
 SWEP.HoldType = "physgun"
 SWEP.NPC_HasReloadSound = false
 
-SWEP.WorldModel_UseCustomPosition = true
-SWEP.WorldModel_CustomPositionAngle = Vector(0, 180, 0)
-SWEP.WorldModel_CustomPositionOrigin = Vector(-1, -6, -3)
-SWEP.WorldModel_CustomPositionBone = "Bip01 R Hand"
+SWEP.WorldModelOffsetParams = {
+	Enabled = true,
+	Bone = "Bip01 R Hand",
+	Pos = Vector(6, -1, -3),
+	Ang = Angle(0, 180, 0)
+}
 
 SWEP.NPC_NextPrimaryFire = 0.165
 SWEP.NPC_FiringDistanceScale = 0.5

@@ -9,10 +9,12 @@ SWEP.MadeForNPCsOnly = true
 SWEP.WorldModel = "models/vj_hlr/weapons/w_shotgun.mdl"
 SWEP.HoldType = "shotgun"
 
-SWEP.WorldModel_UseCustomPosition = true
-SWEP.WorldModel_CustomPositionAngle = Vector(0, 180, 90)
-SWEP.WorldModel_CustomPositionOrigin = Vector(-1.5, -15, 0)
-SWEP.WorldModel_CustomPositionBone = "Bip01 R Hand"
+SWEP.WorldModelOffsetParams = {
+	Enabled = true,
+	Bone = "Bip01 R Hand",
+	Pos = Vector(15, 0, 1.5),
+	Ang = Angle(0, 180, 90)
+}
 
 SWEP.NPC_NextPrimaryFire = 1
 SWEP.NPC_FiringDistanceScale = 0.5

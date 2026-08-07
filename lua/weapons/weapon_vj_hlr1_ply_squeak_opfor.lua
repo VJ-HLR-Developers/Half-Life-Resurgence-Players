@@ -10,5 +10,7 @@ SWEP.WorldModel = "models/vj_hlr/weapons/w_penguin.mdl"
 
 SWEP.ThrowableNPC = "npc_vj_hlrof_penguin"
 
-SWEP.WorldModel_CustomPositionAngle = Vector(-40, 180, 0)
-SWEP.WorldModel_CustomPositionOrigin = Vector(2, -3, -5)
+SWEP.WorldModelOffsetParams = {
+	Pos = Vector(-0.916, 2, -5.759),
+	Ang = Angle(-40, 180, 0)
+}

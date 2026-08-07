@@ -9,10 +9,12 @@ SWEP.MadeForNPCsOnly = true
 SWEP.WorldModel = "models/vj_hlr/weapons/w_desert_eagle.mdl"
 SWEP.HoldType = "pistol"
 
-SWEP.WorldModel_UseCustomPosition = true
-SWEP.WorldModel_CustomPositionAngle = Vector(80, 0, 0)
-SWEP.WorldModel_CustomPositionOrigin = Vector(0.5, -0.5, -35)
-SWEP.WorldModel_CustomPositionBone = "Bip01 R Hand"
+SWEP.WorldModelOffsetParams = {
+	Enabled = true,
+	Bone = "Bip01 R Hand",
+	Pos = Vector(34.381, -0.5, -6.57),
+	Ang = Angle(-80, 0, 0)
+}
 
 SWEP.NPC_NextPrimaryFire = 0.5
 SWEP.NPC_ReloadSound = "vj_hlr/gsrc/wep/deagle/desert_eagle_reload.wav"

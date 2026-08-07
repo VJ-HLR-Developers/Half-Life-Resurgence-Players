@@ -6,15 +6,17 @@ SWEP.Author = "Cpt. Hazama"
 SWEP.Contact = "http://steamcommunity.com/groups/vrejgaming"
 SWEP.MadeForNPCsOnly = true
 
-SWEP.WorldModel = "models/vj_hlr/weapons/w_shockrifle.mdl"
+SWEP.WorldModel = "models/w_shockrifle.mdl"
 SWEP.HoldType = "smg"
 SWEP.HLR_HoldType = "shockrifle"
 SWEP.NPC_HasReloadSound = false
 
-SWEP.WorldModel_UseCustomPosition = true
-SWEP.WorldModel_CustomPositionAngle = Vector(0, 180, 0)
-SWEP.WorldModel_CustomPositionOrigin = Vector(-1, -12, -1)
-SWEP.WorldModel_CustomPositionBone = "Bip01 R Hand"
+SWEP.WorldModelOffsetParams = {
+	Enabled = true,
+	Bone = "Bip01 R Hand",
+	Pos = Vector(12, -1, -1),
+	Ang = Angle(0, 180, 0)
+}
 
 SWEP.NPC_NextPrimaryFire = 0.16
 SWEP.NPC_BulletSpawnAttachment = "muzzle"
@@ -40,7 +42,7 @@ function SWEP:OnGetBulletPos()
 	local owner = self:GetOwner()
 	local att = owner:GetAttachment(2)
 
-	return att.Pos +att.Ang:Forward() *20
+	return att.Pos + att.Ang:Forward() * 20
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function SWEP:NPC_Reload()
@@ -55,9 +57,9 @@ function SWEP:OnThink()
 		local owner = self:GetOwner()
 		self.LastClip = self:Clip1()
 		if CurTime() > self.PLY_NextReloadT && self:Clip1() < self:GetMaxClip1() then
-			self:SetClip1(self:Clip1() +1)
+			self:SetClip1(self:Clip1() + 1)
 			self:EmitSound("vj_hlr/gsrc/wep/shockroach/shock_recharge.wav")
-			self.PLY_NextReloadT = CurTime() +0.5
+			self.PLY_NextReloadT = CurTime() + 0.5
 			owner:SetWeaponState(VJ.WEP_STATE_RELOADING)
 		elseif self:Clip1() >= self:GetMaxClip1() then
 			owner:SetWeaponState()
@@ -80,6 +82,6 @@ function SWEP:OnPrimaryAttack(status, statusData)
 			phys:SetVelocity(self:GetOwner():CalculateProjectile("Line", self:GetBulletPos(), self:GetOwner():GetEnemy():GetPos() + self:GetOwner():GetEnemy():OBBCenter(), 10000))
 		end
 
-		self.PLY_NextReloadT = CurTime() +2.5
+		self.PLY_NextReloadT = CurTime() + 2.5
 	end
 end

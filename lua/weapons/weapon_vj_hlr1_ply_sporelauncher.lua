@@ -9,10 +9,12 @@ SWEP.MadeForNPCsOnly = true
 SWEP.WorldModel = "models/vj_hlr/weapons/w_spore_launcher.mdl"
 SWEP.HoldType = "rpg"
 
-SWEP.WorldModel_UseCustomPosition = true
-SWEP.WorldModel_CustomPositionAngle = Vector(0, 0, 0)
-SWEP.WorldModel_CustomPositionOrigin = Vector(0, 5, 0)
-SWEP.WorldModel_CustomPositionBone = "Bip01 R Hand"
+SWEP.WorldModelOffsetParams = {
+	Enabled = true,
+	Bone = "Bip01 R Hand",
+	Pos = Vector(5, 0, 0),
+	Ang = Angle(0, 0, 0)
+}
 
 SWEP.NPC_NextPrimaryFire = 1
 SWEP.NPC_FiringDistanceScale = 0.65

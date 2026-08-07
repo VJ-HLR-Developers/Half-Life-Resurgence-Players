@@ -10,10 +10,12 @@ SWEP.WorldModel = "models/vj_hlr/weapons/w_m40a1.mdl"
 SWEP.HoldType = "smg"
 SWEP.HLR_HoldType = "sniper"
 
-SWEP.WorldModel_UseCustomPosition = true
-SWEP.WorldModel_CustomPositionAngle = Vector(-90, 0, 90)
-SWEP.WorldModel_CustomPositionOrigin = Vector(-13, 2, -2)
-SWEP.WorldModel_CustomPositionBone = "Bip01 R Hand"
+SWEP.WorldModelOffsetParams = {
+	Enabled = true,
+	Bone = "Bip01 R Hand",
+	Pos = Vector(13, 2, -2),
+	Ang = Angle(90, -90, 0)
+}
 
 SWEP.NPC_CustomSpread = 0.2
 SWEP.NPC_ReloadSound = "vj_hlr/gsrc/wep/sniper/sniper_reload_full.wav"

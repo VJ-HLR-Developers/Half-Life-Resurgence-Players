@@ -12,10 +12,12 @@ SWEP.HoldType = "melee"
 
 SWEP.NPC_NextPrimaryFire = 0.2
 
-SWEP.WorldModel_UseCustomPosition = true
-SWEP.WorldModel_CustomPositionAngle = Vector(-20, 180, 180)
-SWEP.WorldModel_CustomPositionOrigin = Vector(-1, -2.5, -7.5)
-SWEP.WorldModel_CustomPositionBone = "Bip01 R Hand"
+SWEP.WorldModelOffsetParams = {
+	Enabled = true,
+	Bone = "Bip01 R Hand",
+	Pos = Vector(4.914, 1, 6.193),
+	Ang = Angle(-20, 180, -180)
+}
 
 SWEP.Primary.Damage = 10
 ---------------------------------------------------------------------------------------------------------------------------------------------

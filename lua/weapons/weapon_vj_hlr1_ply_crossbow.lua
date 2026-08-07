@@ -9,10 +9,12 @@ SWEP.MadeForNPCsOnly = true
 SWEP.WorldModel = "models/vj_hlr/weapons/w_crossbow.mdl"
 SWEP.HoldType = "crossbow"
 
-SWEP.WorldModel_UseCustomPosition = true
-SWEP.WorldModel_CustomPositionAngle = Vector(0, 180, 0)
-SWEP.WorldModel_CustomPositionOrigin = Vector(1, -12, 0.5)
-SWEP.WorldModel_CustomPositionBone = "Bip01 R Hand"
+SWEP.WorldModelOffsetParams = {
+	Enabled = true,
+	Bone = "Bip01 R Hand",
+	Pos = Vector(12, 1, 0.5),
+	Ang = Angle(0, 180, 0)
+}
 
 SWEP.NPC_NextPrimaryFire = 1.25
 SWEP.NPC_FiringDistanceScale = 2.5
