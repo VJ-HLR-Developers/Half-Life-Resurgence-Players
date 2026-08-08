@@ -6,7 +6,7 @@ SWEP.Author = "Cpt. Hazama"
 SWEP.Contact = "http://steamcommunity.com/groups/vrejgaming"
 SWEP.MadeForNPCsOnly = true
 
-SWEP.WorldModel = "models/w_shockrifle.mdl"
+SWEP.WorldModel = "models/vj_hlr/weapons/w_shockrifle.mdl"
 SWEP.HoldType = "smg"
 SWEP.HLR_HoldType = "shockrifle"
 SWEP.NPC_HasReloadSound = false
