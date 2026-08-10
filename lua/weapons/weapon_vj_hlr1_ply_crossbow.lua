@@ -28,7 +28,7 @@ SWEP.Primary.Ammo = "357"
 SWEP.Primary.Sound = "vj_hlr/gsrc/wep/crossbow/xbow_fire1.wav"
 SWEP.Primary.DistantSound = "vj_hlr/gsrc/wep/crossbow/xbow_fire1_distant.wav"
 
-SWEP.PrimaryEffects_SpawnMuzzleFlash = false
+SWEP.PrimaryEffects_MuzzleFlash = false
 SWEP.PrimaryEffects_SpawnShells = false
 
 SWEP.DryFireSound = "vj_hlr/gsrc/wep/dryfire1.wav"

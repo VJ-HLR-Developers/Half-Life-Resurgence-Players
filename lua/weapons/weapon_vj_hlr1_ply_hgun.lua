@@ -29,9 +29,9 @@ SWEP.Primary.Ammo = "357"
 SWEP.Primary.Sound = {"vj_hlr/gsrc/npc/agrunt/ag_fire1.wav", "vj_hlr/gsrc/npc/agrunt/ag_fire2.wav", "vj_hlr/gsrc/npc/agrunt/ag_fire3.wav"}
 SWEP.HasDryFireSound = false
 
-SWEP.PrimaryEffects_SpawnMuzzleFlash = false
-SWEP.PrimaryEffects_SpawnShells = false
 SWEP.PrimaryEffects_MuzzleFlash = false
+SWEP.PrimaryEffects_SpawnShells = false
+SWEP.PrimaryEffects_SpawnDynamicLight = false
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function SWEP:Init()
 	self:SetModelScale(0.5)
@@ -42,7 +42,7 @@ function SWEP:OnGetBulletPos()
 	local owner = self:GetOwner()
 	local att = owner:GetAttachment(2)
 
-	return att.Pos +att.Ang:Forward() *20
+	return att.Pos +att.Ang:Forward() * 20
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function SWEP:PrimaryAttackEffects(owner)
@@ -57,9 +57,8 @@ function SWEP:PrimaryAttackEffects(owner)
 	muz:SetKeyValue("disablereceiveshadows", "0") -- Disable receiving shadows
 	muz:SetKeyValue("framerate", "10.0") -- Rate at which the sprite should animate, if at all.
 	muz:SetKeyValue("spawnflags", "0")
-	muz:SetPos(self:OnGetBulletPos())
-	-- muz:SetParent(self)
-	-- muz:Fire("SetParentAttachment", self.PrimaryEffects_MuzzleAttachment)
+	muz:SetParent(self)
+	muz:Fire("SetParentAttachment", self.PrimaryEffects_MuzzleAttachment)
 	muz:SetAngles(Angle(math.random(-100, 100), math.random(-100, 100), math.random(-100, 100)))
 	muz:Spawn()
 	muz:Activate()

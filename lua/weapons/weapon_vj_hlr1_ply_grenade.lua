@@ -30,7 +30,7 @@ SWEP.Primary.TracerType = "VJ_HLR_Tracer"
 SWEP.Primary.Sound = "vj_hlr/null.wav"
 SWEP.HasDryFireSound = false
 
-SWEP.PrimaryEffects_SpawnMuzzleFlash = false
+SWEP.PrimaryEffects_MuzzleFlash = false
 SWEP.PrimaryEffects_SpawnShells = false
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function SWEP:Init()

@@ -29,7 +29,7 @@ SWEP.Primary.Sound = "vj_hlr/gsrc/wep/shockroach/shock_fire.wav"
 SWEP.Primary.DistantSound = "vj_hlr/gsrc/wep/shockroach/shock_fire_distant.wav"
 SWEP.HasDryFireSound = false
 
--- SWEP.PrimaryEffects_SpawnMuzzleFlash = false
+-- SWEP.PrimaryEffects_MuzzleFlash = false
 SWEP.PrimaryEffects_SpawnShells = false
 SWEP.PrimaryEffects_MuzzleParticles = "vj_hlr_shockroach_muzzle"
 ---------------------------------------------------------------------------------------------------------------------------------------------

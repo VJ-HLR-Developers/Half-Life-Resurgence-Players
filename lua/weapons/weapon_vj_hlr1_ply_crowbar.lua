@@ -20,18 +20,21 @@ SWEP.WorldModelOffsetParams = {
 }
 
 SWEP.Primary.Damage = 10
+
+SWEP.Primary.Sound = {"vj_hlr/gsrc/wep/crowbar/cbar_hitbod1.wav", "vj_hlr/gsrc/wep/crowbar/cbar_hitbod2.wav", "vj_hlr/gsrc/wep/crowbar/cbar_hitbod3.wav"}
+SWEP.MeleeWeaponSound_Hit = "vj_hlr/gsrc/wep/crowbar/cbar_miss1.wav"
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function SWEP:Init()
 	self:SetModelScale(0.5)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function SWEP:OnDeploy()
+/*function SWEP:OnDeploy()
 	local owner = self:GetOwner()
 	if IsValid(owner) then
 		owner.SoundTbl_MeleeAttack = {"vj_hlr/gsrc/wep/crowbar/cbar_hitbod1.wav", "vj_hlr/gsrc/wep/crowbar/cbar_hitbod2.wav", "vj_hlr/gsrc/wep/crowbar/cbar_hitbod3.wav"}
 		owner.SoundTbl_MeleeAttackMiss = "vj_hlr/gsrc/wep/crowbar/cbar_miss1.wav"
 	end
-end
+end*/
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function SWEP:OnHolster(newWep)
 	self:CustomOnRemove()
@@ -42,10 +45,10 @@ function SWEP:OnGetBulletPos()
 	return owner:EyePos()
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-function SWEP:CustomOnRemove()
+/*function SWEP:CustomOnRemove()
 	local owner = self:GetOwner()
 	if IsValid(owner) then
 		owner.SoundTbl_MeleeAttack = {}
 		owner.SoundTbl_MeleeAttackMiss = {}
 	end
-end
+end*/
