@@ -7,11 +7,18 @@ include("shared.lua")
 	without the prior written consent of the author, unless otherwise indicated for stand-alone materials.
 -----------------------------------------------*/
 ENT.Model = "models/vj_hlr/hl1mp/skeleton.mdl"
-ENT.VJ_NPC_Class = {"CLASS_MP_SKELETON"}
+ENT.VJ_NPC_Class = {"CLASS_ZOMBIE"}
 ENT.Bleeds = false
 ENT.BloodColor = ""
 ENT.HasBloodParticle = false
 ENT.HasBloodDecal = false
+---------------------------------------------------------------------------------------------------------------------------------------------
+function ENT:PreInit()
+    if GetConVar("vj_hlr_dm_ffa"):GetInt() == 1 then
+		self.VJ_NPC_Class = {"CLASS_MP_SKELETON"}
+		self.AlliedWithPlayerAllies = false
+	end
+end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 local gibsCollideSd = {"vj_hlr/gsrc/fx/flesh1.wav", "vj_hlr/gsrc/fx/flesh2.wav", "vj_hlr/gsrc/fx/flesh3.wav", "vj_hlr/gsrc/fx/flesh5.wav", "vj_hlr/gsrc/fx/flesh6.wav", "vj_hlr/gsrc/fx/flesh7.wav"}
 --

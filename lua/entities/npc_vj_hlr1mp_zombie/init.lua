@@ -11,7 +11,13 @@ ENT.BloodColor = VJ.BLOOD_COLOR_YELLOW
 ENT.BloodParticle = "vj_hlr_blood_yellow"
 ENT.BloodDecal = "VJ_HLR1_Blood_Yellow"
 ENT.VJ_NPC_Class = {"CLASS_ZOMBIE"}
-
+---------------------------------------------------------------------------------------------------------------------------------------------
+function ENT:PreInit()
+    if GetConVar("vj_hlr_dm_ffa"):GetInt() == 1 then
+		self.VJ_NPC_Class = {"CLASS_MP_ZOMBIE"}
+		self.AlliedWithPlayerAllies = false
+	end
+end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 local colorYellow = VJ.Color2Byte(Color(255, 221, 35))
 local gibsCollideSd = {"vj_hlr/gsrc/fx/flesh1.wav", "vj_hlr/gsrc/fx/flesh2.wav", "vj_hlr/gsrc/fx/flesh3.wav", "vj_hlr/gsrc/fx/flesh5.wav", "vj_hlr/gsrc/fx/flesh6.wav", "vj_hlr/gsrc/fx/flesh7.wav"}

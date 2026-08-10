@@ -36,3 +36,10 @@ ENT.WeaponsList = {
 		"weapon_vj_hlr1_ply_crossbow"
 	},
 }
+---------------------------------------------------------------------------------------------------------------------------------------------
+function ENT:PreInit()
+    if GetConVar("vj_hlr_dm_ffa"):GetInt() == 1 then
+		self.VJ_NPC_Class = {"CLASS_MP_GORDON"}
+		self.AlliedWithPlayerAllies = false
+	end
+end

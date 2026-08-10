@@ -7,4 +7,10 @@ include("shared.lua")
 	without the prior written consent of the author, unless otherwise indicated for stand-alone materials.
 -----------------------------------------------*/
 ENT.Model = "models/vj_hlr/hl1mp/gman.mdl"
-ENT.VJ_NPC_Class = {"CLASS_MP_GMAN"}
+---------------------------------------------------------------------------------------------------------------------------------------------
+function ENT:PreInit()
+    if GetConVar("vj_hlr_dm_ffa"):GetInt() == 1 then
+		self.VJ_NPC_Class = {"CLASS_MP_GMAN"}
+		self.AlliedWithPlayerAllies = false
+	end
+end

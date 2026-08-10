@@ -8,4 +8,11 @@ include("shared.lua")
 -----------------------------------------------*/
 ENT.Model = "models/vj_hlr/hl1mp/ken.mdl"
 ENT.StartHealth = 200
-ENT.VJ_NPC_Class = {"CLASS_MP_KEN"}
+ENT.VJ_NPC_Class = {"CLASS_MP_FREAKS"}
+---------------------------------------------------------------------------------------------------------------------------------------------
+function ENT:PreInit()
+    if GetConVar("vj_hlr_dm_ffa"):GetInt() == 1 then
+		self.VJ_NPC_Class = {"CLASS_MP_KEN"}
+		self.AlliedWithPlayerAllies = false
+	end
+end
