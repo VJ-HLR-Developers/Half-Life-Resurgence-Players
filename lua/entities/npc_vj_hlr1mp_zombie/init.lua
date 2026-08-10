@@ -13,7 +13,7 @@ ENT.BloodDecal = "VJ_HLR1_Blood_Yellow"
 ENT.VJ_NPC_Class = {"CLASS_ZOMBIE"}
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:PreInit()
-    if GetConVar("vj_hlr_dm_ffa"):GetInt() == 1 then
+	if GetConVar("vj_hlr_dm_ffa"):GetInt() == 1 then
 		self.VJ_NPC_Class = {"CLASS_MP_ZOMBIE"}
 		self.AlliedWithPlayerAllies = false
 	end

@@ -10,7 +10,7 @@ ENT.Model = "models/vj_hlr/hl1mp/cannibal.mdl"
 ENT.VJ_NPC_Class = {"CLASS_MP_FREAKS"}
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:PreInit()
-    if GetConVar("vj_hlr_dm_ffa"):GetInt() == 1 then
+	if GetConVar("vj_hlr_dm_ffa"):GetInt() == 1 then
 		self.VJ_NPC_Class = {"CLASS_MP_CANNIBAL"}
 		self.AlliedWithPlayerAllies = false
 	end

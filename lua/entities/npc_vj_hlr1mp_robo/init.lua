@@ -16,7 +16,7 @@ ENT.VJ_NPC_Class = {"CLASS_UNITED_STATES"}
 ENT.SoundTbl_FootStep = {"vj_hlr/gsrc/npc/rgrunt/pl_metal1.wav", "vj_hlr/gsrc/npc/rgrunt/pl_metal2.wav", "vj_hlr/gsrc/npc/rgrunt/pl_metal3.wav", "vj_hlr/gsrc/npc/rgrunt/pl_metal4.wav"}
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:PreInit()
-    if GetConVar("vj_hlr_dm_ffa"):GetInt() == 1 then
+	if GetConVar("vj_hlr_dm_ffa"):GetInt() == 1 then
 		self.VJ_NPC_Class = {"CLASS_MP_ROBO"}
 		self.AlliedWithPlayerAllies = false
 	end

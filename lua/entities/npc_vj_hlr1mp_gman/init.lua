@@ -9,7 +9,7 @@ include("shared.lua")
 ENT.Model = "models/vj_hlr/hl1mp/gman.mdl"
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:PreInit()
-    if GetConVar("vj_hlr_dm_ffa"):GetInt() == 1 then
+	if GetConVar("vj_hlr_dm_ffa"):GetInt() == 1 then
 		self.VJ_NPC_Class = {"CLASS_MP_GMAN"}
 		self.AlliedWithPlayerAllies = false
 	end

@@ -38,7 +38,7 @@ ENT.WeaponsList = {
 }
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:PreInit()
-    if GetConVar("vj_hlr_dm_ffa"):GetInt() == 1 then
+	if GetConVar("vj_hlr_dm_ffa"):GetInt() == 1 then
 		self.VJ_NPC_Class = {"CLASS_MP_GORDON"}
 		self.AlliedWithPlayerAllies = false
 	end

@@ -10,7 +10,7 @@ ENT.Model = "models/vj_hlr/hl1mp/hgrunt.mdl"
 ENT.VJ_NPC_Class = {"CLASS_UNITED_STATES"}
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:PreInit()
-    if GetConVar("vj_hlr_dm_ffa"):GetInt() == 1 then
+	if GetConVar("vj_hlr_dm_ffa"):GetInt() == 1 then
 		self.VJ_NPC_Class = {"CLASS_MP_HGRUNT"}
 		self.AlliedWithPlayerAllies = false
 	end
