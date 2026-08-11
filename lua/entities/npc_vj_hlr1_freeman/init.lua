@@ -314,18 +314,19 @@ function ENT:SetAnimationTranslations(h)
 	return true
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-local vec = Vector(0, 0, 0)
+local vec = Vector()
 --
 function ENT:OnDamaged(dmginfo, hitgroup, status)
 	if status == "Init" then
-		self.Bleeds = true
 		if hitgroup == HITGROUP_GEAR && dmginfo:GetDamagePosition() != vec then
-			self.Bleeds = false
+			self.HasBloodParticle = false
 			local rico = EffectData()
 			rico:SetOrigin(dmginfo:GetDamagePosition())
 			rico:SetScale(4)
 			rico:SetMagnitude(math.random(1, 2)) -- Effect type | 1 = Animated | 2 = Basic
 			util.Effect("VJ_HLR_Rico", rico)
+		else
+			self.HasBloodParticle = true
 		end
 	end
 end
