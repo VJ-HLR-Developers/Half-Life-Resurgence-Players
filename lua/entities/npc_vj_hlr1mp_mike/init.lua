@@ -23,10 +23,10 @@ ENT.WeaponsList = {
 		"weapon_vj_hlr1_ply_357",
 		"weapon_vj_hlr1_ply_gauss",
 		"weapon_vj_hlr1_ply_mp5",
-		"weapon_vj_hlr1_ply_pistol",
+		"weapon_vj_hlr1_ply_pistol"
 	},
 	["Far"] = {
-		"weapon_vj_hlr1_ply_crossbow"
+		"weapon_vj_hlr1_ply_crossbow",
 		"weapon_vj_hlr1_ply_rpg"
 	},
 }
@@ -44,8 +44,6 @@ local gibsCollideSd = {"vj_hlr/gsrc/fx/metal1.wav", "vj_hlr/gsrc/fx/metal2.wav",
 --
 function ENT:HandleGibOnDeath(dmginfo, hitgroup)
 	self.HasDeathSounds = false
-	local upPos = self.Sentry_OrientationType == 1 and -30 or 20
-	local attPos = self.Sentry_GroundType == 1 and self:GetAttachment(self:LookupAttachment("center")).Pos or nil -- Decay sentry gun
 	
 	self:CreateGibEntity("obj_vj_gib", "models/vj_hlr/gibs/metalgib_p1.mdl", {CollisionDecal = false, Pos = self:LocalToWorld(Vector(0, 0, 40)), CollisionSound = gibsCollideSd})
 	self:CreateGibEntity("obj_vj_gib", "models/vj_hlr/gibs/metalgib_p2.mdl", {CollisionDecal = false, Pos = self:LocalToWorld(Vector(0, 1, 40)), CollisionSound = gibsCollideSd})
