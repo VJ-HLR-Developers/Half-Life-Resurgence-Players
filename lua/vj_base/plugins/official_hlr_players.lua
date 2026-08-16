@@ -37,6 +37,10 @@ VJ.AddNPC("Colette Green", "npc_vj_hlrdc_colette", spawnCategory, {SubCategory =
 		VJ.AddNPC("Too Much Coffee Man", "npc_vj_hlr1mp_tmcm", spawnCategory, {SubCategory = subCategory})
 		-- cut from HL: Further Data, released after 2023 Valve repo leaks
 		VJ.AddNPC("Rat Fink", "npc_vj_hlr1mp_rfink", spawnCategory, {SubCategory = subCategory})
+		-- HATSUNE MIKU?!!??!?
+		if util.IsValidModel("models/xinus22/mikuhl1.mdl") then -- Only list if required playermodel addon is on the server: https://steamcommunity.com/sharedfiles/filedetails/?id=3448004915
+			VJ.AddNPC("Hatsune Miku", "npc_vj_hlr1mp_mike", spawnCategory, {SubCategory = subCategory})
+		end
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------ Source Engine ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

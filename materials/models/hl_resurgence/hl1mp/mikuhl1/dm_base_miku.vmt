@@ -1,0 +1,11 @@
+"VertexLitGeneric"
+{
+	"$basetexture"	"models/xinus22/mikuhl1/miku_body"
+//	"$halflambert"	"1"
+
+//	"$bumpmap" "models/portalmania/weightcube_reference_normal"
+	"$phong" "1"
+
+	"$lightwarptexture"	"models/xinus22/mikuhl1/miku_lightwarp"
+	"$nodecal" 1
+}

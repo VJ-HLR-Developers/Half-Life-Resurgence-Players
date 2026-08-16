@@ -1,0 +1,6 @@
+ENT.Base 			= "npc_vj_human_base"
+ENT.Type 			= "ai"
+ENT.PrintName 		= ""
+ENT.Author 			= "The One Epicplayer and Xinus22"
+ENT.Contact 		= "http://steamcommunity.com/groups/vrejgaming"
+ENT.Category		= "Half-Life Resurgence"
