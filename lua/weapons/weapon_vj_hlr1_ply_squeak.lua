@@ -24,7 +24,7 @@ SWEP.NPC_FiringDistanceScale = 0.65
 SWEP.NPC_HasReloadSound = false
 
 SWEP.Primary.Damage = 1
-SWEP.Primary.ClipSize = 5
+SWEP.Primary.ClipSize = 15
 SWEP.Primary.TakeAmmo = 0
 SWEP.Primary.DisableBulletCode = true
 SWEP.Primary.Ammo = "grenade"
@@ -41,7 +41,7 @@ end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function SWEP:OnGetBulletPos()
 	local owner = self:GetOwner()
-	return owner:EyePos() + owner:GetForward()*15
+	return owner:EyePos() + owner:GetForward() * 15
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function SWEP:PrimaryAttackEffects(owner)
@@ -62,6 +62,6 @@ function SWEP:OnPrimaryAttack(status, statusData)
 		owner:SetRelationshipMemory(snark, VJ.MEM_OVERRIDE_DISPOSITION, D_LI) -- In case relation class is changed dynamically!
 		snark:SetRelationshipMemory(owner, VJ.MEM_OVERRIDE_DISPOSITION, D_LI) -- In case relation class is changed dynamically!
 		snark:SetGroundEntity(NULL)
-		snark:SetLocalVelocity(((owner:GetEnemy():GetPos() +owner:GetEnemy():OBBCenter()) -snark:GetPos()):GetNormalized() *500)
+		snark:SetLocalVelocity(((owner:GetEnemy():GetPos() + owner:GetEnemy():OBBCenter()) - snark:GetPos()):GetNormalized() * 500)
 	end
 end

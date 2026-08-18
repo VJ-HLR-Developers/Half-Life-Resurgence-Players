@@ -22,7 +22,7 @@ SWEP.NPC_BulletSpawnAttachment = "muzzle"
 SWEP.NPC_ReloadSound = "vj_hlr/null.wav"
 
 SWEP.Primary.Damage = 1
-SWEP.Primary.ClipSize = 20
+SWEP.Primary.ClipSize = 100
 SWEP.Primary.TakeAmmo = 0
 SWEP.Primary.DisableBulletCode = true
 SWEP.Primary.Ammo = "357"

@@ -42,7 +42,7 @@ function SWEP:OnGetBulletPos()
 	local owner = self:GetOwner()
 	local att = owner:GetAttachment(2)
 
-	return att.Pos +att.Ang:Forward() * 20
+	return att.Pos + att.Ang:Forward() * 20
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function SWEP:PrimaryAttackEffects(owner)
