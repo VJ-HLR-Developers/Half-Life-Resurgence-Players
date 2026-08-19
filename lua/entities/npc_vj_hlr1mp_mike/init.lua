@@ -30,7 +30,6 @@ ENT.WeaponsList = {
 		"weapon_vj_hlr1_ply_rpg"
 	},
 }
-
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:PreInit()
 	if GetConVar("vj_hlr_dm_ffa"):GetInt() == 1 then
@@ -38,7 +37,6 @@ function ENT:PreInit()
 		self.AlliedWithPlayerAllies = false
 	end
 end
-
 ---------------------------------------------------------------------------------------------------------------------------------------------
 local gibsCollideSd = {"vj_hlr/gsrc/fx/metal1.wav", "vj_hlr/gsrc/fx/metal2.wav", "vj_hlr/gsrc/fx/metal3.wav", "vj_hlr/gsrc/fx/metal4.wav", "vj_hlr/gsrc/fx/metal5.wav"}
 --
