@@ -32,6 +32,7 @@ SWEP.HasDryFireSound = false
 -- SWEP.PrimaryEffects_MuzzleFlash = false
 SWEP.PrimaryEffects_SpawnShells = false
 SWEP.PrimaryEffects_MuzzleParticles = "vj_hlr_shockroach_muzzle"
+SWEP.PrimaryEffects_DynamicLightColor = Color(128, 255, 255)
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function SWEP:Init()
 	self:SetModelScale(0.5)
