@@ -350,7 +350,7 @@ end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 local transDeath = {
 	[HITGROUP_HEAD] = ACT_DIE_HEADSHOT,
-	[HITGROUP_STOMACH] = ACT_DIE_GUTSHOT,
+	[HITGROUP_STOMACH] = ACT_DIE_GUTSHOT
 }
 local defDeath = {ACT_DIESIMPLE, ACT_DIEFORWARD, ACT_DIEBACKWARD}
 --
@@ -362,6 +362,9 @@ function ENT:OnDeath(dmginfo, hitgroup, status)
 		self.AnimTbl_Death = transDeath[hitgroup] or defDeath
 		self:DeathWeaponDrop(dmginfo, hitgroup)
 		if IsValid(self:GetActiveWeapon()) then self:GetActiveWeapon():Remove() end
+	elseif status == "Finish" then
+		-- Fix for if blood particles were disabled from taking damage to armor
+		self.HasBloodParticle = true
 	end
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
