@@ -56,7 +56,7 @@ function SWEP:OnPrimaryAttack(status, statusData)
 				rocket.HasIdleSounds = true
 				if IsValid(phys) then
 					phys:SetVelocity(self:GetOwner():CalculateProjectile("Line", self:GetBulletPos(), self:GetOwner():GetEnemy():GetPos() + self:GetOwner():GetEnemy():OBBCenter(), 1700))
-					rocket:SetAngles(rocket:GetVelocity():GetNormal():Angle())
+					rocket:SetAngles(rocket:GetVelocity():GetNormalized():Angle())
 				end
 			end
 		end)
