@@ -60,8 +60,6 @@ function SWEP:OnPrimaryAttack(status, statusData)
 				end
 			end
 		end)
-
-		self.PLY_NextReloadT = CurTime() +2.5
 	end
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
