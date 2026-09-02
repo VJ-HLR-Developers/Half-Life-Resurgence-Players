@@ -44,16 +44,17 @@ end
 function SWEP:OnPrimaryAttack(status, statusData)
 	if status == "Init" then
 		if CLIENT then return end
+		local owner = self:GetOwner()
 		local bolt = ents.Create("obj_vj_hlr1_crossbowbolt")
 		local spawnpos = self:GetBulletPos()
 		bolt:SetPos(spawnpos)
-		bolt:SetAngles(self:GetOwner():GetAngles())
-		bolt:SetOwner(self:GetOwner())
+		bolt:SetAngles(owner:GetAngles())
+		bolt:SetOwner(owner)
 		bolt:Activate()
 		bolt:Spawn()
 
 		local phys = bolt:GetPhysicsObject()
-		local ownerEne = self:GetOwner():GetEnemy()
+		local ownerEne = owner:GetEnemy()
 		if IsValid(phys) && IsValid(ownerEne) then
 			phys:ApplyForceCenter(VJ.CalculateTrajectory(bolt, ownerEne, "Line", spawnpos, ownerEne:GetPos() + ownerEne:OBBCenter(), 4000) + VectorRand(-30, 30))
 		end

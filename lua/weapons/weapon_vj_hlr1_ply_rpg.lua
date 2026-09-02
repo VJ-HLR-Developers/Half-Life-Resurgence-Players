@@ -42,20 +42,24 @@ end
 function SWEP:OnPrimaryAttack(status, statusData)
 	if status == "Init" then
 		if CLIENT then return end
+		local owner = self:GetOwner()
 		local rocket = ents.Create("obj_vj_hlr1_rocket")
-		rocket:SetPos(self:GetBulletPos())
-		rocket:SetAngles(self:GetOwner():GetAngles())
-		rocket:SetOwner(self:GetOwner())
+		local spawnpos = self:GetBulletPos()
+		rocket:SetPos(spawnpos)
+		rocket:SetAngles(owner:GetAngles())
+		rocket:SetOwner(owner)
 		rocket:Spawn()
 		rocket:Activate()
 		rocket.HasIdleSounds = false
+
 		local phys = rocket:GetPhysicsObject()
+		local ownerEne = owner:GetEnemy()
 		phys:SetVelocity(rocket:GetForward() * -50 + rocket:GetRight() * -16 - rocket:GetUp() * -50)
 		timer.Simple(0.33, function()
-			if IsValid(self) && IsValid(self:GetOwner()) && IsValid(self:GetOwner():GetEnemy()) then
+			if IsValid(self) && IsValid(owner) && IsValid(ownerEne) then
 				rocket.HasIdleSounds = true
 				if IsValid(phys) then
-					phys:SetVelocity(self:GetOwner():CalculateProjectile("Line", self:GetBulletPos(), self:GetOwner():GetEnemy():GetPos() + self:GetOwner():GetEnemy():OBBCenter(), 1700))
+					phys:SetVelocity(VJ.CalculateTrajectory(owner, ownerEne, "Line", spawnpos, ownerEne:GetPos() + ownerEne:OBBCenter(), 1700))
 					rocket:SetAngles(rocket:GetVelocity():GetNormalized():Angle())
 				end
 			end

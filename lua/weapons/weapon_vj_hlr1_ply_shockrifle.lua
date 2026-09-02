@@ -71,18 +71,20 @@ end
 function SWEP:OnPrimaryAttack(status, statusData)
 	if status == "Init" then
 		if CLIENT then return end
+		local owner = self:GetOwner()
 		local plasma = ents.Create("obj_vj_hlrof_plasma")
-		plasma:SetPos(self:GetBulletPos())
-		plasma:SetAngles(self:GetOwner():GetAngles())
-		plasma:SetOwner(self:GetOwner())
+		local spawnpos = self:GetBulletPos()
+		plasma:SetPos(spawnpos)
+		plasma:SetAngles(owner:GetAngles())
+		plasma:SetOwner(owner)
 		plasma:Spawn()
 		plasma:Activate()
 
 		local phys = plasma:GetPhysicsObject()
-		if IsValid(phys) then
-			phys:SetVelocity(self:GetOwner():CalculateProjectile("Line", self:GetBulletPos(), self:GetOwner():GetEnemy():GetPos() + self:GetOwner():GetEnemy():OBBCenter(), 10000))
+		local ownerEne = owner:GetEnemy()
+		if IsValid(phys) && IsValid(ownerEne) then
+			phys:SetVelocity(VJ.CalculateTrajectory(owner, ownerEne, "Line", spawnpos, ownerEne:GetPos() + ownerEne:OBBCenter(), 10000))
 		end
-
 		self.PLY_NextReloadT = CurTime() + 2.5
 	end
 end

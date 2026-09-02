@@ -50,16 +50,19 @@ end
 function SWEP:OnPrimaryAttack(status, statusData)
 	if status == "Init" then
 		if CLIENT then return end
-		local plasma = ents.Create("obj_vj_hlr1_grenade")
-		plasma:SetPos(self:GetBulletPos())
-		plasma:SetAngles(self:GetOwner():GetAngles())
-		plasma:SetOwner(self:GetOwner())
-		plasma:Spawn()
-		plasma:Activate()
+		local owner = self:GetOwner()
+		local grenade = ents.Create("obj_vj_hlr1_grenade")
+		local spawnpos = self:GetBulletPos()
+		grenade:SetPos(spawnpos)
+		grenade:SetAngles(owner:GetAngles())
+		grenade:SetOwner(owner)
+		grenade:Spawn()
+		grenade:Activate()
 
-		local phys = plasma:GetPhysicsObject()
-		if IsValid(phys) then
-			phys:SetVelocity(self:GetOwner():CalculateProjectile("Curve", self:GetBulletPos(), self:GetOwner():GetEnemy():GetPos() + self:GetOwner():GetEnemy():OBBCenter(), 1500))
+		local phys = grenade:GetPhysicsObject()
+		local ownerEne = owner:GetEnemy()
+		if IsValid(phys) && IsValid(ownerEne) then
+			phys:SetVelocity(VJ.CalculateTrajectory(owner, ownerEne, "CurveOld", spawnpos, ownerEne:GetPos() + ownerEne:OBBCenter(), 1500))
 		end
 	end
 end
