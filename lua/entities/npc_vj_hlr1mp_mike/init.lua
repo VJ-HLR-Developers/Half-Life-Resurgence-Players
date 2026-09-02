@@ -7,7 +7,7 @@ include("shared.lua")
 	without the prior written consent of the author, unless otherwise indicated for stand-alone materials.
 -----------------------------------------------*/
 ENT.Model = "models/vj_hlr/hl1mp/x22miku.mdl"
-ENT.BloodColor = ""
+ENT.BloodColor = VJ.BLOOD_COLOR_NONE
 ENT.HasBloodParticle = false
 ENT.HasBloodDecal = false
 

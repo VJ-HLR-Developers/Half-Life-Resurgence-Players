@@ -9,7 +9,7 @@ include("shared.lua")
 ENT.Model = "models/vj_hlr/hl1mp/skeleton.mdl"
 ENT.VJ_NPC_Class = {"CLASS_ZOMBIE"}
 ENT.Bleeds = false
-ENT.BloodColor = ""
+ENT.BloodColor = VJ.BLOOD_COLOR_NONE
 ENT.HasBloodParticle = false
 ENT.HasBloodDecal = false
 ---------------------------------------------------------------------------------------------------------------------------------------------
