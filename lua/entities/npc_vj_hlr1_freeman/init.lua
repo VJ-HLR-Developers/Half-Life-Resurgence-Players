@@ -101,6 +101,7 @@ function ENT:Init()
 	end
 
 	self:DoChangeWeapon(VJ.PICK(self.WeaponsList["Normal"]), true)
+	VJ.HLR_ApplyFactionOptions(self)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:OnInput(key, activator, caller, data)
