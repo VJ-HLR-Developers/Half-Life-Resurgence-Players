@@ -60,7 +60,7 @@ function SWEP:OnPrimaryAttack(status, statusData)
 				rocket.HasIdleSounds = true
 				if IsValid(phys) then
 					phys:SetVelocity(VJ.CalculateTrajectory(owner, ownerEne, "Line", spawnpos, ownerEne:GetPos() + ownerEne:OBBCenter(), 1700))
-					rocket:SetAngles(rocket:GetVelocity():GetNormalized():Angle())
+					rocket:SetAngles(rocket:GetVelocity():Angle())
 				end
 			end
 		end)
