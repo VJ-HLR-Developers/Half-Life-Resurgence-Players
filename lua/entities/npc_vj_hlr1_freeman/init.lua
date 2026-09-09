@@ -44,9 +44,6 @@ ENT.Weapon_OcclusionDelay = false
 ENT.AnimTbl_CallForHelp = false
 
 ENT.Weapon_IgnoreSpawnMenu = true
--- ENT.Weapon_CanCrouchAttack = false
--- ENT.DisableWeaponReloadAnimation = true
-
 ENT.AnimTbl_WeaponAttackSecondary = "vjges_shoot_m203"
 ENT.Weapon_SecondaryFireTime = 0.05
 
