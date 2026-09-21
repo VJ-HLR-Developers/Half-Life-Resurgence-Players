@@ -13,7 +13,7 @@ SWEP.WorldModelOffsetParams = {
 	Enabled = true,
 	Bone = "Bip01 R Hand",
 	Pos = Vector(5, 0, 0),
-	Ang = Angle(0, 0, 0)
+	Ang = Angle()
 }
 
 SWEP.NPC_NextPrimaryFire = 1
