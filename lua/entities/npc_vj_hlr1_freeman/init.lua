@@ -102,17 +102,18 @@ function ENT:Init()
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:OnInput(key, activator, caller, data)
-	if key == "step" && self:GetSequenceActivity(self:GetIdealSequence()) == self.AnimationTranslations[ACT_WALK] then
+	local curAct = self:GetSequenceActivity(self:GetIdealSequence())
+	if key == "step" && curAct == self.AnimationTranslations[ACT_WALK] then
 		self.FootstepSoundLevel = 52
 		self:PlayFootstepSound()
-	elseif key == "step" && self:GetSequenceActivity(self:GetIdealSequence()) == self.AnimationTranslations[ACT_RUN] then
+	elseif key == "step" && curAct == self.AnimationTranslations[ACT_RUN] then
 		self.FootstepSoundLevel = 70
 		self:PlayFootstepSound()
 	/*elseif key == "melee" or (key == "melee" && IsValid(self:GetActiveWeapon()) && self.WeaponEntity.IsMeleeWeapon) then
 		self:ExecuteMeleeAttack()*/
 	elseif key == "body" then
 		if self:GetModel() == "models/vj_hlr/hl1mp/robo.mdl" then
-			VJ.EmitSound(self, "vj_hlr/gsrc/fx/metal" .. math.random(1, 5) .. ".wav", 75, 100)
+			VJ.EmitSound(self, "vj_hlr/gsrc/fx/metal" .. math.random(3, 4) .. ".wav", 75, 100)
 		else
 			VJ.EmitSound(self, "vj_hlr/gsrc/fx/bodydrop" .. math.random(3, 4) .. ".wav", 75, 100)
 		end
