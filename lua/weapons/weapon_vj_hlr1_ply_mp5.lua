@@ -32,7 +32,6 @@ SWEP.Primary.Sound = {"vj_hlr/gsrc/wep/mp5/hks1.wav", "vj_hlr/gsrc/wep/mp5/hks2.
 SWEP.Primary.DistantSound = "vj_hlr/gsrc/wep/mp5/hks_distant_new.wav"
 
 -- SWEP.PrimaryEffects_MuzzleAttachment = "0"
-SWEP.PrimaryEffects_SpawnShells = false
 SWEP.PrimaryEffects_ShellType = "ShellEject"
 SWEP.PrimaryEffects_MuzzleFlash = false
 

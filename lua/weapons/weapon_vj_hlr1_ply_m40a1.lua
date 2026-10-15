@@ -34,7 +34,6 @@ SWEP.Primary.Sound = "vj_hlr/gsrc/wep/sniper/sniper_fire.wav"
 SWEP.Primary.DistantSound = "vj_hlr/gsrc/wep/sniper/sniper_fire_distant2.wav"
 
 SWEP.PrimaryEffects_MuzzleAttachment = "muzzle"
-SWEP.PrimaryEffects_SpawnShells = false
 SWEP.PrimaryEffects_ShellType = "ShellEject"
 SWEP.PrimaryEffects_MuzzleFlash = false
 

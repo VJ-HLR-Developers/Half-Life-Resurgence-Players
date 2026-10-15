@@ -24,7 +24,7 @@ SWEP.NPC_ExtraFireSound = "vj_hlr/gsrc/wep/shotgun/scock1.wav"
 SWEP.NPC_ExtraFireSoundTime = 0.2
 
 SWEP.Primary.Damage	= 5
-SWEP.Primary.NumberOfShots = 5
+SWEP.Primary.NumberOfShots = 6
 SWEP.Primary.ClipSize = 8
 SWEP.Primary.Ammo = "Buckshot"
 SWEP.Primary.TracerType = "VJ_HLR_Tracer"

@@ -28,7 +28,6 @@ SWEP.PrimaryEffects_ShellType = "ShellEject"
 SWEP.Primary.TracerType = "VJ_HLR_Tracer"
 
 SWEP.PrimaryEffects_MuzzleAttachment = "muzzle"
-SWEP.PrimaryEffects_SpawnShells = false
 SWEP.PrimaryEffects_MuzzleFlash = false
 
 SWEP.DryFireSound = "vj_hlr/gsrc/wep/dryfire1.wav"
