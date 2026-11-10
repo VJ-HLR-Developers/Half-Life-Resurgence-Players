@@ -52,6 +52,7 @@ ENT.Weapon_StrafeCooldown = VJ.SET(0, 0.2)
 /*ENT.FootstepSoundTimerRun = 0.3
 ENT.FootstepSoundTimerWalk = 0.38*/ -- We use events instead
 
+ENT.DropDeathLoot = false
 ENT.HasDeathAnimation = true
 ENT.AnimTbl_Death = {ACT_DIEBACKWARD, ACT_DIEFORWARD, ACT_DIE_GUTSHOT, ACT_DIE_HEADSHOT, ACT_DIESIMPLE}
 
@@ -112,11 +113,7 @@ function ENT:OnInput(key, activator, caller, data)
 	/*elseif key == "melee" or (key == "melee" && IsValid(self:GetActiveWeapon()) && self.WeaponEntity.IsMeleeWeapon) then
 		self:ExecuteMeleeAttack()*/
 	elseif key == "body" then
-		if self:GetModel() == "models/vj_hlr/hl1mp/robo.mdl" then
-			VJ.EmitSound(self, "vj_hlr/gsrc/fx/metal" .. math.random(3, 4) .. ".wav", 75, 100)
-		else
-			VJ.EmitSound(self, "vj_hlr/gsrc/fx/bodydrop" .. math.random(3, 4) .. ".wav", 75, 100)
-		end
+		VJ.EmitSound(self, (self:GetModel() == "models/vj_hlr/hl1mp/robo.mdl" && "vj_hlr/gsrc/fx/metal" .. math.random(3, 4) .. ".wav") or "vj_hlr/gsrc/fx/bodydrop" .. math.random(3, 4) .. ".wav", 75, 100)
 	end
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
@@ -354,10 +351,41 @@ local transDeath = {
 local defDeath = {ACT_DIESIMPLE, ACT_DIEFORWARD, ACT_DIEBACKWARD}
 --
 function ENT:OnDeath(dmginfo, hitgroup, status)
-	if status == "Init" && GetConVar("vj_hlr1_corpse_static"):GetInt() == 1 && VJ_CVAR_AI_ENABLED && self.HasDeathAnimation then
-		self.DeathAnimationDecreaseLengthAmount = -1
-		self.DeathCorpseEntityClass = "prop_vj_animatable"
-		VJ.HLR_StaticCorpseCheck(self)
+	if status == "Init" then
+		if GetConVar("vj_hlr1_corpse_static"):GetInt() == 1 && VJ_CVAR_AI_ENABLED && self.HasDeathAnimation then
+			self.DeathAnimationDecreaseLengthAmount = -1
+			self.DeathCorpseEntityClass = "prop_vj_animatable"
+			VJ.HLR_StaticCorpseCheck(self)
+		end
+		if self:GetModel() == "models/vj_hlr/hl1mp/robo.mdl" then
+			local myUpPos = self:GetPos() + self:GetUp() * 60
+			local spr = ents.Create("env_sprite")
+			spr:SetKeyValue("model", "vj_hl/sprites/zerogxplode.vmt")
+			spr:SetKeyValue("GlowProxySize", "2.0")
+			spr:SetKeyValue("HDRColorScale", "1.0")
+			spr:SetKeyValue("renderfx", "14")
+			spr:SetKeyValue("rendermode", "5")
+			spr:SetKeyValue("renderamt", "255")
+			spr:SetKeyValue("disablereceiveshadows", "0")
+			spr:SetKeyValue("mindxlevel", "0")
+			spr:SetKeyValue("maxdxlevel", "0")
+			spr:SetKeyValue("framerate", "20.0")
+			spr:SetKeyValue("spawnflags", "0")
+			spr:SetKeyValue("scale", "1.5")
+			spr:SetPos(myUpPos)
+			spr:Spawn()
+			spr:Fire("Kill", nil, 0.7)
+
+			local expLight = ents.Create("light_dynamic")
+			expLight:SetKeyValue("brightness", "4")
+			expLight:SetKeyValue("distance", "300")
+			expLight:SetPos(myUpPos)
+			expLight:Fire("Color", "255 150 0")
+			expLight:Spawn()
+			expLight:Activate()
+			expLight:Fire("TurnOn")
+			expLight:Fire("Kill", nil, 0.15)
+		end
 	elseif status == "DeathAnim" then
 		self.AnimTbl_Death = transDeath[hitgroup] or defDeath
 		self:DeathWeaponDrop(dmginfo, hitgroup)
