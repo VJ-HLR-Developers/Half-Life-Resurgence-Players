@@ -392,6 +392,7 @@ function ENT:OnDeath(dmginfo, hitgroup, status)
 		if IsValid(self:GetActiveWeapon()) then self:GetActiveWeapon():Remove() end
 	elseif status == "Finish" then
 		-- Fix for if blood particles were disabled from taking damage to armor
+		if self:GetModel() == "models/vj_hlr/hl1mp/robo.mdl" then return end
 		self.HasBloodParticle = true
 	end
 end
