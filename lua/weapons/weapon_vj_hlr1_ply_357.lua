@@ -33,11 +33,11 @@ SWEP.PrimaryEffects_MuzzleFlash = false
 SWEP.PrimaryEffects_SpawnShells = false
 
 SWEP.DryFireSound = "vj_hlr/gsrc/wep/dryfire1.wav"
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function SWEP:Init()
 	self:SetModelScale(0.5)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function SWEP:PrimaryAttackEffects(owner)
 	local muz = ents.Create("env_sprite")
 	muz:SetKeyValue("model", "vj_hl/sprites/muzzleflash2.vmt")
@@ -58,7 +58,7 @@ function SWEP:PrimaryAttackEffects(owner)
 	muz:Fire("Kill", nil, 0.08)
 	self.BaseClass.PrimaryAttackEffects(self, owner)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function SWEP:DoImpactEffect(tr, damageType)
 	return VJ.HLR1_Effect_Impact(tr)
 end

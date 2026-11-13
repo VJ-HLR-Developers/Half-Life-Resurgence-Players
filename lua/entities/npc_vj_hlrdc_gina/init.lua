@@ -25,4 +25,3 @@ ENT.MainSoundPitch = 100
 -- played when the npc cannot get to you and automatically unfollows you:
 -- vj_hlr/hl1mp_npc/gina/gina_stop0.wav
 -- vj_hlr/hl1mp_npc/gina/gina_stop2.wav
----------------------------------------------------------------------------------------------------------------------------------------------

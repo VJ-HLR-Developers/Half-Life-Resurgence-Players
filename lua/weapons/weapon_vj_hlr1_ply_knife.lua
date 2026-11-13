@@ -24,11 +24,11 @@ SWEP.Primary.Damage = 10
 
 SWEP.Primary.Sound = {"vj_hlr/gsrc/wep/knife/knife_hit_flesh1.wav", "vj_hlr/gsrc/wep/knife/knife_hit_flesh2.wav"}
 SWEP.MeleeWeaponSound_Hit = {"vj_hlr/gsrc/wep/knife/knife1.wav", "vj_hlr/gsrc/wep/knife/knife2.wav", "vj_hlr/gsrc/wep/knife/knife3.wav"}
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function SWEP:Init()
 	self:SetModelScale(0.5)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 /*function SWEP:OnDeploy()
 	local owner = self:GetOwner()
 	if IsValid(owner) then
@@ -36,16 +36,16 @@ end
 		owner.SoundTbl_MeleeAttackMiss = {"vj_hlr/gsrc/wep/knife/knife1.wav", "vj_hlr/gsrc/wep/knife/knife2.wav", "vj_hlr/gsrc/wep/knife/knife3.wav"}
 	end
 end*/
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function SWEP:OnHolster(newWep)
 	self:CustomOnRemove()
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function SWEP:OnGetBulletPos()
 	local owner = self:GetOwner()
 	return owner:EyePos()
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 /*function SWEP:CustomOnRemove()
 	local owner = self:GetOwner()
 	if IsValid(owner) then

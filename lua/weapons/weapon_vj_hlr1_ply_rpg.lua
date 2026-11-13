@@ -30,15 +30,15 @@ SWEP.PrimaryEffects_SpawnShells = false
 SWEP.PrimaryEffects_MuzzleFlash = false
 
 SWEP.DryFireSound = "vj_hlr/gsrc/wep/dryfire1.wav"
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function SWEP:Init()
 	self:SetModelScale(0.5)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function SWEP:OnGetBulletPos()
 	return self:GetAttachment(1).Pos
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function SWEP:OnPrimaryAttack(status, statusData)
 	if status == "Init" then
 		if CLIENT then return end
@@ -56,7 +56,7 @@ function SWEP:OnPrimaryAttack(status, statusData)
 		local ownerEne = owner:GetEnemy()
 		phys:SetVelocity(rocket:GetForward() * -50 + rocket:GetRight() * -16 - rocket:GetUp() * -50)
 		timer.Simple(0.33, function()
-			if IsValid(self) && IsValid(owner) && IsValid(ownerEne) then
+			if IsValid(self) and IsValid(owner) and IsValid(ownerEne) then
 				rocket.HasIdleSounds = true
 				if IsValid(phys) then
 					phys:SetVelocity(VJ.CalculateTrajectory(owner, ownerEne, "Line", spawnpos, ownerEne:GetPos() + ownerEne:OBBCenter(), 1700))
@@ -66,7 +66,7 @@ function SWEP:OnPrimaryAttack(status, statusData)
 		end)
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function SWEP:PrimaryAttackEffects(owner)
 	local muz = ents.Create("env_sprite")
 	muz:SetKeyValue("model", "vj_hl/sprites/muzzleflash2.vmt")

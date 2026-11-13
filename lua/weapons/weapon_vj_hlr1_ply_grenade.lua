@@ -32,21 +32,21 @@ SWEP.HasDryFireSound = false
 
 SWEP.PrimaryEffects_MuzzleFlash = false
 SWEP.PrimaryEffects_SpawnShells = false
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function SWEP:Init()
 	self:SetModelScale(0.5)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function SWEP:OnGetBulletPos()
 	local owner = self:GetOwner()
 
 	return owner:GetPos() + owner:GetUp() + Vector(0, 0, 50)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function SWEP:PrimaryAttackEffects(owner)
 	return
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function SWEP:OnPrimaryAttack(status, statusData)
 	if status == "Init" then
 		if CLIENT then return end
@@ -61,7 +61,7 @@ function SWEP:OnPrimaryAttack(status, statusData)
 
 		local phys = grenade:GetPhysicsObject()
 		local ownerEne = owner:GetEnemy()
-		if IsValid(phys) && IsValid(ownerEne) then
+		if IsValid(phys) and IsValid(ownerEne) then
 			phys:SetVelocity(VJ.CalculateTrajectory(owner, ownerEne, "CurveOld", spawnpos, ownerEne:GetPos() + ownerEne:OBBCenter(), 1500))
 		end
 	end

@@ -12,14 +12,14 @@ ENT.Bleeds = false
 ENT.BloodColor = VJ.BLOOD_COLOR_NONE
 ENT.HasBloodParticle = false
 ENT.HasBloodDecal = false
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:PreInit()
 	if GetConVar("vj_hlr_dm_ffa"):GetInt() == 1 then
 		self.VJ_NPC_Class = {"CLASS_MP_SKELETON"}
 		self.AlliedWithPlayerAllies = false
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local gibsCollideSd = {"vj_hlr/gsrc/fx/flesh1.wav", "vj_hlr/gsrc/fx/flesh2.wav", "vj_hlr/gsrc/fx/flesh3.wav", "vj_hlr/gsrc/fx/flesh5.wav", "vj_hlr/gsrc/fx/flesh6.wav", "vj_hlr/gsrc/fx/flesh7.wav"}
 --
 function ENT:HandleGibOnDeath(dmginfo, hitgroup)
@@ -40,7 +40,7 @@ function ENT:HandleGibOnDeath(dmginfo, hitgroup)
 
 	return true, {AllowSound = false}
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local gibstbl = {"models/vj_hlr/gibs/abone_template1.mdl", "models/vj_hlr/gibs/abone_template1.mdl", "models/vj_hlr/gibs/abone_template1.mdl", "models/vj_hlr/gibs/abone_template1.mdl", "models/vj_hlr/gibs/abone_template1.mdl", "models/vj_hlr/gibs/bleachbones_pelvis_template1.mdl", "models/vj_hlr/gibs/bleachbones_jawbone1.mdl", "models/vj_hlr/gibs/bleachbones_bskull_template1.mdl", "models/vj_hlr/gibs/bleachbones_ribcage1.mdl", "models/vj_hlr/gibs/bleachbones_riblet1.mdl", "models/vj_hlr/gibs/bleachbones_riblet1.mdl", "models/vj_hlr/gibs/bleachbones_riblet1.mdl"}
 --
 function ENT:OnCreateDeathCorpse(dmginfo, hitgroup, corpse)

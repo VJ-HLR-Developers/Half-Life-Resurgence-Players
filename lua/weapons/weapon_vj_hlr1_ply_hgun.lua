@@ -32,19 +32,19 @@ SWEP.HasDryFireSound = false
 SWEP.PrimaryEffects_MuzzleFlash = false
 SWEP.PrimaryEffects_SpawnShells = false
 SWEP.PrimaryEffects_SpawnDynamicLight = false
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function SWEP:Init()
 	self:SetModelScale(0.5)
 	self.PLY_NextReloadT = CurTime()
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function SWEP:OnGetBulletPos()
 	local owner = self:GetOwner()
 	local att = owner:GetAttachment(2)
 
 	return att.Pos + att.Ang:Forward() * 20
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function SWEP:PrimaryAttackEffects(owner)
 	local muz = ents.Create("env_sprite")
 	muz:SetKeyValue("model", "vj_hl/sprites/muz4.vmt")
@@ -65,19 +65,19 @@ function SWEP:PrimaryAttackEffects(owner)
 	muz:Fire("Kill", nil, 0.08)
 	self.BaseClass.PrimaryAttackEffects(self, owner)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function SWEP:NPC_Reload()
 	self:SetClip1(self.LastClip)
 	local owner = self:GetOwner()
 	owner:SetWeaponState()
 	owner.NextChaseTime = 0
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function SWEP:OnThink()
 	if SERVER then
 		local owner = self:GetOwner()
 		self.LastClip = self:Clip1()
-		if CurTime() > self.PLY_NextReloadT && self:Clip1() < self:GetMaxClip1() then
+		if CurTime() > self.PLY_NextReloadT and self:Clip1() < self:GetMaxClip1() then
 			self:SetClip1(self:Clip1() + 1)
 			self.PLY_NextReloadT = CurTime() + 1
 			owner:SetWeaponState(VJ.WEP_STATE_RELOADING)
@@ -86,7 +86,7 @@ function SWEP:OnThink()
 		end
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function SWEP:OnPrimaryAttack(status, statusData)
 	if status == "Init" then
 		if CLIENT then return end
@@ -102,7 +102,7 @@ function SWEP:OnPrimaryAttack(status, statusData)
 
 		local phys = hornet:GetPhysicsObject()
 		local ownerEne = self:GetOwner():GetEnemy()
-		if IsValid(phys) && IsValid(ownerEne) then
+		if IsValid(phys) and IsValid(ownerEne) then
 			hornet.Track_Ent = ownerEne
 			phys:ApplyForceCenter(VJ.CalculateTrajectory(hornet, hornet.Track_Ent, "Line", spawnpos, ownerEne:GetPos() + ownerEne:OBBCenter(), 4000) + VectorRand(-30, 30))
 		end

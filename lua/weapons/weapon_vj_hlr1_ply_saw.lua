@@ -30,11 +30,11 @@ SWEP.Primary.Sound = {"vj_hlr/gsrc/wep/saw/saw_fire1.wav", "vj_hlr/gsrc/wep/saw/
 SWEP.Primary.DistantSound = "vj_hlr/gsrc/wep/saw/saw_distant2.wav"
 
 SWEP.DryFireSound = "vj_hlr/gsrc/wep/dryfire1.wav"
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function SWEP:Init()
 	self:SetModelScale(0.8)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function SWEP:PrimaryAttackEffects(owner)
 	local muz = ents.Create("env_sprite")
 	muz:SetKeyValue("model", "vj_hl/sprites/muzzleflash1.vmt")
@@ -55,7 +55,7 @@ function SWEP:PrimaryAttackEffects(owner)
 	muz:Fire("Kill", nil, 0.08)
 	self.BaseClass.PrimaryAttackEffects(self, owner)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function SWEP:DoImpactEffect(tr, damageType)
 	return VJ.HLR1_Effect_Impact(tr)
 end

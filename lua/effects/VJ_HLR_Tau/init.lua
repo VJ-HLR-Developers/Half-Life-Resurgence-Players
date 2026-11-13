@@ -30,7 +30,7 @@ function EFFECT:Init(data)
 
 	sound.Play("vj_hlr/gsrc/wep/gauss/electro" .. math.random(4, 6) .. ".wav", self.EndPos, 75, 100)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function EFFECT:Think()
 	if !IsValid(self.Ent) then return false end
 	self.StartPos = self.Ent:GetAttachment(self.Att).Pos
@@ -39,7 +39,7 @@ function EFFECT:Think()
 	end
 	return true
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local defColor = Color(255, 255, 255)
 function EFFECT:Render()
 	render.SetMaterial(self.MainMat)

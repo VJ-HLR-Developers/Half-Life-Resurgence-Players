@@ -18,7 +18,7 @@ ENT.ControllerParams = {
 	FirstP_Bone = "Bip01 Head",
 	FirstP_Offset = Vector(3, 0, 5)
 }
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
 ENT.BloodParticle = "vj_hlr_blood_red"
 ENT.BloodDecal = "VJ_HLR1_Blood_Red"
@@ -87,7 +87,7 @@ ENT.WeaponsList = {
 ENT.NextMouthMove = 0
 ENT.NextMouthDistance = 0
 ENT.NextWeaponSwitchT = 0
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetCollisionBounds(Vector(15, 15, 78), Vector(-15, -15, 0))
 	self.NextWeaponSwitchT = CurTime() + math.Rand(2, 4)
@@ -101,31 +101,31 @@ function ENT:Init()
 	self:DoChangeWeapon(VJ.PICK(self.WeaponsList["Normal"]), true)
 	VJ.HLR_ApplyFactionOptions(self)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnInput(key, activator, caller, data)
 	local curAct = self:GetSequenceActivity(self:GetIdealSequence())
-	if key == "step" && curAct == self.AnimationTranslations[ACT_WALK] then
+	if key == "step" and curAct == self.AnimationTranslations[ACT_WALK] then
 		self.FootstepSoundLevel = 52
 		self:PlayFootstepSound()
-	elseif key == "step" && curAct == self.AnimationTranslations[ACT_RUN] then
+	elseif key == "step" and curAct == self.AnimationTranslations[ACT_RUN] then
 		self.FootstepSoundLevel = 70
 		self:PlayFootstepSound()
-	/*elseif key == "melee" or (key == "melee" && IsValid(self:GetActiveWeapon()) && self.WeaponEntity.IsMeleeWeapon) then
+	/*elseif key == "melee" or (key == "melee" and IsValid(self:GetActiveWeapon()) and self.WeaponEntity.IsMeleeWeapon) then
 		self:ExecuteMeleeAttack()*/
 	elseif key == "body" then
-		VJ.EmitSound(self, (self:GetModel() == "models/vj_hlr/hl1mp/robo.mdl" && "vj_hlr/gsrc/fx/metal" .. math.random(3, 4) .. ".wav") or "vj_hlr/gsrc/fx/bodydrop" .. math.random(3, 4) .. ".wav", 75, 100)
+		VJ.EmitSound(self, (self:GetModel() == "models/vj_hlr/hl1mp/robo.mdl" and "vj_hlr/gsrc/fx/metal" .. math.random(3, 4) .. ".wav") or "vj_hlr/gsrc/fx/bodydrop" .. math.random(3, 4) .. ".wav", 75, 100)
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:TranslateActivity(act)
 	if act == ACT_WALK_AIM then
 		return self.AnimationTranslations[ACT_RUN_AIM] or ACT_RUN_AIM
-	elseif act == ACT_IDLE && self.Alerted then
+	elseif act == ACT_IDLE and self.Alerted then
 		return self.AnimationTranslations[ACT_IDLE_ANGRY] or ACT_IDLE_ANGRY
 	end
 	return self.BaseClass.TranslateActivity(self, act)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnThinkActive()
 	local ent = self:GetEnemy()
 	local dist = self.EnemyData.DistanceNearest
@@ -135,20 +135,20 @@ function ENT:OnThinkActive()
 		local selectType = false
 		if dist > 2200 then
 			selectType = "Far"
-		elseif dist <= 2200 && dist > 650 then
+		elseif dist <= 2200 and dist > 650 then
 			selectType = "Normal"
 		else
 			selectType = "Close"
 		end
 
-		if selectType && !self:IsBusy() && CurTime() > self.NextWeaponSwitchT && (!IsValid(wep) or (IsValid(wep) && math.random(1, wep:Clip1() > 0 && (wep:Clip1() <= wep:GetMaxClip1() *0.35) && 1 or (selectType == "Close" && 20 or 150)))) == 1 then
+		if selectType and !self:IsBusy() and CurTime() > self.NextWeaponSwitchT and (!IsValid(wep) or (IsValid(wep) and math.random(1, wep:Clip1() > 0 and (wep:Clip1() <= wep:GetMaxClip1() *0.35) and 1 or (selectType == "Close" and 20 or 150)))) == 1 then
 			self:DoChangeWeapon(VJ.PICK(self.WeaponsList[selectType]), true)
 			wep = self:GetActiveWeapon()
 			self.NextWeaponSwitchT = CurTime() + math.Rand(6, math.Round(math.Clamp(wep:Clip1() *0.5, 1, wep:Clip1())))
 		end
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:SetAnimationTranslations(h)
 	local defIdleAim = ACT_IDLE -- ACT_IDLE_ANGRY
 	local defWalkAim = ACT_WALK
@@ -309,12 +309,12 @@ function ENT:SetAnimationTranslations(h)
 	self.AnimationTranslations[ACT_RELOAD_LOW] = defReload
 	return true
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local vec = Vector()
 --
 function ENT:OnDamaged(dmginfo, hitgroup, status)
 	if status == "Init" then
-		if hitgroup == HITGROUP_GEAR && dmginfo:GetDamagePosition() != vec then
+		if hitgroup == HITGROUP_GEAR and dmginfo:GetDamagePosition() != vec then
 			self.HasBloodParticle = false
 			local rico = EffectData()
 			rico:SetOrigin(dmginfo:GetDamagePosition())
@@ -326,7 +326,7 @@ function ENT:OnDamaged(dmginfo, hitgroup, status)
 		end
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnThink()
 	if CurTime() < self.NextMouthMove then
 		if self.NextMouthDistance == 0 then
@@ -339,11 +339,11 @@ function ENT:OnThink()
 		self:SetPoseParameter("m", 0)
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnCreateSound(sdData, sdFile)
 	self.NextMouthMove = CurTime() + SoundDuration(sdFile)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local transDeath = {
 	[HITGROUP_HEAD] = ACT_DIE_HEADSHOT,
 	[HITGROUP_STOMACH] = ACT_DIE_GUTSHOT
@@ -352,7 +352,7 @@ local defDeath = {ACT_DIESIMPLE, ACT_DIEFORWARD, ACT_DIEBACKWARD}
 --
 function ENT:OnDeath(dmginfo, hitgroup, status)
 	if status == "Init" then
-		if GetConVar("vj_hlr1_corpse_static"):GetInt() == 1 && VJ_CVAR_AI_ENABLED && self.HasDeathAnimation then
+		if GetConVar("vj_hlr1_corpse_static"):GetInt() == 1 and VJ_CVAR_AI_ENABLED and self.HasDeathAnimation then
 			self.DeathAnimationDecreaseLengthAmount = -1
 			self.DeathCorpseEntityClass = "prop_vj_animatable"
 			VJ.HLR_StaticCorpseCheck(self)
@@ -396,7 +396,7 @@ function ENT:OnDeath(dmginfo, hitgroup, status)
 		self.HasBloodParticle = true
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local colorRed = VJ.Color2Byte(Color(130, 19, 10))
 local gibsCollideSd = {"vj_hlr/gsrc/fx/flesh1.wav", "vj_hlr/gsrc/fx/flesh2.wav", "vj_hlr/gsrc/fx/flesh3.wav", "vj_hlr/gsrc/fx/flesh5.wav", "vj_hlr/gsrc/fx/flesh6.wav", "vj_hlr/gsrc/fx/flesh7.wav"}
 --
@@ -432,11 +432,11 @@ function ENT:HandleGibOnDeath(dmginfo, hitgroup)
 	self:PlaySoundSystem("Gib", "vj_base/gib/splat.wav")
 	return true, {AllowSound = false}
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnCreateDeathCorpse(dmginfo, hitgroup, corpse)
 	VJ.HLR_ApplyCorpseSystem(self, corpse, nil, {CollisionSound = gibsCollideSd, ExtraGibs = ((self:GetClass() == "npc_vj_hlr1mp_hgrunt" or self:GetClass() == "npc_vj_hlr1mp_recon" or self:GetClass() == "npc_vj_hlrof_shephard") and {"models/vj_hlr/gibs/gib_hgrunt.mdl"}) or nil})
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 /*function ENT:OnFootstepSound(moveType, sdFile) -- We change sound level through events instead
 	if moveType == "Walk" then
 		self.FootstepSoundLevel = 52

@@ -32,15 +32,15 @@ SWEP.PrimaryEffects_MuzzleFlash = false
 SWEP.PrimaryEffects_SpawnShells = false
 
 SWEP.DryFireSound = "vj_hlr/gsrc/wep/dryfire1.wav"
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function SWEP:Init()
 	self:SetModelScale(0.5)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function SWEP:PrimaryAttackEffects(owner)
 	return
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function SWEP:OnPrimaryAttack(status, statusData)
 	if status == "Init" then
 		if CLIENT then return end
@@ -55,7 +55,7 @@ function SWEP:OnPrimaryAttack(status, statusData)
 
 		local phys = bolt:GetPhysicsObject()
 		local ownerEne = owner:GetEnemy()
-		if IsValid(phys) && IsValid(ownerEne) then
+		if IsValid(phys) and IsValid(ownerEne) then
 			phys:ApplyForceCenter(VJ.CalculateTrajectory(bolt, ownerEne, "Line", spawnpos, ownerEne:GetPos() + ownerEne:OBBCenter(), 4000) + VectorRand(-30, 30))
 		end
 	end
